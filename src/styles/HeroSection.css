@@ -232,9 +232,13 @@
 
 .orbit {
   position: absolute;
-  inset: 0;
+   top: 5%;              /* 👈 remonte l’orbite */
+  left: 45%;
+  width: 420px;          /* 👈 taille contrôlée */
+  height: 420px;
+  transform: translateX(-50%);
   z-index: 4;
-  pointer-events: none; /* on remet le click sur les icônes */
+  pointer-events: none;
 }
 
 .orbit__spinner {
@@ -251,7 +255,7 @@
   left: 50%;
   transform:
     rotate(var(--angle))
-    translateX(205px)
+    translateX(150px)
     rotate(calc(-1 * var(--angle)));
   background: transparent;
   border: 0;

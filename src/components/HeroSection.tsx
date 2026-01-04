@@ -63,13 +63,12 @@ export default function HeroSection() {
           <p className="hero__kicker">ODYSSEY • Developer Journey</p>
 
           <h1 className="hero__title">
-            Bienvenue dans mon parcours<span className="hero__accent">de Développeuse Web 🌍</span>
+            Bienvenue dans <br />mon parcours de<span className="hero__accent"> Développeuse Web </span>
+          
           </h1>
 
           <p className="hero__subtitle">
             Je conçois des expériences web modernes, du design UI à l’API.
-            <br />
-            React • Node/Express • SQL • UX
           </p>
 
           <div className="hero__actions">
