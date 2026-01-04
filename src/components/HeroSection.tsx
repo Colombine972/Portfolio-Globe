@@ -17,7 +17,8 @@ import "../styles/HeroSection.css";
  *  - public/hero.png  -> "/hero.png"
  *  - src/assets/hero.png -> import heroImgUrl from "../assets/hero.png";
  */
-const heroImgUrl = "/hero-odyssey.png";
+const heroImgUrl = "/globe.png";
+const worldMapImg = "/world-map.png";
 
 type NavItem = {
   key: string;
@@ -62,9 +63,7 @@ export default function HeroSection() {
           <p className="hero__kicker">ODYSSEY • Developer Journey</p>
 
           <h1 className="hero__title">
-            Développeuse Web <span className="hero__accent">Full-Stack</span>
-            <br />
-            en voyage 🌍
+            Bienvenue dans mon parcours<span className="hero__accent">de Développeuse Web 🌍</span>
           </h1>
 
           <p className="hero__subtitle">
@@ -94,6 +93,12 @@ export default function HeroSection() {
 
         {/* RIGHT */}
         <div className="hero__visual">
+          <img
+    src={worldMapImg}
+    alt=""
+    className="hero__map"
+    aria-hidden
+  />
           <div className="hero__visualFrame">
             {/* Glow */}
             <div className="hero__glow" />
@@ -103,7 +108,7 @@ export default function HeroSection() {
               src={heroImgUrl}
               alt="Developer journey hero"
               className="hero__img"
-              initial={{ y: 0 }}
+              initial={{ y: 0,}}
               animate={reduceMotion ? undefined : { y: [0, -10, 0] }}
               transition={reduceMotion ? undefined : { duration: 6, repeat: Infinity, ease: "easeInOut" }}
               draggable={false}

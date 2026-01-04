@@ -26,6 +26,7 @@
       #0f3a4f 85%
     );
   color: var(--text);
+  position: relative;
   overflow: hidden;
 }
 
@@ -68,16 +69,16 @@
 }
 
 .hero__grid {
-  max-width: 1200px;
+  max-width: 1300px;
   margin: 18px auto 0;
   display: grid;
   grid-template-columns: 1.05fr 0.95fr;
   gap: 28px;
-  align-items: center;
+  /*align-items: center;*/
 }
 
 .hero__copy {
-  padding: 18px 6px;
+  padding: 150px 6px;
 }
 
 .hero__kicker {
@@ -165,8 +166,9 @@
 }
 
 .hero__visual {
+    position: relative;
   display: grid;
-  justify-items: center;
+  justify-items: end;
 }
 
 /*.hero__visualFrame {
@@ -181,6 +183,8 @@
 }*/
 
 .hero__visualFrame {
+    position: relative;
+    z-index: 2;
     background: none;
     border: none;
     border-radius: 0;
@@ -197,11 +201,12 @@
 }
 
 .hero__img {
-  width: min(560px, 42vw);
+  width: min(720px, 55vw);
   max-width: none;
   border-radius: 0;
   background: none;
-
+  position: relative;
+  z-index: 3;
   opacity: 0.95;
 
   filter:
@@ -209,25 +214,26 @@
     brightness(1.02)
     drop-shadow(0 40px 80px rgba(0, 0, 0, 0.55));
 
--webkit-mask-image: radial-gradient(
-    ellipse at center,
-    #000 45%,
-    rgba(0, 0, 0, 0.6) 55%,
-    transparent 70%
-  );
+}
 
-  mask-image: radial-gradient(
-    ellipse at center,
-    #000 45%,
-    rgba(0, 0, 0, 0.6) 55%,
-    transparent 70%
-  );
+.hero__map {
+     position: absolute;
+  inset: -10% -45%;        /* déborde un peu */
+  width: 190%;
+  height: auto;
+  object-fit: contain;
+
+  opacity: 0.18;
+  filter: blur(0.4px);
+  z-index: 1;
+  pointer-events: none;
 }
 
 
 .orbit {
   position: absolute;
   inset: 0;
+  z-index: 4;
   pointer-events: none; /* on remet le click sur les icônes */
 }
 
