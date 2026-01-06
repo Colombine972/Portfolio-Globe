@@ -1,0 +1,238 @@
+/* === PAGE === */
+.cindy-page {
+  min-height: 100vh;
+  padding: clamp(18px, 3vw, 34px);
+  background-image: url("/public/parchemin_portfolio.png");
+  background-repeat: no-repeat;
+  background-size: cover;
+  background-position: center 25%;
+  color: #1f2a44;
+  position: relative;
+  overflow: hidden;
+  font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial;
+}
+
+/* Carte du monde très subtile (optionnel) */
+.cindy-bgMap {
+  position: absolute;
+  inset: 0;
+  background-image: url("/images/worldmap-soft.png"); /* mets une map très claire */
+  background-size: cover;
+  background-position: center;
+  opacity: 0.08;
+  filter: blur(0.2px);
+  pointer-events: none;
+}
+
+/* grain léger (optionnel) */
+.cindy-grain {
+  position: absolute;
+  inset: 0;
+  background-image: url("/images/noise.png"); /* petit noise */
+  opacity: 0.05;
+  pointer-events: none;
+  mix-blend-mode: multiply;
+}
+
+/* === HEADER === */
+.cindy-header {
+  text-align: center;
+  max-width: 980px;
+  margin: 0 auto clamp(14px, 3vw, 26px);
+  position: relative;
+  z-index: 2;
+}
+
+.cindy-title {
+  font-family: ui-serif, Georgia, "Times New Roman", Times, serif;
+  font-weight: 600;
+  letter-spacing: 0.2px;
+  font-size: clamp(34px, 4vw, 46px);
+  margin: 0 0 6px;
+}
+
+.cindy-subtitle {
+  margin: 0;
+  opacity: 0.75;
+  font-size: clamp(14px, 1.6vw, 18px);
+  font-style: italic;
+}
+
+/* === CARD === */
+.cindy-card {
+   max-width: 1100px;
+  margin: 0 auto;
+  border-radius: 18px;
+border: 5px solid #1f2a44;;
+  background-image: url("/public/parchemin_portfolio.png");
+  backdrop-filter: blur(4px);
+
+  box-shadow:
+    0 30px 80px rgba(0, 0, 0, 0.18);
+
+  position: relative;
+}
+
+
+.cindy-cardInner {
+  display: grid;
+  grid-template-columns: 360px 1fr;
+  /*gap: clamp(14px, 2.6vw, 28px);
+  padding: clamp(16px, 3vw, 32px);*/
+  gap: 24px; /* plus d'air = carte plus haute visuellement */
+  align-items: start;
+}
+
+/* responsive */
+@media (max-width: 900px) {
+  .cindy-cardInner {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* === PHOTO === */
+.cindy-left {
+  display: flex;
+  align-items: flex-start;
+  justify-content: center;
+  margin-top: 24px;
+}
+
+.cindy-photoFrame {
+width: min(240px, 100%);
+height: 600px;
+  aspect-ratio: 3 / 4;
+  position: relative;
+
+  padding: 18px;
+  border-radius: 22px;
+
+  background-image: url("/parchemin_portfolio.png");
+  background-size: cover;
+  background-position: center;
+
+  box-shadow:
+    inset 0 0 0 1px rgba(120, 90, 60, 0.18),
+    0 20px 50px rgba(0, 0, 0, 0.15);
+}
+
+.cindy-photo {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  border-radius: 14px;
+  display: block;
+ filter: contrast(1.02) saturate(1.02);
+}
+
+.cindy-photoFrame::after {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 22px;
+
+  background: radial-gradient(
+    circle at center,
+    rgba(255, 255, 255, 0) 55%,
+    rgba(255, 255, 255, 0.35) 75%,
+    rgba(207, 182, 182, 0.6) 100%
+  );
+
+  pointer-events: none;
+}
+
+/* === TEXT === */
+.cindy-right {
+  padding-right: 20px;
+  max-width: 680px;
+  margin-top: 24px;
+}
+
+.cindy-block + .cindy-block {
+  margin-top: 18px;
+  padding-top: 16px;
+  border-top: 1px solid rgba(31, 42, 68, 0.08);
+}
+
+.cindy-h2 {
+  margin: 0 0 10px;
+  font-family: ui-serif, Georgia, "Times New Roman", Times, serif;
+  font-size: 28px;
+  font-weight: 600;
+}
+
+.cindy-p {
+  margin: 0;
+  line-height: 1.7;
+  font-size: 16px;
+  opacity: 0.92;
+}
+
+.cindy-accent {
+  color: #3fa9f5; /* rappel du globe */
+  font-weight: 700;
+}
+
+.cindy-tags {
+  display: inline-flex;
+  flex-wrap: wrap;
+  gap: 8px;
+  margin-left: 10px;
+  vertical-align: middle;
+}
+
+.tag {
+  display: inline-block;
+  padding: 6px 10px;
+  border-radius: 999px;
+  font-size: 12px;
+  letter-spacing: 0.3px;
+  border: 1px solid rgba(31, 42, 68, 0.12);
+  background: rgba(255, 255, 255, 0.6);
+}
+
+/* === CTA === */
+.cindy-actions {
+  margin-top: 22px;
+  display: flex;
+  justify-content: flex-end;
+}
+
+.cindy-btn {
+  text-decoration: none;
+  padding: 12px 16px;
+  border-radius: 14px;
+  border: 1px solid rgba(31, 42, 68, 0.12);
+  background: rgba(255, 255, 255, 0.55);
+  box-shadow: 0 12px 26px rgba(31, 42, 68, 0.12);
+  color: #1f2a44;
+  font-weight: 600;
+  transition: transform 180ms ease, box-shadow 180ms ease, background 180ms ease;
+}
+
+.cindy-btn:hover {
+  transform: translateY(-1px);
+  background: rgba(255, 255, 255, 0.72);
+  box-shadow: 0 16px 34px rgba(31, 42, 68, 0.18);
+}
+
+/* === DECOR BAS === */
+
+ .cindy-footerDecor {
+  position: absolute;
+  bottom: -120px;
+  left: 0;
+  width: 100%;
+  pointer-events: none;
+}
+
+/* 💻 Laptop */
+.cindy-laptop {
+  position: absolute;
+  left: -270px;
+  bottom: 0;
+  width: 1300px;
+  opacity: 0.95;
+}
+
+

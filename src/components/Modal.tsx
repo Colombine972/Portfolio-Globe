@@ -15,6 +15,7 @@ function Modal({ isOpen, onClose, children }: ModalProps) {
 
 	return (
 		<div className="modal-overlay" onClick={onClose}>
+			<div className="modal-content" onClick={(e) => e.stopPropagation()}>
 			<button
 				type="button"
 				className="modal-close"
@@ -24,7 +25,7 @@ function Modal({ isOpen, onClose, children }: ModalProps) {
 				×
 			</button>
 
-			<div className="modal-content" onClick={(e) => e.stopPropagation()}>
+			
 				{/* ✅ wrapper qui porte le layout */}
 				<div className="modal-inner">{children}</div>
 			</div>

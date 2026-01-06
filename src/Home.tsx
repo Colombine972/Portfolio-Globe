@@ -1,9 +1,11 @@
 import { useState } from "react";
+import { useNavigate } from "react-router";
 import HeroSection from "./components/HeroSection";
 import Modal from "./components/Modal";
 
 export default function Home() {
   const [isPassportOpen, setIsPassportOpen] = useState(false);
+  const navigate = useNavigate();
 
   return (
     <>
@@ -25,6 +27,7 @@ export default function Home() {
       className="passport-cta"
       onClick={() => {
         setIsPassportOpen(false);
+        navigate("/about-me");
         // ici plus tard → animation nuage + navigate("/about-cindy")
       }}
     >
