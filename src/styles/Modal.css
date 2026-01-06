@@ -1,0 +1,107 @@
+.modal-overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(10, 20, 40, 0.75);
+
+  display: flex;
+  justify-content: center;
+  align-items: center; /* 🔥 CENTRAGE TOTAL */
+
+  z-index: 9999;
+}
+
+/* CONTENEUR */
+.modal-content {
+  width: min(1100px, 92vw);
+  max-height: 85vh; /* 🔥 pas de height fixe */
+  border-radius: 24px;
+
+  background: linear-gradient(
+    to bottom,
+    rgba(185, 219, 243, 0.95),
+    rgba(223, 241, 255, 0.9)
+  );
+
+  position: relative;
+  overflow: hidden;
+}
+
+/* FOND */
+.modal-content::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: 24px;
+
+  background: linear-gradient(
+    to bottom,
+    rgba(185, 219, 243, 0.95),
+    rgba(223, 241, 255, 0.9)
+  );
+
+  z-index: 0;
+}
+
+/* CONTENU */
+.modal-inner {
+  position: relative;
+  z-index: 1;
+
+  width: 100%;
+  height: auto; /* 🔥 important */
+  padding: 32px;
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  overflow: visible;
+}
+
+/* CROIX */
+.modal-close {
+  position: fixed;
+  top: 24px;
+  right: 32px;
+  z-index: 10000;
+
+  background: rgba(255, 255, 255, 0.9);
+  color: #1f2d3d;
+  border: none;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+
+  font-size: 1.6rem;
+  cursor: pointer;
+}
+
+
+.passport-wrapper {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 18px;
+}
+
+.passport-image {
+  max-width: min(520px, 90vw);
+  border-radius: 16px;
+  box-shadow: 0 30px 80px rgba(0, 0, 0, 0.35);
+}
+
+.passport-cta {
+  padding: 12px 18px;
+  border-radius: 14px;
+  border: none;
+  background: rgba(255, 255, 255, 0.9);
+  color: #1f2a44;
+  font-weight: 600;
+  cursor: pointer;
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.passport-cta:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 12px 30px rgba(0, 0, 0, 0.25);
+}
+

@@ -1,4 +1,4 @@
-import { useMemo } from "react";
+import { useMemo, useState } from "react";
 import { useNavigate } from "react-router";
 import { motion, useReducedMotion } from "framer-motion";
 import {
@@ -9,14 +9,10 @@ import {
   FileText,
   ArrowRight,
 } from "lucide-react";
+import Modal from "../components/Modal";
 import "../styles/HeroSection.css";
 
-/**
- * ✅ Remplace `heroImgUrl` par ton image (celle qu’on a générée)
- * Exemple :
- *  - public/hero.png  -> "/hero.png"
- *  - src/assets/hero.png -> import heroImgUrl from "../assets/hero.png";
- */
+console.log("HeroSection render");
 const heroImgUrl = "/globe.png";
 const worldMapImg = "/world-map.png";
 
@@ -25,20 +21,26 @@ type NavItem = {
   label: string;
   to: string;
   Icon: React.ComponentType<{ size?: number; className?: string }>;
-  angleDeg: number; // position initiale sur l'orbite
 };
 
-export default function HeroSection() {
+type HeroSectionProps = {
+  onOpenPassport: () => void;
+}
+
+export default function HeroSection({ onOpenPassport }: HeroSectionProps) {
   const navigate = useNavigate();
   const reduceMotion = useReducedMotion();
 
+  // ✅ STATE DE LA MODAL PASSEPORT
+  const [isPassportOpen, setIsPassportOpen] = useState(false);
+
   const items: NavItem[] = useMemo(
     () => [
-      { key: "skills", label: "Skills", to: "/skills", Icon: Code2, angleDeg: 300 },
-      { key: "projects", label: "Projects", to: "/projects", Icon: BriefcaseBusiness, angleDeg: 20 },
-      { key: "about", label: "About", to: "/about", Icon: Plane, angleDeg: 120 },
-      { key: "contact", label: "Contact", to: "/contact", Icon: Mail, angleDeg: 200 },
-      { key: "cv", label: "CV", to: "/cv", Icon: FileText, angleDeg: 250 },
+      { key: "skills", label: "Skills", to: "/skills", Icon: Code2 },
+      { key: "projects", label: "Projects", to: "/projects", Icon: BriefcaseBusiness },
+      { key: "about", label: "About", to: "/about", Icon: Plane }, // 🛂 ouvre la modal
+      { key: "contact", label: "Contact", to: "/contact", Icon: Mail },
+      { key: "cv", label: "CV", to: "/cv", Icon: FileText },
     ],
     []
   );
@@ -47,12 +49,12 @@ export default function HeroSection() {
 
   return (
     <section className="hero">
-      {/* ✅ Fallback header */}
+      {/* HEADER */}
       <header className="hero__nav">
         <button className="hero__navLink" onClick={() => navigate("/")}>Home</button>
         <button className="hero__navLink" onClick={() => navigate("/skills")}>Skills</button>
         <button className="hero__navLink" onClick={() => navigate("/projects")}>Projects</button>
-        <button className="hero__navLink" onClick={() => navigate("/about")}>About</button>
+        <button className="hero__navLink" onClick={() => setIsPassportOpen(true)}>About</button>
         <button className="hero__navLink" onClick={() => navigate("/contact")}>Contact</button>
         <button className="hero__navLink hero__navLink--cta" onClick={() => navigate("/cv")}>CV</button>
       </header>
@@ -63,8 +65,9 @@ export default function HeroSection() {
           <p className="hero__kicker">ODYSSEY • Developer Journey</p>
 
           <h1 className="hero__title">
-            Bienvenue dans <br />mon parcours de<span className="hero__accent"> Développeuse Web </span>
-          
+            Bienvenue dans <br />
+            mon parcours de
+            <span className="hero__accent"> Développeuse Web </span>
           </h1>
 
           <p className="hero__subtitle">
@@ -72,11 +75,17 @@ export default function HeroSection() {
           </p>
 
           <div className="hero__actions">
-            <button className="hero__btn hero__btn--primary" onClick={() => navigate("/projects")}>
+            <button
+              className="hero__btn hero__btn--primary"
+              onClick={() => navigate("/projects")}
+            >
               Voir mes projets <ArrowRight size={18} />
             </button>
 
-            <button className="hero__btn hero__btn--ghost" onClick={() => navigate("/contact")}>
+            <button
+              className="hero__btn hero__btn--ghost"
+              onClick={() => navigate("/contact")}
+            >
               Me contacter
             </button>
           </div>
@@ -92,43 +101,44 @@ export default function HeroSection() {
 
         {/* RIGHT */}
         <div className="hero__visual">
-          <img
-    src={worldMapImg}
-    alt=""
-    className="hero__map"
-    aria-hidden
-  />
+          <img src={worldMapImg} alt="" className="hero__map" aria-hidden />
+
           <div className="hero__visualFrame">
-            {/* Glow */}
             <div className="hero__glow" />
 
-            {/* Globe image */}
             <motion.img
               src={heroImgUrl}
               alt="Developer journey hero"
               className="hero__img"
-              initial={{ y: 0,}}
+              initial={{ y: 0 }}
               animate={reduceMotion ? undefined : { y: [0, -10, 0] }}
-              transition={reduceMotion ? undefined : { duration: 6, repeat: Infinity, ease: "easeInOut" }}
+              transition={
+                reduceMotion
+                  ? undefined
+                  : { duration: 6, repeat: Infinity, ease: "easeInOut" }
+              }
               draggable={false}
             />
 
-            {/* Orbit ring */}
+            {/* ORBIT */}
             <div className="orbit">
               <motion.div
                 className="orbit__spinner"
-                animate={reduceMotion ? undefined : { rotate: 360 }}
-                transition={
-                  reduceMotion
-                    ? undefined
-                    : { duration: orbitDuration, repeat: Infinity, ease: "linear" }
-                }
+                animate={{ rotate: 360 }}
+                transition={{ duration: orbitDuration, repeat: Infinity, ease: "linear" }}
               >
-                {items.map((item) => (
+                {items.map((item, index) => (
                   <OrbitIcon
                     key={item.key}
                     item={item}
-                    onClick={() => navigate(item.to)}
+                    angleDeg={index * (360 / items.length)}
+                    onClick={() => {
+                      if (item.key === "about") {
+                        onOpenPassport(); // 🛂 ouvre la modal
+                      } else {
+                        navigate(item.to);
+                      }
+                    }}
                   />
                 ))}
               </motion.div>
@@ -140,15 +150,41 @@ export default function HeroSection() {
           </p>
         </div>
       </div>
+
+      {/* ✅ MODAL PASSEPORT */}
+      <Modal
+        isOpen={isPassportOpen}
+        onClose={() => setIsPassportOpen(false)}
+      >
+        <div className="passport-wrapper">
+          <img
+            src="/images/developer-passport.png"
+            alt="Developer Passport"
+            className="passport-image"
+          />
+
+          <button
+            className="passport-cta"
+            onClick={() => {
+              setIsPassportOpen(false);
+              // 👉 plus tard : animation nuage + navigate("/about-cindy")
+            }}
+          >
+            Découvrir mon parcours
+          </button>
+        </div>
+      </Modal>
     </section>
   );
 }
 
 function OrbitIcon({
   item,
+  angleDeg,
   onClick,
 }: {
   item: NavItem;
+  angleDeg: number;
   onClick: () => void;
 }) {
   const { Icon } = item;
@@ -157,14 +193,8 @@ function OrbitIcon({
     <motion.button
       type="button"
       className="orbitIcon"
-      style={
-        {
-          "--angle": `${item.angleDeg}deg`,
-        } as React.CSSProperties
-      }
+      style={{ "--angle": `${angleDeg}deg` } as React.CSSProperties}
       onClick={onClick}
-      whileHover={{ scale: 1.08 }}
-      whileTap={{ scale: 0.98 }}
       aria-label={item.label}
       title={item.label}
     >
