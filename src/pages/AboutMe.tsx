@@ -76,11 +76,7 @@ export default function AboutMe() {
               </p>
             </div>
 
-            <div className="cindy-actions">
-              <Link className="cindy-btn" to="/">
-                ✈︎ Retour à l'accueil
-              </Link>
-            </div>
+            
           </article>
         </div>
 
@@ -94,6 +90,11 @@ export default function AboutMe() {
           />
         </footer>
       </section>
+      <div className="cindy-actions">
+              <Link className="cindy-btn" to="/">
+                ✈︎ Retour à l'accueil
+              </Link>
+            </div>
     </main>
   );
 }
