@@ -35,10 +35,14 @@ export default function CV() {
           Mon parcours professionnel, compétences et expériences
         </p>
 
-        <Link to="/" className="cv-back-link">
-          ← Retour à la carte
+        </header>
+
+      {/* ================= GLASS CARD : RETOUR ================= */}
+        <div className="cv-glass-return">
+         <Link to="/" className="cv-glass-link">
+         ← Retour à la carte
         </Link>
-      </header>
+        </div>
 
       {/* ================= CV WRAPPER ================= */}
       <section className="cv-wrapper">
