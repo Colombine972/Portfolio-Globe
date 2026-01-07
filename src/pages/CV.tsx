@@ -38,11 +38,14 @@ export default function CV() {
         </header>
 
       {/* ================= GLASS CARD : RETOUR ================= */}
-        <div className="cv-glass-return">
-         <Link to="/" className="cv-glass-link">
-         ← Retour à la carte
-        </Link>
-        </div>
+        <div className="cv-glass-zone">
+  <div className="cv-glass-return">
+    <Link to="/" className="cv-glass-link">
+      ← Retour à la carte
+    </Link>
+  </div>
+</div>
+
 
       {/* ================= CV WRAPPER ================= */}
       <section className="cv-wrapper">
