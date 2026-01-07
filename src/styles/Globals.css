@@ -1,0 +1,39 @@
+/* ===============================
+   WORLD MAP – GLOBAL SIGNATURE
+================================ */
+
+.bg-world-map {
+  position: fixed;
+  inset: -10% -45%;      /* déborde comme sur la Home */
+  width: 190%;
+  height: auto;
+
+  background-image: url("/world-map.png");
+  background-repeat: no-repeat;
+  background-position: 65% center;
+  background-size: contain;
+  opacity: 0.18;
+  filter: blur(0.4px);
+  z-index: 0;
+  pointer-events: none;
+}
+
+.bg-world-tint {
+  position: fixed;
+  inset: 0;
+
+  background: radial-gradient(
+    circle at top,
+    rgba(0, 180, 255, 0.15),
+    transparent 55%
+  ),
+  linear-gradient(
+    180deg,
+    #061a2e,
+    #020b18
+  );
+
+  z-index: -4;
+}
+
+

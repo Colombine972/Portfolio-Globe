@@ -4,6 +4,7 @@ import { Link } from "react-router";
 import Modal from "../components/Modal";
 import ContactForm from "../components/ContactForm";
 import "../styles/CV.css";
+import "../styles/Globals.css";
 
 export default function CV() {
   const [isOpen, setIsOpen] = useState(false);
@@ -17,7 +18,8 @@ export default function CV() {
   return (
     <main className="cv-page">
       {/* ================= BACKGROUND LAYERS ================= */}
-      <div className="cv-bg-world" aria-hidden />
+      <div className="bg-world-tint" aria-hidden />
+      <div className="bg-world-map" aria-hidden />
       <div className="cv-clouds" aria-hidden />
       <div className="cv-bg-overlay" aria-hidden />
 
@@ -42,7 +44,7 @@ export default function CV() {
       <section className="cv-wrapper">
         <div className="cv-frame">
           <iframe
-            src="/CV_Cindy_COLOMBINE.pdf#toolbar=0&navpanes=0"
+            src="/CV_Cindy_COLOMBINE.pdf#toolbar=0&navpanes=0&scrollbar=0"
             title="CV de Cindy Colombine"
             className="cv-iframe"
           />

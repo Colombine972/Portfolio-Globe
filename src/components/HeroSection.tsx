@@ -9,12 +9,13 @@ import {
   FileText,
   ArrowRight,
 } from "lucide-react";
-import Modal from "../components/Modal";
-import "../styles/HeroSection.css";
 
-console.log("HeroSection render");
+import Modal from "../components/Modal";
+
+import "../styles/HeroSection.css";
+import "../styles/Globals.css";
+
 const heroImgUrl = "/globe.png";
-const worldMapImg = "/world-map.png";
 
 type NavItem = {
   key: string;
@@ -23,22 +24,18 @@ type NavItem = {
   Icon: React.ComponentType<{ size?: number; className?: string }>;
 };
 
-type HeroSectionProps = {
-  onOpenPassport: () => void;
-}
-
-export default function HeroSection({ onOpenPassport }: HeroSectionProps) {
+export default function HeroSection() {
   const navigate = useNavigate();
   const reduceMotion = useReducedMotion();
 
-  // ✅ STATE DE LA MODAL PASSEPORT
+  // ✅ ÉTAT UNIQUE POUR LA MODAL PASSEPORT
   const [isPassportOpen, setIsPassportOpen] = useState(false);
 
   const items: NavItem[] = useMemo(
     () => [
       { key: "skills", label: "Skills", to: "/skills", Icon: Code2 },
       { key: "projects", label: "Projects", to: "/projects", Icon: BriefcaseBusiness },
-      { key: "about", label: "About", to: "/about", Icon: Plane }, // 🛂 ouvre la modal
+      { key: "about", label: "About", to: "/about", Icon: Plane }, // ouvre la modal
       { key: "contact", label: "Contact", to: "/contact", Icon: Mail },
       { key: "cv", label: "CV", to: "/cv", Icon: FileText },
     ],
@@ -49,16 +46,31 @@ export default function HeroSection({ onOpenPassport }: HeroSectionProps) {
 
   return (
     <section className="hero">
-      {/* HEADER */}
+      {/* ================= BACKGROUND GLOBAL ================= */}
+      <div className="bg-world-tint" aria-hidden />
+      <div className="bg-world-map" aria-hidden />
+
+      {/* ================= NAV ================= */}
       <header className="hero__nav">
         <button className="hero__navLink" onClick={() => navigate("/")}>Home</button>
         <button className="hero__navLink" onClick={() => navigate("/skills")}>Skills</button>
         <button className="hero__navLink" onClick={() => navigate("/projects")}>Projects</button>
-        <button className="hero__navLink" onClick={() => setIsPassportOpen(true)}>About</button>
+        <button
+          className="hero__navLink"
+          onClick={() => setIsPassportOpen(true)}
+        >
+          About
+        </button>
         <button className="hero__navLink" onClick={() => navigate("/contact")}>Contact</button>
-        <button className="hero__navLink hero__navLink--cta" onClick={() => navigate("/cv")}>CV</button>
+        <button
+          className="hero__navLink hero__navLink--cta"
+          onClick={() => navigate("/cv")}
+        >
+          CV
+        </button>
       </header>
 
+      {/* ================= GRID ================= */}
       <div className="hero__grid">
         {/* LEFT */}
         <div className="hero__copy">
@@ -101,14 +113,13 @@ export default function HeroSection({ onOpenPassport }: HeroSectionProps) {
 
         {/* RIGHT */}
         <div className="hero__visual">
-          <img src={worldMapImg} alt="" className="hero__map" aria-hidden />
-
           <div className="hero__visualFrame">
             <div className="hero__glow" />
 
+            {/* GLOBE */}
             <motion.img
               src={heroImgUrl}
-              alt="Developer journey hero"
+              alt="Developer journey globe"
               className="hero__img"
               initial={{ y: 0 }}
               animate={reduceMotion ? undefined : { y: [0, -10, 0] }}
@@ -125,7 +136,11 @@ export default function HeroSection({ onOpenPassport }: HeroSectionProps) {
               <motion.div
                 className="orbit__spinner"
                 animate={{ rotate: 360 }}
-                transition={{ duration: orbitDuration, repeat: Infinity, ease: "linear" }}
+                transition={{
+                  duration: orbitDuration,
+                  repeat: Infinity,
+                  ease: "linear",
+                }}
               >
                 {items.map((item, index) => (
                   <OrbitIcon
@@ -134,7 +149,7 @@ export default function HeroSection({ onOpenPassport }: HeroSectionProps) {
                     angleDeg={index * (360 / items.length)}
                     onClick={() => {
                       if (item.key === "about") {
-                        onOpenPassport(); // 🛂 ouvre la modal
+                        setIsPassportOpen(true);
                       } else {
                         navigate(item.to);
                       }
@@ -147,7 +162,7 @@ export default function HeroSection({ onOpenPassport }: HeroSectionProps) {
         </div>
       </div>
 
-      {/* ✅ MODAL PASSEPORT */}
+      {/* ================= MODAL PASSEPORT ================= */}
       <Modal
         isOpen={isPassportOpen}
         onClose={() => setIsPassportOpen(false)}
@@ -163,7 +178,7 @@ export default function HeroSection({ onOpenPassport }: HeroSectionProps) {
             className="passport-cta"
             onClick={() => {
               setIsPassportOpen(false);
-              // 👉 plus tard : animation nuage + navigate("/about-cindy")
+              // plus tard : animation nuage + navigate("/about-cindy")
             }}
           >
             Découvrir mon parcours
