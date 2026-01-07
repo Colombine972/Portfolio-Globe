@@ -1,98 +1,96 @@
-import { useState, type ReactNode } from "react";
+import { useState } from "react";
+import type { ReactNode } from "react";
 import { Link } from "react-router";
-import ContactForm from "../components/ContactForm";
 import Modal from "../components/Modal";
+import ContactForm from "../components/ContactForm";
 import "../styles/CV.css";
 
-function CV() {
-	const [isOpen, setIsOpen] = useState(false);
-	const [popupContent, setPopupContent] = useState<ReactNode | null>(null);
+export default function CV() {
+  const [isOpen, setIsOpen] = useState(false);
+  const [popupContent, setPopupContent] = useState<ReactNode | null>(null);
 
-	const openPopup = (content: ReactNode) => {
-		setPopupContent(content);
-		setIsOpen(true);
-	};
+  const openPopup = (content: ReactNode) => {
+    setPopupContent(content);
+    setIsOpen(true);
+  };
 
-	return (
-		<div className="cv-journey">
-			{/* HERO TOP */}
-			<section className="cv-hero">
-				<h1 className="australie-title">
-					DEVELOPPEUR <br />
-					WEB
-				</h1>
-				<h1 className="full-title">
-					FULL <br />
-					STACK
-				</h1>
-				<div className="cv-image"></div>
-				<div className="cv-overlay" />
-				<div className="cv-hero-fade" />
-			</section>
-			<div className="cv-hero-content">
-				<Link to="/" className="cv-back">
-					← Retour à la carte
-				</Link>
-			</div>
+  return (
+    <main className="cv-page">
+      {/* ================= BACKGROUND LAYERS ================= */}
+      <div className="cv-bg-world" aria-hidden />
+      <div className="cv-clouds" aria-hidden />
+      <div className="cv-bg-overlay" aria-hidden />
 
-			{/* ABOUT TITLE */}
-			<section className="about-section">
-				<div className="about-line" />
-				<h2 className="about-title">DOCUMENT DE VOYAGE</h2>
-				<div className="about-line" />
-			</section>
+      {/* ================= HERO ================= */}
+      <header className="cv-hero">
+        <p className="cv-eyebrow">ODYSSEY · DOCUMENT DE VOYAGE</p>
 
-			{/* DOCUMENT */}
-			<section className="cv-document">
-				<div className="cv-document-fade" />
-				<div className="cv-frame">
-					<iframe
-						src="/CV_Cindy_COLOMBINE.pdf#toolbar=0"
-						title="CV de Cindy Colombine"
-					/>
-				</div>
-			</section>
+        <h1 className="cv-title">
+          Document de <span>Voyage</span>
+        </h1>
 
-			{/* BOTTOM IMAGE */}
-			<section className="australie-bottom">
-				<div className="australie-bottom-fade-top" />
-				<div className="australie-bottom-overlay" />
-				<div className="cv-glass-card">
-					<h3>Envie d’échanger ?</h3>
-					<p>Télécharger mon CV, planifier un rendez-vous ou une question.</p>
+        <p className="cv-subtitle">
+          Mon parcours professionnel, compétences et expériences
+        </p>
 
-					<div className="cv-glass-actions">
-						<a
-							href="/CV_Cindy_COLOMBINE.pdf"
-							target="_blank"
-							rel="noopener noreferrer"
-						>
-							Télécharger le CV
-						</a>
-						<button
-							type="button"
-							onClick={() =>
-								openPopup(
-									<iframe
-										src="https://calendly.com/colombine-cindy/echange-autour-de-mon-cv"
-										title="Calendly"
-										className="modal-iframe"
-									/>,
-								)
-							}
-							className="primary"
-						>
-							Échange de 15 min autour de mon CV
-						</button>
-						<Modal isOpen={isOpen} onClose={() => setIsOpen(false)}>
-							{popupContent}
-						</Modal>
-						<ContactForm />
-					</div>
-				</div>
-			</section>
-		</div>
-	);
+        <Link to="/" className="cv-back-link">
+          ← Retour à la carte
+        </Link>
+      </header>
+
+      {/* ================= CV WRAPPER ================= */}
+      <section className="cv-wrapper">
+        <div className="cv-frame">
+          <iframe
+            src="/CV_Cindy_COLOMBINE.pdf#toolbar=0&navpanes=0"
+            title="CV de Cindy Colombine"
+            className="cv-iframe"
+          />
+        </div>
+      </section>
+
+      {/* ================= CTA ================= */}
+      <section className="cv-cta">
+        <div className="cv-cta-card">
+          <h3>Envie d’échanger ?</h3>
+          <p>
+            Télécharger mon CV, planifier un rendez-vous ou poser une question.
+          </p>
+
+          <div className="cv-cta-actions">
+            <a
+              href="/CV_Cindy_COLOMBINE.pdf"
+              target="_blank"
+              rel="noopener noreferrer"
+              className="cv-btn"
+            >
+              Télécharger le CV
+            </a>
+
+            <button
+              className="cv-btn cv-btn-primary"
+              onClick={() =>
+                openPopup(
+                  <iframe
+                    src="https://calendly.com/colombine-cindy/echange-autour-de-mon-cv"
+                    title="Calendly"
+                    className="cv-calendly"
+                  />
+                )
+              }
+            >
+              Échange de 15 min autour de mon CV
+            </button>
+          </div>
+
+          <ContactForm />
+        </div>
+      </section>
+
+      {/* ================= MODAL ================= */}
+      <Modal isOpen={isOpen} onClose={() => setIsOpen(false)}>
+        {popupContent}
+      </Modal>
+    </main>
+  );
 }
-
-export default CV;

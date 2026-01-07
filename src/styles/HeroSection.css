@@ -201,7 +201,7 @@
 }
 
 .hero__img {
-  width: min(720px, 55vw);
+  width: min(680px, 55vw);
   max-width: none;
   border-radius: 0;
   background: none;
@@ -318,12 +318,6 @@ width: 46px;
   transform: translateY(0);
 }
 
-.hero__hint {
-  margin: 10px 0 0;
-  color: var(--muted2);
-  font-size: 0.92rem;
-  text-align: center;
-}
 
 /* Responsive */
 @media (max-width: 980px) {

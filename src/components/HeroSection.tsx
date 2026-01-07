@@ -144,10 +144,6 @@ export default function HeroSection({ onOpenPassport }: HeroSectionProps) {
               </motion.div>
             </div>
           </div>
-
-          <p className="hero__hint">
-            Survole les icônes pour voir les sections • Clique pour naviguer
-          </p>
         </div>
       </div>
 
