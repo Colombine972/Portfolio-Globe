@@ -39,8 +39,6 @@ function Contact() {
       <div className="contact-bg" />
 
       <section className="contact-content">
-        <h1>Contact</h1>
-
         <div className="cv-glass-return">
           <Link to="/" className="cv-glass-link">
             ← Retour à la carte
@@ -50,6 +48,7 @@ function Contact() {
 
       {/* ===== CAROUSEL ===== */}
       <section className="glass-carousel">
+        <div className="carousel-offset">
         <button className="carousel-arrow left" onClick={prev}>
           ‹
         </button>
@@ -90,18 +89,23 @@ function Contact() {
     zIndex,
   }}
 >
-  <h3>{card.title}</h3>
+
+
+  <div className="card-header">
+  <h3 className="card-title">{card.title}</h3>
 
   
 
   {/* ===== CONTENU DYNAMIQUE ===== */}
   {card.type === "contact" && (
     <div className="card-content">
+      <img src="/glass-contact.png" alt="Contact" className="card-icon" />
       <p>📧 cindy.colombine@gmail.com</p>
       <p>📞 06 95 69 72 76</p>
       <p>💼 LinkedIn</p>
     </div>
   )}
+  </div>
 
   {card.type === "form" && (
     <div className="card-content">
@@ -130,6 +134,7 @@ function Contact() {
         <button className="carousel-arrow right" onClick={next}>
           ›
         </button>
+        </div>
       </section>
     </main>
   );

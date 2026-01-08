@@ -30,7 +30,7 @@
 
 .glass-carousel {
   position: relative;
-  margin-top: -2rem;
+  margin-top: 1rem;
   
 
   /* 🔑 CLÉ : largeur suffisante pour voir les flèches */
@@ -46,7 +46,11 @@
   align-items: center;
 
   perspective: 1200px;
-transform: translate(120px, -60px);
+transform: none;
+}
+
+.carousel-offset {
+  transform: translate(120px, -60px);
 }
 
 .carousel-3d {
@@ -69,8 +73,10 @@ transform: translate(120px, -60px);
 
   border-radius: 20px;
 
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
+  /* ❌ PAS de glass ici */
+  background: transparent;
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
 
   box-shadow: 0 20px 50px rgba(0, 0, 0, 0.35);
   color: black;
@@ -79,19 +85,34 @@ transform: translate(120px, -60px);
   transition: transform 0.7s ease, opacity 0.7s ease;
 }
 
+
 .glass-card--active {
-  background: rgba(255, 235, 200, 0.65);
+  background: #d4cbbc; /* couleur pleine, PAS rgba */
+
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
+
   box-shadow:
     0 30px 70px rgba(0, 0, 0, 0.45),
     0 0 45px rgba(255, 220, 150, 0.7);
+
+  opacity: 1;
 }
 
+
 .glass-card--back {
-  background: rgba(255, 235, 200, 0.45); /* ⬅️ PLUS OPAQUE */
+  background: rgba(255, 235, 200, 0.35);
+
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+
   box-shadow:
     0 18px 40px rgba(0, 0, 0, 0.25);
+
   filter: brightness(0.9) saturate(0.95);
+  opacity: 0.75;
 }
+
 
 /* ===============================
    ARROWS (VISIBLES)
@@ -107,7 +128,7 @@ transform: translate(120px, -60px);
   border-radius: 50%;
 
   background: rgba(255, 255, 255, 0.25);
-  backdrop-filter: blur(8px);
+  
 
   border: none;
   cursor: pointer;
@@ -125,9 +146,32 @@ transform: translate(120px, -60px);
 }
 
 .carousel-arrow.left {
-  left: 0;
+  left: clamp(-180px, -10vw, -60px);
 }
 
 .carousel-arrow.right {
-  right: 0;
+  right: clamp(-180px, -10vw, -60px);
 }
+
+.card-header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 12px;
+
+  margin-bottom: 24px;
+}
+
+.card-title {
+  font-size: 1.4rem;
+  font-weight: 600;
+}
+
+
+.card-icon {
+  width: 100px;
+  height: 100px;
+  object-fit: contain;
+
+}
+
