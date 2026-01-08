@@ -27,7 +27,7 @@ export default function AboutMe() {
               {/* Remplace par ton image (idéalement .webp / .png) */}
               <img
                 className="cindy-photo"
-                src="/cindy2.png"
+                src="/croquis-cindy.png"
                 alt="Portrait de Cindy"
               />
             </div>
