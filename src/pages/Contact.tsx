@@ -79,7 +79,7 @@ function Contact() {
   }
 
             return (
-              <article
+   <article
   key={index}
   className={`glass-card ${
     offset === 0 ? "glass-card--active" : "glass-card--back"
@@ -89,43 +89,60 @@ function Contact() {
     zIndex,
   }}
 >
+  {/* ================= HEADER ================= */}
+  <header className="card-header">
+    {card.type === "contact" && (
+      <img src="/glass-contact.png" alt="" className="card-icon" />
+    )}
 
+    {card.type === "form" && (
+      <img src="/glass-form.png" alt="" className="card-icon" />
+    )}
 
-  <div className="card-header">
-  <h3 className="card-title">{card.title}</h3>
+    {card.type === "calendar" && (
+      <img src="/glass-calendar.png" alt="" className="card-icon" />
+    )}
 
-  
+    <h3 className="card-title">{card.title}</h3>
+  </header>
 
-  {/* ===== CONTENU DYNAMIQUE ===== */}
-  {card.type === "contact" && (
-    <div className="card-content">
-      <img src="/glass-contact.png" alt="Contact" className="card-icon" />
-      <p>📧 cindy.colombine@gmail.com</p>
-      <p>📞 06 95 69 72 76</p>
-      <p>💼 LinkedIn</p>
-    </div>
-  )}
-  </div>
+  {/* ================= BODY ================= */}
+  <section className="card-body">
+    {/* ----- CONTACT ----- */}
+    {card.type === "contact" && (
+      <>
+        <p>📧 cindy.colombine@gmail.com</p>
+        <p>📞 06 95 69 72 76</p>
+        <p>💼 LinkedIn</p>
+      </>
+    )}
 
-  {card.type === "form" && (
-    <div className="card-content">
-      <input placeholder="Votre nom" />
-      <input placeholder="Votre email" />
-      <textarea placeholder="Votre message" />
-      <button>Envoyer</button>
-    </div>
-  )}
+    {/* ----- FORMULAIRE ----- */}
+    {card.type === "form" && (
+      <>
+        <input type="text" placeholder="Votre nom" />
+        <input type="email" placeholder="Votre email" />
+        <textarea placeholder="Votre message" rows={4} />
+      </>
+    )}
 
-  {card.type === "calendar" && (
-    <div className="card-content calendar">
+    {/* ----- CALENDRIER ----- */}
+    {card.type === "calendar" && (
       <iframe
         src="https://calendly.com/colombine-cindy/echange-autour-de-mon-cv"
         title="Calendly"
         frameBorder="0"
+        className="calendar-frame"
       />
-    </div>
-  )}
+    )}
+  </section>
+
+  {/* ================= FOOTER ================= */}
+  <footer className="card-footer">
+    {card.type === "form" && <button>Envoyer</button>}
+  </footer>
 </article>
+
 
             );
           })}
