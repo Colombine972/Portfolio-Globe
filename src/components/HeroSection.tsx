@@ -1,4 +1,4 @@
-import { useMemo, useState } from "react";
+import { useMemo } from "react";
 import { useNavigate } from "react-router";
 import { motion, useReducedMotion } from "framer-motion";
 import {
@@ -9,8 +9,6 @@ import {
   FileText,
   ArrowRight,
 } from "lucide-react";
-
-import Modal from "../components/Modal";
 
 import "../styles/HeroSection.css";
 import "../styles/Globals.css";
@@ -24,12 +22,15 @@ type NavItem = {
   Icon: React.ComponentType<{ size?: number; className?: string }>;
 };
 
-export default function HeroSection() {
+type HeroSectionProps = {
+  onOpenPassport: () => void;
+};
+
+export default function HeroSection({ onOpenPassport }: HeroSectionProps) {
   const navigate = useNavigate();
   const reduceMotion = useReducedMotion();
 
-  // ✅ ÉTAT UNIQUE POUR LA MODAL PASSEPORT
-  const [isPassportOpen, setIsPassportOpen] = useState(false);
+
 
   const items: NavItem[] = useMemo(
     () => [
@@ -57,7 +58,7 @@ export default function HeroSection() {
         <button className="hero__navLink" onClick={() => navigate("/projects")}>Projects</button>
         <button
           className="hero__navLink"
-          onClick={() => setIsPassportOpen(true)}
+          onClick={onOpenPassport}
         >
           About
         </button>
@@ -149,7 +150,7 @@ export default function HeroSection() {
                     angleDeg={index * (360 / items.length)}
                     onClick={() => {
                       if (item.key === "about") {
-                        setIsPassportOpen(true);
+                        onOpenPassport();
                       } else {
                         navigate(item.to);
                       }
@@ -162,29 +163,7 @@ export default function HeroSection() {
         </div>
       </div>
 
-      {/* ================= MODAL PASSEPORT ================= */}
-      <Modal
-        isOpen={isPassportOpen}
-        onClose={() => setIsPassportOpen(false)}
-      >
-        <div className="passport-wrapper">
-          <img
-            src="/images/developer-passport.png"
-            alt="Developer Passport"
-            className="passport-image"
-          />
-
-          <button
-            className="passport-cta"
-            onClick={() => {
-              setIsPassportOpen(false);
-              // plus tard : animation nuage + navigate("/about-cindy")
-            }}
-          >
-            Découvrir mon parcours
-          </button>
-        </div>
-      </Modal>
+   
     </section>
   );
 }

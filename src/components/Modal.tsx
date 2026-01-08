@@ -9,8 +9,7 @@ type ModalProps = {
 };
 
 function Modal({ isOpen, onClose, children }: ModalProps) {
-	console.log("Modal render - isOpen =", isOpen);
-
+	
 	if (!isOpen) return null;
 
 	return (
