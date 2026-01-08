@@ -2,11 +2,26 @@ import { useState } from "react";
 import { Link } from "react-router";
 import "../styles/Contact.css";
 
-const cards = [
-  { title: "Contact", content: "Mes coordonnées et réseaux" },
-  { title: "Formulaire", content: "M’envoyer un message" },
-  { title: "Calendrier", content: "Planifier un échange" },
+type ContactCard = {
+  type: "contact" | "form" | "calendar";
+  title: string;
+};
+
+const cards: ContactCard[] = [
+  {
+    type: "contact",
+    title: "Contact",
+  },
+  {
+    type: "form",
+    title: "Formulaire",
+  },
+  {
+    type: "calendar",
+    title: "Planifier un rendez-vous",
+  },
 ];
+
 
 function Contact() {
   const [activeIndex, setActiveIndex] = useState(0);
@@ -72,13 +87,42 @@ function Contact() {
   }`}
   style={{
     transform: `${transform} scale(${scale})`,
-    opacity,
     zIndex,
   }}
 >
   <h3>{card.title}</h3>
-  <p>{card.content}</p>
+
+  
+
+  {/* ===== CONTENU DYNAMIQUE ===== */}
+  {card.type === "contact" && (
+    <div className="card-content">
+      <p>📧 cindy.colombine@gmail.com</p>
+      <p>📞 06 95 69 72 76</p>
+      <p>💼 LinkedIn</p>
+    </div>
+  )}
+
+  {card.type === "form" && (
+    <div className="card-content">
+      <input placeholder="Votre nom" />
+      <input placeholder="Votre email" />
+      <textarea placeholder="Votre message" />
+      <button>Envoyer</button>
+    </div>
+  )}
+
+  {card.type === "calendar" && (
+    <div className="card-content calendar">
+      <iframe
+        src="https://calendly.com/colombine-cindy/echange-autour-de-mon-cv"
+        title="Calendly"
+        frameBorder="0"
+      />
+    </div>
+  )}
 </article>
+
             );
           })}
         </div>

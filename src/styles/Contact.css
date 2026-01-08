@@ -30,7 +30,8 @@
 
 .glass-carousel {
   position: relative;
-  margin-top: 4rem;
+  margin-top: -2rem;
+  
 
   /* 🔑 CLÉ : largeur suffisante pour voir les flèches */
   width: 100%;
@@ -45,6 +46,7 @@
   align-items: center;
 
   perspective: 1200px;
+transform: translate(120px, -60px);
 }
 
 .carousel-3d {
@@ -78,27 +80,17 @@
 }
 
 .glass-card--active {
-  background: linear-gradient(
-    135deg,
-    rgba(255, 235, 200, 0.55),
-    rgba(255, 210, 150, 0.35)
-  );
-
+  background: rgba(255, 235, 200, 0.65);
   box-shadow:
-    0 25px 60px rgba(0, 0, 0, 0.45),
-    0 0 35px rgba(255, 255, 255, 0.25);
-
-  filter: brightness(1) saturate(1);
+    0 30px 70px rgba(0, 0, 0, 0.45),
+    0 0 45px rgba(255, 220, 150, 0.7);
 }
 
 .glass-card--back {
-  background: rgba(255, 255, 180, 0.75); /* plus dense */
-  
+  background: rgba(255, 235, 200, 0.45); /* ⬅️ PLUS OPAQUE */
   box-shadow:
-    0 25px 60px rgba(0, 0, 0, 0.45),
-    0 0 35px rgba(255, 255, 255, 0.25);
-
-  filter: brightness(1.5) saturate(1.2) contrast(1.05);
+    0 18px 40px rgba(0, 0, 0, 0.25);
+  filter: brightness(0.9) saturate(0.95);
 }
 
 /* ===============================
