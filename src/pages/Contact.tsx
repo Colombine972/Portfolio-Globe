@@ -1,50 +1,30 @@
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { Link } from "react-router";
 import "../styles/Contact.css";
 
+const cards = [
+  { title: "Contact", content: "Mes coordonnées et réseaux" },
+  { title: "Formulaire", content: "M’envoyer un message" },
+  { title: "Calendrier", content: "Planifier un échange" },
+];
+
 function Contact() {
-  /* ===============================
-     CAROUSEL STATE
-  =============================== */
   const [activeIndex, setActiveIndex] = useState(0);
 
-  const cards = [
-    {
-      id: 0,
-      title: "Contact",
-      content: "Mes coordonnées & réseaux",
-    },
-    {
-      id: 1,
-      title: "Formulaire",
-      content: "M’envoyer un message",
-    },
-    {
-      id: 2,
-      title: "Calendrier",
-      content: "Planifier un échange",
-    },
-  ];
+  const prev = () => {
+    setActiveIndex((i) => (i - 1 + cards.length) % cards.length);
+  };
 
-  /* ===============================
-     AUTO ROTATION
-  =============================== */
-  useEffect(() => {
-    const interval = setInterval(() => {
-      setActiveIndex((prev) => (prev + 1) % cards.length);
-    }, 4000);
-
-    return () => clearInterval(interval);
-  }, [cards.length]);
+  const next = () => {
+    setActiveIndex((i) => (i + 1) % cards.length);
+  };
 
   return (
     <main className="contact-page">
-      {/* ================= BACKGROUND ================= */}
-      <div className="contact-bg" aria-hidden />
+      <div className="contact-bg" />
 
-      {/* ================= HEADER ================= */}
       <section className="contact-content">
-        <h1 className="contact-title">Contact</h1>
+        <h1>Contact</h1>
 
         <div className="cv-glass-return">
           <Link to="/" className="cv-glass-link">
@@ -53,32 +33,59 @@ function Contact() {
         </div>
       </section>
 
-      {/* ================= GLASS CAROUSEL ================= */}
+      {/* ===== CAROUSEL ===== */}
       <section className="glass-carousel">
-        <div className="glass-track">
+        <button className="carousel-arrow left" onClick={prev}>
+          ‹
+        </button>
+
+        <div className="carousel-3d">
           {cards.map((card, index) => {
-            const offset = index - activeIndex;
+            const offset = (index - activeIndex + cards.length) % cards.length;
+
+  let transform = "";
+  let zIndex = 1;
+  let opacity = 0.4;
+  let scale = 0.9;
+
+  if (offset === 0) {
+    // 🟡 Carte active (devant)
+    transform = "translateX(0px) translateZ(120px)";
+    zIndex = 3;
+    opacity = 1;
+    scale = 1;
+  } else if (offset === 1) {
+    // 👉 Carte suivante (droite, partiellement visible)
+    transform = "translateX(140px) translateZ(0)";
+    zIndex = 2;
+  } else {
+    // 👈 Carte précédente (gauche, partiellement visible)
+    transform = "translateX(-140px) translateZ(0)";
+    zIndex = 2;
+  }
 
             return (
               <article
-                key={card.id}
-                className="glass-card"
-                style={{
-                  transform: `translateX(${offset * 320}px) scale(${
-                    offset === 0 ? 1 : 0.9
-                  })`,
-                  opacity: offset === 0 ? 1 : 0.55,
-                  zIndex: offset === 0 ? 2 : 1,
-                  pointerEvents: offset === 0 ? "auto" : "none",
-                  transition: "all 0.6s ease",
-                }}
-              >
-                <h2 className="glass-card-title">{card.title}</h2>
-                <p className="glass-card-text">{card.content}</p>
-              </article>
+  key={index}
+  className={`glass-card ${
+    offset === 0 ? "glass-card--active" : "glass-card--back"
+  }`}
+  style={{
+    transform: `${transform} scale(${scale})`,
+    opacity,
+    zIndex,
+  }}
+>
+  <h3>{card.title}</h3>
+  <p>{card.content}</p>
+</article>
             );
           })}
         </div>
+
+        <button className="carousel-arrow right" onClick={next}>
+          ›
+        </button>
       </section>
     </main>
   );
