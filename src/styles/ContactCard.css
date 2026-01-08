@@ -1,0 +1,90 @@
+.contact-glass-card {
+  width: 360px;
+  padding: 2rem;
+  border-radius: 22px;
+
+  background: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  box-shadow:
+    0 0 40px rgba(110, 203, 255, 0.15),
+    inset 0 0 20px rgba(255, 255, 255, 0.05);
+
+  color: #eaf2f8;
+  position: relative;
+}
+
+/* Subtle glowing edge */
+.contact-glass-card::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  border-radius: inherit;
+  padding: 1px;
+  background: linear-gradient(
+    120deg,
+    rgba(110, 203, 255, 0.6),
+    rgba(255, 255, 255, 0.05)
+  );
+  mask: linear-gradient(#000 0 0) content-box,
+        linear-gradient(#000 0 0);
+  mask-composite: exclude;
+  pointer-events: none;
+}
+
+/* HEADER */
+.contact-header {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 1.8rem;
+}
+
+.contact-header h3 {
+  font-size: 1.4rem;
+  letter-spacing: 0.04em;
+}
+
+.contact-illustration {
+  width: 56px;
+  height: auto;
+}
+
+/* LIST */
+.contact-list {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+.contact-list li {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  padding: 0.7rem 0;
+  font-size: 0.95rem;
+  opacity: 0.9;
+}
+
+.contact-list img {
+  width: 18px;
+  height: 18px;
+  filter: drop-shadow(0 0 6px rgba(110, 203, 255, 0.6));
+}
+
+/* FOOTER */
+.contact-footer {
+  margin-top: 1.5rem;
+  padding-top: 1rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.15);
+}
+
+.contact-footer p {
+  font-size: 0.7rem;
+  letter-spacing: 0.15em;
+  opacity: 0.6;
+  line-height: 1.6;
+  text-transform: uppercase;
+}

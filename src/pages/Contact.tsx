@@ -1,6 +1,7 @@
 import { useState } from "react";
 import { Link } from "react-router";
 import "../styles/Contact.css";
+import ContactCard from "../components/ContactCard";
 
 type ContactCard = {
   type: "contact" | "form" | "calendar";
@@ -111,11 +112,15 @@ function Contact() {
     {/* ----- CONTACT ----- */}
     {card.type === "contact" && (
       <>
-        <p>📧 cindy.colombine@gmail.com</p>
-        <p>📞 06 95 69 72 76</p>
-        <p>💼 LinkedIn</p>
-      </>
-    )}
+        {offset === 0 ? (
+        <ContactCard />
+      ) : (
+        <p className="card-placeholder">
+          Carte de contact
+        </p>
+      )}
+    </>
+  )}
 
     {/* ----- FORMULAIRE ----- */}
     {card.type === "form" && (

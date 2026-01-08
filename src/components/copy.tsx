@@ -98,3 +98,16 @@ export default function AboutMe() {
     </main>
   );
 }
+
+ débuté ma carrière dans un univers{" "}
+              <strong>administratif</strong>, mais la{" "}
+              <span className="highlight">spontanéité</span> et la{" "}
+              <span className="highlight">curiosité</span> m’ont poussée à
+              explorer de nouveaux horizons.
+
+              <div className="tech-badges">
+              <span>HTML</span>
+              <span>CSS</span>
+              <span>JavaScript</span>
+              <span>React</span>
+            </div>
