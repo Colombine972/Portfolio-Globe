@@ -15,7 +15,7 @@ type Skill = {
 
 const skills: Skill[] = [
   {
-    icon: "🧭",
+    icon: "/logos/front-end.png",
     title: "Frontend",
     description:
       "Concevoir des interfaces claires, réactives et immersives, pensées pour guider l’utilisateur avec fluidité.",
@@ -27,7 +27,7 @@ const skills: Skill[] = [
     ],
   },
   {
-    icon: "⚙️",
+    icon: "/logos/back-end.png",
     title: "Backend",
     description:
       "Structurer la logique applicative et créer des APIs simples, fiables et évolutives.",
@@ -108,7 +108,7 @@ export default function Skills() {
         {skills.map((skill) => (
           <article key={skill.title} className="skill-card">
             <div className="skill-header">
-    <span className="skill-icon">{skill.icon}</span>
+     <img src={skill.icon} alt={`${skill.title} icon`} />
     <h3>{skill.title}</h3>
   </div>
             <p>{skill.description}</p>
