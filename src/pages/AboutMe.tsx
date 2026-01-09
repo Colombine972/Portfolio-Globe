@@ -15,7 +15,7 @@ return(
  {/* ================= HERO ================= */}
   <header className="about-hero">
   <p className="about-eyebrow">ODYSSEY · DÉVELOPPEUSE WEB</p>
-  <h1>À propos de Cindy</h1>
+  <h1>À propos de <span>Cindy</span></h1>
   <p className="about-subtitle"> Chaque projet est une escale, chaque ligne de code est un pas en avant.</p>
   </header>
 

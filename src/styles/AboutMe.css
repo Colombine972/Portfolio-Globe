@@ -74,6 +74,11 @@
   margin-bottom: 3rem;
 }
 
+.about-hero span {
+  color: var(--accent);
+  text-shadow: 0 0 22px rgba(102, 227, 255, 0.28);
+}
+
 .about-eyebrow {
   letter-spacing: 0.2em;
   font-size: 0.75rem;

@@ -28,8 +28,8 @@
 /* ===== HERO ===== */
 .skills-hero {
   position: relative;
-  max-width: 720px;
-  margin-bottom: 4rem;
+  max-width: 1940px;
+  margin-bottom: 2rem;
 }
 
 .skills-eyebrow {
@@ -44,10 +44,52 @@
   margin: 0.5rem 0;
 }
 
-.skills-subtitle {
-  max-width: 520px;
-  opacity: 0.85;
+.skills-hero span {
+  color: var(--accent);
+  text-shadow: 0 0 22px rgba(102, 227, 255, 0.28);
 }
+
+.skills-hero-row {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: 2rem;
+  margin-top: 1.5rem;
+}
+
+.skills-subtitle {
+  max-width: 720px;
+  opacity: 0.85;
+  font-size: 20px;
+}
+
+.skills-actions {
+  margin-top: 22px;
+  display: flex;
+  justify-content: flex-start;
+  max-width: 1100px;
+  margin: 0; /* 👈 espace sous la card */
+  padding-right: 8px;
+}
+
+.skills-btn {
+  text-decoration: none;
+  padding: 12px 16px;
+  border-radius: 14px;
+  border: 1px solid rgba(31, 42, 68, 0.12);
+  background: rgba(255, 255, 255, 0.55);
+  box-shadow: 0 12px 26px rgba(31, 42, 68, 0.12);
+  color: #1f2a44;
+  font-weight: 600;
+  transition: transform 180ms ease, box-shadow 180ms ease, background 180ms ease;
+}
+
+.skills-btn:hover {
+  transform: translateY(-1px);
+  background: rgba(255, 255, 255, 0.72);
+  box-shadow: 0 16px 34px rgba(31, 42, 68, 0.18);
+}
+
 
 /* ===== GRID ===== */
 .skills-grid {
@@ -55,7 +97,7 @@
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   gap: 2.5rem;
-  margin-top: 4rem;
+  margin-top: 2rem;
 }
 
 /* TABLET */

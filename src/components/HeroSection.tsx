@@ -103,13 +103,6 @@ export default function HeroSection({ onOpenPassport }: HeroSectionProps) {
             </button>
           </div>
 
-          <div className="hero__chips">
-            <span className="chip">React</span>
-            <span className="chip">TypeScript</span>
-            <span className="chip">Express</span>
-            <span className="chip">MySQL</span>
-            <span className="chip">Figma</span>
-          </div>
         </div>
 
         {/* RIGHT */}

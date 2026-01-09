@@ -149,21 +149,6 @@
   background: rgba(0, 0, 0, 0.16);
 }
 
-.hero__chips {
-  display: flex;
-  gap: 8px;
-  flex-wrap: wrap;
-  margin-top: 12px;
-}
-
-.chip {
-  border: 1px solid rgba(255, 255, 255, 0.16);
-  background: rgba(255, 255, 255, 0.05);
-  color: var(--muted);
-  padding: 8px 10px;
-  border-radius: 999px;
-  font-size: 0.9rem;
-}
 
 .hero__visual {
     position: relative;

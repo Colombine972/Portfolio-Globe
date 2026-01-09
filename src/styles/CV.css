@@ -86,7 +86,8 @@
 }
 
 .cv-title span {
-  color: #7dd3fc;
+  color: var(--accent);
+  text-shadow: 0 0 22px rgba(102, 227, 255, 0.28);
 }
 
 .cv-subtitle {

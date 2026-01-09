@@ -1,5 +1,7 @@
+import { Link } from "react-router";
 import "../styles/Skills.css";
 import "../styles/Globals.css";
+
 
 type SkillLogo = {
   src: string;
@@ -38,7 +40,7 @@ const skills: Skill[] = [
     ],
   },
   {
-    icon: "🗂",
+    icon: "/logos/base-de-donnees.png",
     title: "Base de données",
     description:
       "Modéliser des bases cohérentes et compréhensibles pour soutenir la logique métier.",
@@ -49,7 +51,7 @@ const skills: Skill[] = [
     ],
   },
   {
-    icon: "🧠",
+    icon: "/logos/methodologie.png",
     title: "Méthodologie",
     description:
       "Comprendre le besoin, découper un projet et avancer étape par étape avec rigueur.",
@@ -60,7 +62,7 @@ const skills: Skill[] = [
     ],
   },
   {
-    icon: "🎨",
+    icon: "/logos/experience-utilisateur.png",
     title: "Expérience utilisateur",
     description:
       "Soigner les détails, les animations et l’harmonie visuelle pour créer une expérience engageante.",
@@ -71,7 +73,7 @@ const skills: Skill[] = [
     ],
   },
   {
-    icon: "🌱",
+    icon: "/logos/exploration-continue.png",
     title: "Exploration continue",
     description:
       "Apprendre, tester et expérimenter de nouveaux outils pour enrichir chaque projet.",
@@ -96,11 +98,19 @@ export default function Skills() {
       {/* HERO */}
       <header className="skills-hero">
         <p className="skills-eyebrow">ODYSSEY · COMPÉTENCES</p>
-        <h1>Mes escales techniques</h1>
-        <p className="skills-subtitle">
-          Chaque compétence est une étape du voyage, construite par la pratique
-          et l’exploration.
-        </p>
+        <h1>Mes escales <span>Techniques</span></h1>
+         <div className="skills-hero-row">
+    <p className="skills-subtitle">
+      Chaque compétence est une étape du voyage, construite par la pratique
+      et l’exploration.
+    </p>
+
+    <div className="skills-actions">
+      <Link className="skills-btn" to="/">
+        ✈︎ Retour à l'accueil
+      </Link>
+    </div>
+  </div>
       </header>
 
       {/* GRID */}
