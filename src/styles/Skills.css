@@ -87,10 +87,24 @@
   box-shadow: 0 30px 60px rgba(0, 0, 0, 0.45);
 }
 
-/* ICON */
+/* HEADER (icon + title côte à côte) */
+.skill-header {
+  display: flex;
+  align-items: center;
+  gap: 0.8rem;
+  margin-bottom: 0.8rem;
+}
+
+/* Icône */
 .skill-icon {
-  font-size: 1.6rem;
-  margin-bottom: 1rem;
+  font-size: 1.4rem;
+  line-height: 1;
+}
+
+/* Titre */
+.skill-header h3 {
+  margin: 0;
+  font-size: 1.2rem;
 }
 
 /* TEXT */
@@ -114,7 +128,7 @@
 }
 
 .skill-logos img {
-  height: 50px;
+  height: 100px;
   opacity: 0.65;
   transition: opacity 0.3s ease, transform 0.3s ease;
 }

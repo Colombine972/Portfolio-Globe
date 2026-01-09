@@ -22,8 +22,8 @@ const skills: Skill[] = [
      logos: [
       { src: "/logos/logo-react.png", alt: "React" },
       { src: "/logos/logo-ts.png", alt: "TypeScript" },
-      { src: "/logos/css.svg", alt: "CSS" },
-      { src: "/logos/logo-html.png", alt: "HTML" }
+      { src: "/logos/logo-css.png", alt: "CSS" },
+      { src: "/logos/logo-js.png", alt: "JavaScript" }
     ],
   },
   {
@@ -32,7 +32,7 @@ const skills: Skill[] = [
     description:
       "Structurer la logique applicative et créer des APIs simples, fiables et évolutives.",
     logos: [
-        { src: "/logos/node.svg", alt: "Node.js" },
+        { src: "/logos/logo-node-js.png", alt: "Node.js" },
       { src: "/logos/express.svg", alt: "Express" },
       { src: "/logos/rest.svg", alt: "REST API" },
     ],
@@ -94,8 +94,10 @@ export default function Skills() {
       <section className="skills-grid">
         {skills.map((skill) => (
           <article key={skill.title} className="skill-card">
-            <div className="skill-icon">{skill.icon}</div>
-            <h3>{skill.title}</h3>
+            <div className="skill-header">
+    <span className="skill-icon">{skill.icon}</span>
+    <h3>{skill.title}</h3>
+  </div>
             <p>{skill.description}</p>
 
             {/* LOGOS (si présents) */}
