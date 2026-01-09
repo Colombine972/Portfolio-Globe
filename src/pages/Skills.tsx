@@ -67,6 +67,7 @@ const skills: Skill[] = [
     logos: [
       { src: "/logos/logo-UX.png", alt: "UX" },
       { src: "/logos/logo-UI.png", alt: "UI" },
+      { src: "/logos/logo-figma.png", alt: "figma" },
     ],
   },
   {
