@@ -33,8 +33,8 @@ const skills: Skill[] = [
       "Structurer la logique applicative et créer des APIs simples, fiables et évolutives.",
     logos: [
         { src: "/logos/logo-node-js.png", alt: "Node.js" },
-      { src: "/logos/express.svg", alt: "Express" },
-      { src: "/logos/rest.svg", alt: "REST API" },
+      { src: "/logos/logo-express.png", alt: "Express" },
+      { src: "/logos/logo-rest.png", alt: "REST API" },
     ],
   },
   {
@@ -43,7 +43,9 @@ const skills: Skill[] = [
     description:
       "Modéliser des bases cohérentes et compréhensibles pour soutenir la logique métier.",
    logos: [
-      { src: "/logos/mysql.svg", alt: "MySQL" },
+      { src: "/logos/logo-mysql.png", alt: "MySQL" },
+      { src: "/logos/logo-modelisation.png", alt: "modelisation" },
+      { src: "/logos/logo-relations.png", alt: "relations" }
     ],
   },
   {
@@ -51,21 +53,31 @@ const skills: Skill[] = [
     title: "Méthodologie",
     description:
       "Comprendre le besoin, découper un projet et avancer étape par étape avec rigueur.",
-    
+    logos: [
+      { src: "/logos/logo-agile.png", alt: "agile" },
+      { src: "/logos/logo-trello.png", alt: "trello" },
+      { src: "/logos/logo-git.png", alt: "git" },
+    ],
   },
   {
     icon: "🎨",
     title: "Expérience utilisateur",
     description:
       "Soigner les détails, les animations et l’harmonie visuelle pour créer une expérience engageante.",
-    
+    logos: [
+      { src: "/logos/logo-UX.png", alt: "UX" },
+      { src: "/logos/logo-UI.png", alt: "UI" },
+    ],
   },
   {
     icon: "🌱",
     title: "Exploration continue",
     description:
       "Apprendre, tester et expérimenter de nouveaux outils pour enrichir chaque projet.",
-    
+   logos: [
+      { src: "/logos/logo-veille.png", alt: "veille" },
+      { src: "/logos/logo-test.png", alt: "test" },
+    ],
   },
 ];
 
