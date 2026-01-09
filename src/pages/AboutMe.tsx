@@ -38,10 +38,6 @@ return(
               ODYSSEY est le reflet de mon parcours dans le développement web.
 Comme un voyage, il s’est construit étape par étape, entre apprentissage, expérimentations et découvertes. Actuellement en formation de développeuse web, j’avance avec curiosité et persévérance, en explorant de nouveaux outils, de nouvelles méthodes et de nouvelles façons de créer. 
 <br />Ce portfolio raconte un chemin en construction — un voyage qui continue, ouvert sur la suite.
-
-
-
-
             </p>
           </article>
 
@@ -50,14 +46,10 @@ Comme un voyage, il s’est construit étape par étape, entre apprentissage, ex
             <p>
              Je n’ai pas choisi le développement web par hasard.
 J’y ai trouvé un domaine où la rigueur technique rencontre la créativité, où une idée peut prendre forme et devenir une expérience concrète.
-
 Le code me permet de transformer des concepts abstraits en interfaces visibles, interactives et utiles.
 C’est cette capacité à construire, structurer et donner vie à des projets qui m’a donné envie de m’engager dans cette voie.
-
 Développer, c’est pour moi résoudre des problèmes, expérimenter, créer et toujours avec le souci du sens et de l’expérience utilisateur.
-            </p>
-
-            
+            </p>          
           </article>
 
           <article>
@@ -65,11 +57,9 @@ Développer, c’est pour moi résoudre des problèmes, expérimenter, créer et
             <p>
               Ma façon de créer repose sur une vision globale du projet.
 J’aime penser une interface comme un équilibre entre :
-
 la structure et la logique du code
               Je m’attache à concevoir des interfaces claires, immersives et cohérentes, où le code s’efface pour laisser place à l’expérience.
 Chaque détail compte : une animation fluide, une interaction intuitive, une ambiance visuelle soignée.
-
 <br />Créer une expérience, ce n’est pas seulement faire fonctionner une application, c’est inviter l’utilisateur à explorer.
             </p>
           </article>
