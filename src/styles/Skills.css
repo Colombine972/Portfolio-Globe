@@ -105,22 +105,21 @@
   line-height: 1.6;
 }
 
-/* TECH */
-.skill-tech {
-  display: flex;
-  flex-wrap: wrap;
-  gap: 0.5rem;
+/* LOGOS */
+.skill-logos {
   margin-top: 1.2rem;
-  list-style: none;
-  padding: 0;
+  min-height: 26px;
+  display: flex;
+  gap: 0.8rem;
 }
 
-.skill-tech li {
-  font-size: 0.7rem;
-  letter-spacing: 0.08em;
-  text-transform: uppercase;
-  padding: 0.35rem 0.6rem;
-  border-radius: 999px;
-  background: rgba(255, 255, 255, 0.08);
-  opacity: 0.8;
+.skill-logos img {
+  height: 50px;
+  opacity: 0.65;
+  transition: opacity 0.3s ease, transform 0.3s ease;
+}
+
+.skill-card:hover .skill-logos img {
+  opacity: 1;
+  transform: translateY(-2px);
 }
