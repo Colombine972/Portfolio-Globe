@@ -1,0 +1,132 @@
+.projects-page {
+  position: relative;
+  min-height: 100vh;
+  color: #e8eef5;
+  padding: 18px 4rem;
+  overflow: hidden;
+}
+
+
+/* ===== HERO ===== */
+.projects-hero {
+  position: relative;
+  max-width: 1940px;
+  margin: 5rem 0 2rem 0;
+}
+
+.projects-eyebrow {
+  font-size: 0.8rem;
+  letter-spacing: 0.25em;
+  text-transform: uppercase;
+  opacity: 0.7;
+}
+
+.projects-hero h1 {
+  font-size: clamp(2.5rem, 4vw, 3.5rem);
+  margin: 2rem 0;
+}
+
+.projects-hero span {
+  color: var(--accent);
+  text-shadow: 0 0 22px rgba(102, 227, 255, 0.28);
+}
+
+.projects-hero-row {
+  
+  gap: 2rem;
+  margin-top: 2rem;
+}
+
+.projects-subtitle {
+  max-width: 720px;
+  opacity: 0.85;
+  font-size: 20px;
+}
+
+/* ===== MAP ===== */
+.projects-map {
+  position: relative;
+  height: 50vh;
+  z-index: 2;
+}
+
+/* ===== MARKER ===== */
+.project-marker {
+  position: absolute;
+  width: 42px;
+  height: 42px;
+  border-radius: 50%;
+  background: rgba(102, 227, 255, 0.25);
+  border: 1px solid rgba(102, 227, 255, 0.6);
+  color: white;
+  cursor: pointer;
+  backdrop-filter: blur(6px);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.project-marker:hover {
+  transform: scale(1.1);
+  box-shadow: 0 0 24px rgba(102, 227, 255, 0.6);
+}
+
+/* ===== PROJECT CARD ===== */
+.project-card {
+  position: absolute;
+  bottom: 10%;
+  left: 5%;
+  width: 340px;
+  padding: 1.6rem;
+  background: rgba(255, 255, 255, 0.08);
+  border-radius: 18px;
+  backdrop-filter: blur(12px);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.45);
+}
+
+.project-card h2 {
+  margin-bottom: 0.4rem;
+}
+
+.project-card p {
+  font-size: 0.95rem;
+  opacity: 0.85;
+}
+
+/* STACK */
+.project-stack {
+  display: flex;
+  gap: 0.6rem;
+  margin: 1rem 0;
+  flex-wrap: wrap;
+}
+
+.project-stack span {
+  font-size: 0.75rem;
+  padding: 6px 10px;
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.12);
+}
+
+/* ACTIONS */
+.project-actions {
+  display: flex;
+  gap: 0.6rem;
+}
+
+.project-actions button {
+  flex: 1;
+  padding: 8px;
+  border-radius: 10px;
+  background: rgba(102, 227, 255, 0.18);
+  border: 1px solid rgba(102, 227, 255, 0.35);
+  color: white;
+  cursor: pointer;
+}
+
+/* ===== FOOTER ===== */
+.projects-footer {
+  position: relative;
+  z-index: 2;
+  margin-top: 3rem;
+  display: flex;
+  gap: 1.2rem;
+}

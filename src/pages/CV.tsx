@@ -1,6 +1,7 @@
 import { Link } from "react-router";
 import "../styles/CV.css";
 import "../styles/Globals.css";
+import SideNav from "../components/SideNav";
 
 export default function CV() {
 
@@ -27,12 +28,16 @@ export default function CV() {
 
         </header>
 
+        {/* ================= SIDE NAV (RAIL ODYSSEY) ================= */}
+              <SideNav />
+        
+
       {/* ================= GLASS CARD : RETOUR ================= */}
         <div className="cv-glass-zone">
             
     <div className="cv-glass-return">
     <Link to="/" className="cv-glass-link">
-      ← Retour à la carte
+      ← Retour à Mon ODYSSEE
     </Link>
        
             <a

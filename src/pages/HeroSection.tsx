@@ -12,6 +12,7 @@ import {
 
 import "../styles/HeroSection.css";
 import "../styles/Globals.css";
+import Navbar from "../components/NavBar";
 
 const heroImgUrl = "/globe.png";
 
@@ -51,43 +52,7 @@ export default function HeroSection({ onOpenPassport }: HeroSectionProps) {
       <div className="bg-world-tint" aria-hidden />
       <div className="bg-world-map" aria-hidden />
 
-      {/* ================= NAV ================= */}
-      <header className="hero__nav">
-
-  {/* LEFT (vide ou futur logo) */}
-  <div className="hero__nav-left" />
-
-  {/* CENTER */}
-  <div className="hero__nav-center">
-    <button className="hero__navLink" onClick={() => navigate("/skills")}>
-      Skills
-    </button>
-    <button className="hero__navLink" onClick={() => navigate("/projects")}>
-      Projects
-    </button>
-
-    <p className="hero__brand">
-      <span>Cindy COLOMBINE</span>
-    </p>
-
-    <button className="hero__navLink" onClick={onOpenPassport}>
-      About
-    </button>
-    <button className="hero__navLink" onClick={() => navigate("/contact")}>
-      Contact
-    </button>
-  </div>
-
-  {/* RIGHT */}
-  <div className="hero__nav-right">
-    <button
-      className="hero__navLink hero__navLink--cta"
-      onClick={() => navigate("/cv")}
-    >
-      CV
-    </button>
-  </div>
-</header>
+<Navbar onOpenPassport={onOpenPassport} />
       
 
       {/* ================= GRID ================= */}

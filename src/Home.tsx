@@ -5,22 +5,35 @@ import HeroSection from "./pages/HeroSection";
 import Modal from "./components/Modal";
 
 export default function Home() {
-
   const [isPassportOpen, setIsPassportOpen] = useState(false);
   const navigate = useNavigate();
 
+  const openPassportModal = () => {
+    setIsPassportOpen(true);
+  };
+
+  const closePassportModal = () => {
+    setIsPassportOpen(false);
+  };
+
   return (
     <>
-      <HeroSection onOpenPassport={() => setIsPassportOpen(true)} />
+      {/* HERO */}
+      <HeroSection onOpenPassport={openPassportModal} />
 
-      <Modal isOpen={isPassportOpen} onClose={() => setIsPassportOpen(false)}>
+      {/* PASSPORT MODAL */}
+      <Modal isOpen={isPassportOpen} onClose={closePassportModal}>
         <div className="passport-wrapper">
-          <img src="/passport.png" className="passport-image" />
+          <img
+            src="/passport.png"
+            alt="Passeport ODYSSEY"
+            className="passport-image"
+          />
 
           <button
             className="passport-cta"
             onClick={() => {
-              setIsPassportOpen(false);
+              closePassportModal();
               navigate("/about-me");
             }}
           >
@@ -31,4 +44,3 @@ export default function Home() {
     </>
   );
 }
-

@@ -94,6 +94,7 @@ export default function Skills() {
       <div className="bg-world-map" aria-hidden />
       <div className="about-clouds" aria-hidden />
       <div className="about-bg-overlay" aria-hidden />
+      
 
       {/* HERO */}
       <header className="skills-hero">
@@ -112,6 +113,7 @@ export default function Skills() {
     </div>
   </div>
       </header>
+      
 
       {/* GRID */}
       <section className="skills-grid">
