@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { useNavigate } from "react-router";
 
-import HeroSection from "./components/HeroSection";
+import HeroSection from "./pages/HeroSection";
 import Modal from "./components/Modal";
 
 export default function Home() {

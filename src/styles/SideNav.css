@@ -1,0 +1,105 @@
+/* ===== CONTAINER ===== */
+.sideNav {
+  position: fixed;
+  left: 24px;
+  top: 50%;
+  transform: translateY(-50%);
+  z-index: 50;
+
+  display: flex;
+  flex-direction: column;
+  gap: 14px;
+
+  padding: 14px 10px;
+  border-radius: 999px;
+
+  background: rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(14px);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+
+  box-shadow:
+    0 20px 40px rgba(0, 0, 0, 0.45),
+    inset 0 0 0 1px rgba(255, 255, 255, 0.04);
+}
+
+/* ===== ITEM ===== */
+.sideNav__item {
+  position: relative;
+
+  width: 44px;
+  height: 44px;
+  border-radius: 999px;
+
+  background: rgba(0, 0, 0, 0.28);
+  border: 1px solid rgba(255, 255, 255, 0.22);
+
+  display: grid;
+  place-items: center;
+
+  color: rgba(255, 255, 255, 0.75);
+  cursor: pointer;
+
+  transition: all 0.25s ease;
+}
+
+.sideNav__item:hover {
+  color: #66e3ff;
+  border-color: rgba(102, 227, 255, 0.6);
+  box-shadow: 0 0 22px rgba(102, 227, 255, 0.35);
+  transform: translateX(2px);
+}
+
+/* ===== ACTIVE STATE ===== */
+.sideNav__item.is-active {
+  color: #66e3ff;
+  border-color: rgba(102, 227, 255, 0.8);
+  box-shadow: 0 0 26px rgba(102, 227, 255, 0.45);
+}
+
+/* ===== LABEL (tooltip) ===== */
+.sideNav__label {
+  position: absolute;
+  left: calc(100% + 14px);
+  top: 50%;
+  transform: translateY(-50%) translateX(-6px);
+
+  background: rgba(0, 0, 0, 0.6);
+  backdrop-filter: blur(8px);
+
+  padding: 6px 12px;
+  border-radius: 999px;
+
+  font-size: 0.75rem;
+  color: white;
+  white-space: nowrap;
+
+  opacity: 0;
+  pointer-events: none;
+
+  transition: all 0.25s ease;
+}
+
+/* petite flèche */
+.sideNav__label::before {
+  content: "";
+  position: absolute;
+  left: -6px;
+  top: 50%;
+  transform: translateY(-50%);
+  border-width: 6px;
+  border-style: solid;
+  border-color: transparent rgba(0, 0, 0, 0.6) transparent transparent;
+}
+
+/* show label on hover */
+.sideNav__item:hover .sideNav__label {
+  opacity: 1;
+  transform: translateY(-50%) translateX(0);
+}
+
+/* ===== RESPONSIVE ===== */
+@media (max-width: 900px) {
+  .sideNav {
+    display: none;
+  }
+}

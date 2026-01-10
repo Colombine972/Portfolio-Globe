@@ -2,6 +2,7 @@ import { Link } from "react-router";
 import "../styles/AboutMe.css";
 import "../styles/Globals.css";
 import AboutCarousel from "../components/AboutCarousel";
+import SideNav from "../components/SideNav";
 
 export default function AboutMe() {
 return(
@@ -18,6 +19,9 @@ return(
   <h1>À propos de <span>Cindy</span></h1>
   <p className="about-subtitle"> Chaque projet est une escale, chaque ligne de code est un pas en avant.</p>
   </header>
+
+   {/* ================= SIDE NAV (RAIL ODYSSEY) ================= */}
+      <SideNav />
 
 {/* ================= GLASS CARD ================= */}
 <section className="about-card">
@@ -66,7 +70,7 @@ Chaque détail compte : une animation fluide, une interaction intuitive, une amb
 
           <div className="about-actions">
               <Link className="about-btn" to="/">
-                ✈︎ Retour à l'accueil
+                ✈︎ Retour à Mon ODYSSEE
               </Link>
             </div>
         </div>
