@@ -46,7 +46,7 @@
 /* ===== MAP ===== */
 .projects-map {
   position: relative;
-  height: 50vh;
+  height: 45vh;
   z-index: 2;
 }
 
@@ -72,15 +72,93 @@
 /* ===== PROJECT CARD ===== CARD DE GAUCHE */
 .project-card {
   position: absolute;
-  bottom: 10%;
-  left: 5%;
-  width: 340px;
-  padding: 1.6rem;
-  background: rgba(255, 255, 255, 0.08);
+  bottom: 3%;
+  left: 0%;
+  width: 620px;              /* 👈 plus large */
+  height: 380px;
+  padding: 2rem 2rem 1rem 2rem;
+  display: flex;             /* 👈 clé */
+  gap: 1rem;
+
+  background: rgba(255, 255, 255, 0.06);
   border-radius: 18px;
   backdrop-filter: blur(12px);
   box-shadow: 0 20px 40px rgba(0, 0, 0, 0.45);
 }
+
+.project-info {
+  flex: 1.1;                 /* 👈 prend un peu plus de place */
+  display: flex;
+  flex-direction: column;
+  
+}
+
+.project-info h3 {
+  font-size: 1.4rem;
+  margin-bottom: 0;
+}
+
+.project-subtitle {
+  opacity: 0.85;
+}
+
+
+.project-preview {
+  flex: 0.8;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  perspective: 1400px;
+  max-height: 280px;
+}
+
+.project-preview img {
+  width: 100%;
+  max-width: 280px;
+  border-radius: 14px;
+
+  transform:
+    rotateY(-60deg)      /* 👈 PLUS de profil */
+    rotateZ(2deg)
+    translateX(18px)
+    translateZ(30px);
+
+  transform-origin: left center;
+
+  box-shadow:
+    0 25px 60px rgba(0, 0, 0, 0.45),
+    0 0 30px rgba(102, 227, 255, 0.15);
+
+  transition: transform 0.4s ease;
+}
+
+.project-card:hover .project-preview img {
+  transform:
+    rotateY(-8deg)
+    rotateZ(0deg)
+    translateX(0);
+}
+
+/*
+.project-preview img {
+  width: 100%;
+  border-radius: 14px;
+  transform-origin: left center;
+  box-shadow:
+    0 25px 60px rgba(0, 0, 0, 0.45),
+    0 0 30px rgba(102, 227, 255, 0.15);
+}
+
+/*.project-card {
+  display: grid;
+  grid-template-columns: 1.2fr 0.8fr;
+  gap: 2.5rem;
+  padding: 2rem;
+  border-radius: 20px;
+  background: rgba(255, 255, 255, 0.06);
+  backdrop-filter: blur(14px);
+  box-shadow: 0 30px 60px rgba(0, 0, 0, 0.35);
+}*/
 
 .project-card h2 {
   margin-bottom: 0.4rem;
@@ -91,11 +169,16 @@
   opacity: 0.85;
 }
 
+.project-card h4 {
+  margin-bottom: 0;
+}
+
+
 /* STACK */
 .project-stack {
   display: flex;
   gap: 0.6rem;
-  margin: 1rem 0;
+  margin: 1rem 0 0 0;
   flex-wrap: wrap;
 }
 
@@ -122,6 +205,17 @@
   cursor: pointer;
 }
 
+@media (max-width: 900px) {
+  .project-card {
+    width: 90%;
+    flex-direction: column;
+  }
+
+  .project-preview img {
+    transform: none;
+  }
+}
+
 /* ===== FOOTER ===== bouton le contacter et retour*/
 .projects-footer {
   position: relative;
@@ -130,3 +224,42 @@
   display: flex;
   gap: 1.2rem;
 }
+
+.projects-footer button {
+  text-decoration: none;
+  padding: 12px 16px;
+  border-radius: 14px;
+  border: 1px solid rgba(31, 42, 68, 0.12);
+  background: rgba(255, 255, 255, 0.55);
+  box-shadow: 0 12px 26px rgba(31, 42, 68, 0.12);
+  color: #1f2a44;
+  font-weight: 600;
+  transition: transform 180ms ease, box-shadow 180ms ease, background 180ms ease;
+}
+
+.projects-footer button:hover {
+  transform: translateY(-1px);
+  background: rgba(255, 255, 255, 0.72);
+  box-shadow: 0 16px 34px rgba(31, 42, 68, 0.18);
+}
+
+
+
+.footer-malette {
+  position: absolute;
+  right: -120px;        /* déborde légèrement */
+  bottom: -100px;
+
+  width: 680px;
+  max-width: 40vw;
+
+  pointer-events: none;
+  user-select: none;
+
+  filter:
+    drop-shadow(0 0 40px rgba(102, 227, 255, 0.45))
+    drop-shadow(0 0 80px rgba(102, 227, 255, 0.25));
+
+  opacity: 0.95;
+}
+

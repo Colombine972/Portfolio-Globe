@@ -8,6 +8,7 @@ type Project = {
   title: string;
   description: string;
   stack: string[];
+  image: string;
   position: { top: string; left: string };
 };
 
@@ -17,6 +18,7 @@ const projects: Project[] = [
     title: "Wizdle",
     description: "Jeu daily inspiré de l’univers Harry Potter.",
     stack: ["React", "TypeScript", "API"],
+    image: "/wizdle.png",
     position: { top: "45%", left: "48%" },
   },
   {
@@ -24,6 +26,7 @@ const projects: Project[] = [
     title: "EcoLogic",
     description: "Application de sensibilisation écologique.",
     stack: ["React", "TS", "API"],
+    image: "/autre.png",
     position: { top: "60%", left: "55%" },
   },
 ];
@@ -72,37 +75,69 @@ export default function Projects() {
 
         {/* PROJECT CARD */}
         <AnimatePresence mode="wait">
-          {activeProject && (
-            <motion.article
-              key={activeProject.id}
-              className="project-card"
-              initial={{ opacity: 0, y: 30, scale: 0.96 }}
-              animate={{ opacity: 1, y: 0, scale: 1 }}
-              exit={{ opacity: 0, y: 20, scale: 0.95 }}
-              transition={{ duration: 0.45, ease: "easeOut" }}
-            >
-              <h2>{activeProject.title}</h2>
-              <p>{activeProject.description}</p>
+  {activeProject && (
+    <motion.article
+      key={activeProject.id}
+      className="project-card"
+      initial={{ opacity: 0, y: 30, scale: 0.96 }}
+      animate={{ opacity: 1, y: 0, scale: 1 }}
+      exit={{ opacity: 0, y: 20, scale: 0.95 }}
+      transition={{ duration: 0.45, ease: "easeOut" }}
+    >
+      {/* TEXTE */}
+      <div className="project-info">
+        <h3>{activeProject.title}</h3>
 
-              <div className="project-stack">
-                {activeProject.stack.map((tech) => (
-                  <span key={tech}>{tech}</span>
-                ))}
-              </div>
+        <p className="project-subtitle">
+          {activeProject.description}
+        </p>
 
-              <div className="project-actions">
-                <button>GitHub</button>
-                <button>Voir en ligne</button>
-                <button>Cas pratique</button>
-              </div>
-            </motion.article>
-          )}
-        </AnimatePresence>
+        <div className="project-stack">
+          {activeProject.stack.map((tech) => (
+            <span key={tech}>{tech}</span>
+          ))}
+        </div>
+
+        <h4>Objectif</h4>
+        <p>
+          Créer une expérience utile, immersive et cohérente,
+          pensée comme une escale de mon ODYSSEY.
+        </p>
+
+        <div className="project-actions">
+          <button>GitHub</button>
+          <button>Voir en ligne</button>
+          <button>Cas pratique</button>
+        </div>
+      </div>
+
+      {/* IMAGE */}
+      <div className="project-preview">
+        <motion.img
+          src={activeProject.image}
+          alt={`Aperçu du projet ${activeProject.title}`}
+          initial={{ rotateY: -16, rotateX: 4 }}
+          animate={{ rotateY: -14, rotateX: 3 }}
+          whileHover={{ rotateY: -6, rotateX: 0 }}
+          transition={{ type: "spring", stiffness: 80, damping: 14 }}
+        />
+      </div>
+    </motion.article>
+  )}
+</AnimatePresence>
+
       </section>
 
       <footer className="projects-footer">
         <button>✉️ Me contacter</button>
         <button>✈️ Retour à mon ODYSSEY</button>
+        {/* Mallette décorative */}
+  <img
+    src="/malette-projects.png"
+    alt="malette de projets"
+    aria-hidden
+    className="footer-malette"
+  />
       </footer>
     </main>
   );
