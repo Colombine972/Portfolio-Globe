@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { motion, AnimatePresence } from "framer-motion";
 import "../styles/Projects.css";
 import Navbar from "../components/NavBar";
 
@@ -34,60 +35,71 @@ export default function Projects() {
 
   return (
     <main className="projects-page">
-      {/* BACKGROUND */}
        <div className="bg-world-tint" aria-hidden />
       <div className="bg-world-map" aria-hidden />
 
-      {/* NAVBAR */}
       <Navbar />
 
       {/* HERO */}
       <header className="projects-hero">
-        <p className="projects-eyebrow">ODYSSEY · COMPÉTENCES</p>
-        <h1>Mes escales <span>projets</span></h1>
-        <div className="projects-hero-row">
-        <p className="projects-subtitle">Chaque projet est une destination explorée.</p>
-        </div>
+        <h1>Mes escales projets</h1>
+        <p>Chaque projet est une destination explorée.</p>
       </header>
-            
-       
 
       {/* MAP */}
       <section className="projects-map">
-        {projects.map((project) => (
-          <button
+        {/* MARKERS */}
+        {projects.map((project, index) => (
+          <motion.button
             key={project.id}
             className="project-marker"
             style={project.position}
             onClick={() => setActiveProject(project)}
             aria-label={project.title}
+            initial={{ opacity: 0, scale: 0.6 }}
+            animate={{ opacity: 1, scale: 1 }}
+            transition={{
+              delay: index * 0.2,
+              duration: 0.6,
+              ease: "easeOut",
+            }}
+            whileHover={{ scale: 1.15 }}
+            whileTap={{ scale: 0.95 }}
           >
             ✈️
-          </button>
+          </motion.button>
         ))}
 
-        {/* ACTIVE PROJECT CARD */}
-        {activeProject && (
-          <article className="project-card">
-            <h2>{activeProject.title}</h2>
-            <p>{activeProject.description}</p>
+        {/* PROJECT CARD */}
+        <AnimatePresence mode="wait">
+          {activeProject && (
+            <motion.article
+              key={activeProject.id}
+              className="project-card"
+              initial={{ opacity: 0, y: 30, scale: 0.96 }}
+              animate={{ opacity: 1, y: 0, scale: 1 }}
+              exit={{ opacity: 0, y: 20, scale: 0.95 }}
+              transition={{ duration: 0.45, ease: "easeOut" }}
+            >
+              <h2>{activeProject.title}</h2>
+              <p>{activeProject.description}</p>
 
-            <div className="project-stack">
-              {activeProject.stack.map((tech) => (
-                <span key={tech}>{tech}</span>
-              ))}
-            </div>
+              <div className="project-stack">
+                {activeProject.stack.map((tech) => (
+                  <span key={tech}>{tech}</span>
+                ))}
+              </div>
 
-            <div className="project-actions">
-              <button>GitHub</button>
-              <button>Voir en ligne</button>
-              <button>Cas pratique</button>
-            </div>
-          </article>
-        )}
+              <div className="project-actions">
+                <button>GitHub</button>
+                <button>Voir en ligne</button>
+                <button>Cas pratique</button>
+              </div>
+            </motion.article>
+          )}
+        </AnimatePresence>
       </section>
 
-      {/* FOOTER ACTIONS */}
       <footer className="projects-footer">
         <button>✉️ Me contacter</button>
         <button>✈️ Retour à mon ODYSSEY</button>
