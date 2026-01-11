@@ -15,6 +15,9 @@ function Contact() {
   const next = () =>
     setActiveIndex((i) => (i + 1) % cards.length);
 
+  const isCalendar = cards[activeIndex] === "calendar";
+
+
   return (
     <main className="contact-page">
       <div className="contact-bg" />
@@ -25,7 +28,9 @@ function Contact() {
           ‹
         </button>
 
-        <div className="carousel-3d">
+        <div className="carousel-3d" style={{
+    height: isCalendar ? "700px" : "420px",
+  }}>
           {cards.map((type, index) => {
             const offset =
               (index - activeIndex + cards.length) % cards.length;

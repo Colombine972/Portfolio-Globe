@@ -1,13 +1,29 @@
-import "../styles/Contact.css"
+import { useState } from "react";
+import "../styles/ContactCalendarCard.css";
 
 export default function ContactCalendarCard() {
+  const [key, setKey] = useState(0);
+
+  const resetCalendar = () => {
+    setKey((k) => k + 1); // force le re-mount
+  };
+
   return (
-    <div className="glass-card">
+    <div className="glass-card calendar-card">
+      {/* Bouton fermer */}
+      <button
+        className="calendar-close"
+        onClick={resetCalendar}
+        aria-label="Revenir au calendrier"
+      >
+        ✕
+      </button>
+
       <iframe
-        src="https://calendly.com/ton-lien"
+        key={key}
+        src="https://calendly.com/colombine-cindy/echange-autour-de-mon-cv"
         title="Calendly"
-        frameBorder="0"
-        style={{ width: "100%", height: "100%" }}
+        loading="lazy"
       />
     </div>
   );
