@@ -1,23 +1,24 @@
-.contact-glass-card {
-  width: 360px;
-  padding: 2rem;
+.od-card {
+  width: min(520px, 92vw);
   border-radius: 22px;
+  padding: 26px 28px;
+  color: rgba(234, 242, 248, 0.92);
+  position: relative;
 
-  background: rgba(255, 255, 255, 0.08);
+  /* glass */
+  background: rgba(255, 255, 255, 0.07);
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
 
-  border: 1px solid rgba(255, 255, 255, 0.18);
+  border: 1px solid rgba(255, 255, 255, 0.16);
   box-shadow:
-    0 0 40px rgba(110, 203, 255, 0.15),
-    inset 0 0 20px rgba(255, 255, 255, 0.05);
-
-  color: #eaf2f8;
-  position: relative;
+    0 24px 60px rgba(0, 0, 0, 0.45),
+    0 0 40px rgba(110, 203, 255, 0.16),
+    inset 0 0 18px rgba(255, 255, 255, 0.05);
 }
 
-/* Subtle glowing edge */
-.contact-glass-card::before {
+/* glowing border (gradient stroke) */
+.od-card::before {
   content: "";
   position: absolute;
   inset: 0;
@@ -25,66 +26,127 @@
   padding: 1px;
   background: linear-gradient(
     120deg,
-    rgba(110, 203, 255, 0.6),
-    rgba(255, 255, 255, 0.05)
+    rgba(110, 203, 255, 0.55),
+    rgba(255, 255, 255, 0.08),
+    rgba(110, 203, 255, 0.20)
   );
-  mask: linear-gradient(#000 0 0) content-box,
-        linear-gradient(#000 0 0);
+  mask: linear-gradient(#000 0 0) content-box, linear-gradient(#000 0 0);
   mask-composite: exclude;
   pointer-events: none;
 }
 
-/* HEADER */
-.contact-header {
+/* subtle light flare at bottom */
+.od-card::after {
+  content: "";
+  position: absolute;
+  left: 22px;
+  right: 22px;
+  bottom: 12px;
+  height: 22px;
+  border-radius: 999px;
+  background: radial-gradient(
+    closest-side,
+    rgba(110, 203, 255, 0.35),
+    transparent
+  );
+  filter: blur(6px);
+  opacity: 0.7;
+  pointer-events: none;
+}
+
+/* Header */
+.od-card__header {
   display: flex;
   align-items: center;
-  gap: 1rem;
-  margin-bottom: 1.8rem;
+  gap: 18px;
+  margin-bottom: 12px;
+  align-items: center;
 }
 
-.contact-header h3 {
-  font-size: 1.4rem;
-  letter-spacing: 0.04em;
+.od-card__icon {
+  position: absolute;
+  top: -28px;
+  left: -48px;
+
+  width: 220px;
+  height: 220px;
+  border-radius: 22px;
+
+  object-fit: contain;
+  filter: drop-shadow(0 0 18px rgba(110, 203, 255, 0.45));
 }
 
-.contact-illustration {
-  width: 56px;
-  height: auto;
+
+.od-card__title {
+  margin: 0 auto;
+  font-size: 1.6rem;
+  letter-spacing: 0.06em;
+  color: #000;
 }
 
-/* LIST */
-.contact-list {
-  list-style: none;
-  padding: 0;
-  margin: 0;
+/* Body */
+.od-card__body {
+  display: grid;
+  gap: 12px;
+  padding: 10px 0 16px;
+  width: 70%;
+  margin-left: auto;
+  
 }
 
-.contact-list li {
+.od-row {
   display: flex;
   align-items: center;
-  gap: 0.8rem;
-  padding: 0.7rem 0;
-  font-size: 0.95rem;
+  gap: 8px;
+  text-decoration: none;
+
+  padding: 6px 10px;
+  border-radius: 14px;
+
+  background: rgba(255, 255, 255, 0.05);
+  border-bottom: 2px solid black;
+
+  transition: transform 180ms ease, background 180ms ease,
+    border-color 180ms ease;
+}
+
+.od-row:hover {
+  transform: translateY(-1px);
+  background: rgba(255, 255, 255, 0.08);
+  border-color: rgba(110, 203, 255, 0.30);
+}
+
+.od-row__icon {
+  width: 28px;
+  height: 28px;
+  display: grid;
+  place-items: center;
+  border-radius: 10px;
+
+  background: rgba(1, 13, 20, 0.1);
+  box-shadow: inset 0 0 0 1px rgba(110, 203, 255, 0.20);
+}
+
+.od-row__text {
+  font-size: 0.92rem;
   opacity: 0.9;
 }
 
-.contact-list img {
-  width: 18px;
-  height: 18px;
-  filter: drop-shadow(0 0 6px rgba(110, 203, 255, 0.6));
+/* Footer */
+.od-card__footer {
+  margin-top: 12px;
+  border-top: 1px solid black;
+  display: flex;
+  justify-content: center;
+  color: #000;
 }
 
-/* FOOTER */
-.contact-footer {
-  margin-top: 1.5rem;
-  padding-top: 1rem;
-  border-top: 1px solid rgba(255, 255, 255, 0.15);
-}
-
-.contact-footer p {
-  font-size: 0.7rem;
-  letter-spacing: 0.15em;
-  opacity: 0.6;
-  line-height: 1.6;
+.od-mrz {
+  margin: 0 auto;
+  font-size: 0.72rem;
+  letter-spacing: 0.14em;
   text-transform: uppercase;
+  text-align: center;
+  line-height: 1.7;
+  color: #000;
 }

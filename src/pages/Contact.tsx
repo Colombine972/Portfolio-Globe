@@ -1,5 +1,5 @@
 import { useState } from "react";
-import ContactGlassCard from "../components/ContactGlassCard";
+import ContactCard from "../components/ContactCard";
 import ContactFormCard from "../components/ContactFormCard";
 import ContactCalendarCard from "../components/ContactCalendarCard";
 import "../styles/Contact.css";
@@ -64,7 +64,7 @@ function Contact() {
                 }}
               >
                 {type === "contact" && (
-                  <ContactGlassCard linkedinUrl="https://www.linkedin.com/in/ton-profil" />
+                  <ContactCard />
                 )}
                 {type === "form" && <ContactFormCard />}
                 {type === "calendar" && <ContactCalendarCard />}

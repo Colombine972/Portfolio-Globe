@@ -1,44 +1,66 @@
 import "../styles/ContactCard.css";
 
-export default function ContactCard() {
+type Props = {
+  email?: string;
+  phone?: string;
+  linkedinLabel?: string;
+};
+
+export default function ContactGlassCard({
+  email = "cindy.colombine@gmail.com",
+  phone = "06 95 69 72 76",
+  linkedinLabel = "LinkedIn",
+}: Props) {
   return (
-    <article className="contact-glass-card">
+    <article className="od-card">
       {/* Header */}
-      <header className="contact-header">
+      <header className="od-card__header">
         <img
           src="/glass-contact.png"
-          alt="Contact illustration"
-          className="contact-illustration"
+          alt=""
+          className="od-card__icon"
+          draggable={false}
         />
-        <h3>Contact</h3>
+        <h3 className="od-card__title">Contact</h3>
       </header>
 
-      {/* Content */}
-      <ul className="contact-list">
-        <li>
-          <img src="/assets/icons/mail.svg" alt="" />
-          <span>cindy.colombine@gmail.com</span>
-        </li>
+      {/* Body */}
+      <section className="od-card__body">
+        <a className="od-row" href={`mailto:${email}`}>
+          <span className="od-row__icon" aria-hidden>
+            ✉️
+          </span>
+          <span className="od-row__text">{email}</span>
+        </a>
 
-        <li>
-          <img src="/assets/icons/phone.svg" alt="" />
-          <span>06 95 69 72 76</span>
-        </li>
+        <a className="od-row" href={`tel:${phone.replace(/\s/g, "")}`}>
+          <span className="od-row__icon" aria-hidden>
+            📞
+          </span>
+          <span className="od-row__text">{phone}</span>
+        </a>
 
-        <li>
-          <img src="/assets/icons/linkedin.svg" alt="" />
-          <span>LinkedIn</span>
-        </li>
-      </ul>
+        <a
+          className="od-row"
+          href="https://www.linkedin.com/in/cindy-colombine-devweb/"
+          target="_blank"
+          rel="noopener noreferrer"
+        >
+          <span className="od-row__icon" aria-hidden>
+            💼
+          </span>
+          <span className="od-row__text">{linkedinLabel}</span>
+        </a>
+      </section>
 
       {/* Footer */}
-      <footer className="contact-footer">
-        <p>
-          &lt;&lt;DEV&lt;CINDY&lt;&lt;COLOMBINE&lt;&lt;HTML&lt;CSS&lt;JS
-          <br />
-          REACTNODEMYSQLGITHUB2023&lt;&lt;&lt;
-        </p>
-      </footer>
+      <footer className="od-card__footer">
+  <p>
+    {"<<DEV<CINDY<<COLOMBINE<<HTML<CSS<JS"}
+    <br />
+    {"REACT<NODE<MYSQL<GITHUB<2026<<<"}
+  </p>
+</footer>
     </article>
   );
 }
