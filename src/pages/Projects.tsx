@@ -11,6 +11,12 @@ type StackItem = {
     logo: string;
 };
 
+type ProjectLinks = {
+  github?: string;
+  live?: string;
+  caseStudy?: string;
+};
+
 type Project = {
   id: string;
   title: string;
@@ -19,6 +25,7 @@ type Project = {
   image: string;
   position: { top: string; left: string };
   date: string;
+  links: ProjectLinks;
 };
 
 const projects: Project[] = [
@@ -34,6 +41,11 @@ const projects: Project[] = [
     ],
     image: "/wizdle.png",
     position: { top: "35%", left: "50%" },
+    links: {
+      github: "https://github.com/Colombine972/wizdle",
+      live: "https://wizdle.vercel.app",
+      caseStudy: "/docs/wizdle-case-study.pdf",
+    },
   },
   {
     id: "ecologic",
@@ -47,6 +59,10 @@ const projects: Project[] = [
     ],
     image: "/autre.png",
     position: { top: "13%", left: "67%" },
+    links: {
+      github: "https://github.com/Colombine972/Portfolio-Globe",
+      live: "https://odyssey.vercel.app",
+    },
   },
     {
     id: "portfolio",
@@ -60,6 +76,10 @@ const projects: Project[] = [
     ],
     image: "/hero-odyssey.png",
     position: { top: "-25%", left: "42%" },
+    links: {
+      github: "https://github.com/Colombine972/Portfolio-Globe",
+      live: "https://odyssey.vercel.app",
+    },
   },
 ];
 
@@ -185,37 +205,43 @@ useEffect(() => {
         </p>
 
         <div className="project-actions">
-          <a
-  href="https://github.com/TON-USERNAME/wizdle"
-  target="_blank"
-  rel="noopener noreferrer"
-  className="project-btn"
->
-  <SiGithub size={16} />
-  GitHub
-</a>
+  {activeProject.links?.github && (
+    <a
+      href={activeProject.links.github}
+      target="_blank"
+      rel="noopener noreferrer"
+      className="project-btn"
+    >
+      <SiGithub size={16} />
+      GitHub
+    </a>
+  )}
 
-  <a
-  href="https://wizdle.vercel.app"
-  target="_blank"
-  rel="noopener noreferrer"
-  className="project-btn"
->
-  <ExternalLink size={16} />
-  Voir en ligne
-</a>
+  {activeProject.links.live && (
+    <a
+      href={activeProject.links.live}
+      target="_blank"
+      rel="noopener noreferrer"
+      className="project-btn"
+    >
+      <ExternalLink size={16} />
+      Voir en ligne
+    </a>
+  )}
 
+  {activeProject.links.caseStudy && (
+    <a
+      href={activeProject.links.caseStudy}
+      target="_blank"
+      rel="noopener noreferrer"
+      className="project-btn"
+    >
+      <FileText size={16} />
+      Cas pratique
+    </a>
+  )}
+</div>
 
-  <a
-  href="/docs/wizdle-case-study.pdf"
-  target="_blank"
-  className="project-btn"
->
-  <FileText size={16} />
-  Cas pratique
-</a>
-
-        </div>
       </div>
 
       {/* IMAGE */}
