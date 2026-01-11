@@ -4,22 +4,22 @@
   overflow: hidden;
 }
 
-/* IMAGE DE FOND */
+/* BACKGROUND MULTI-COUCHES */
 .contact-bg {
   position: absolute;
   inset: 0;
 
-  background: url("/contact-back.png") no-repeat;
-  background-size: contain;      /* 🔥 clé ici */
-  background-position: center;   /* centre l’image */
-  background-color: radial-gradient(
-  circle,
-  #122a3a,
-  #081421
-);   
+  background:
+    /* couche floutée (remplit les côtés) */
+    url("/contact-back.png") center top / cover no-repeat,
 
+    /* couche principale */
+    url("/contact-back.png") center / contain no-repeat;
+
+  filter: saturate(0.9) contrast(1.05);
   z-index: 0;
 }
+
 
 
 /* CONTENU AU-DESSUS */
@@ -30,4 +30,5 @@
   min-height: 100vh;
   display: grid;
   place-items: center;
+  left: -200px;
 }
