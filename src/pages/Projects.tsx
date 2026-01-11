@@ -1,6 +1,8 @@
 import { useState, useEffect } from "react";
 import { useNavigate } from "react-router";
 import { motion, AnimatePresence } from "framer-motion";
+import { ExternalLink, FileText } from "lucide-react";
+import { SiGithub } from "react-icons/si";
 import "../styles/Projects.css";
 import Navbar from "../components/NavBar";
 
@@ -183,9 +185,36 @@ useEffect(() => {
         </p>
 
         <div className="project-actions">
-          <button>GitHub</button>
-          <button>Voir en ligne</button>
-          <button>Cas pratique</button>
+          <a
+  href="https://github.com/TON-USERNAME/wizdle"
+  target="_blank"
+  rel="noopener noreferrer"
+  className="project-btn"
+>
+  <SiGithub size={16} />
+  GitHub
+</a>
+
+  <a
+  href="https://wizdle.vercel.app"
+  target="_blank"
+  rel="noopener noreferrer"
+  className="project-btn"
+>
+  <ExternalLink size={16} />
+  Voir en ligne
+</a>
+
+
+  <a
+  href="/docs/wizdle-case-study.pdf"
+  target="_blank"
+  className="project-btn"
+>
+  <FileText size={16} />
+  Cas pratique
+</a>
+
         </div>
       </div>
 

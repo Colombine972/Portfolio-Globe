@@ -222,12 +222,16 @@
   border-radius: 18px;
   backdrop-filter: blur(12px);
   box-shadow: 0 20px 40px rgba(0, 0, 0, 0.45);
+
+  overflow: visible;
 }
 
 .project-info {
   flex: 1;                 /* 👈 prend un peu plus de place */
   display: flex;
   flex-direction: column;
+  position: relative;
+  z-index: 1;
   
 }
 
@@ -243,36 +247,45 @@
 
 
 .project-preview {
+  position: relative;
   flex: 0.8;
+
   display: flex;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-end;
+
   perspective: 1400px;
   transform-style: preserve-3d;
-  max-height: 280px;
+
+  z-index: 3; /* 🔥 AU-DESSUS DU TEXTE */
 }
 
-.project-preview img {
-  width: 100%;
-  max-width: 280px;
-  border-radius: 14px;
 
+.project-preview img {
+  width: 138%;               /* 🔥 plus large que sa colonne */
+  max-width: 340px;
+
+  margin-right: 20px;       /* 🔥 déborde vers la droite */
+  margin-top: -125px;         /* 🔥 déborde vers le haut */
+
+  border-radius: 16px;
   transform-origin: left center;
 
   box-shadow:
-    0 25px 60px rgba(0, 0, 0, 0.45),
-    0 0 30px rgba(102, 227, 255, 0.15);
+    0 30px 70px rgba(0, 0, 0, 0.55),
+    0 0 40px rgba(102, 227, 255, 0.25);
 
-  transition: transform 0.4s ease;
+  z-index: 4;
 }
+
 
 .project-card:hover .project-preview img {
   transform:
-    rotateY(-14deg)
-    rotateX(2deg)
+    rotateY(-7deg)
+    rotateX(1deg)
     rotateZ(0deg)
     translateX(12px)
-    translateZ(20px);
+    translateZ(10px);
 }
 
 
@@ -327,18 +340,46 @@
 /* ACTIONS  github, voir en ligne, cas pratique*/
 .project-actions {
   display: flex;
-  gap: 0.6rem;
+  gap: 14px;
+  flex-wrap: nowrap; /* ❌ empêche le retour à la ligne */
 }
 
-.project-actions button {
-  flex: 1;
-  padding: 8px;
-  border-radius: 10px;
-  background: rgba(102, 227, 255, 0.18);
-  border: 1px solid rgba(102, 227, 255, 0.35);
-  color: white;
+/* BOUTON */
+.project-btn {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+
+  height: 40px;              /* 🔒 hauteur fixe */
+  padding: 0 16px;           /* 🔒 padding horizontal uniquement */
+  white-space: nowrap;       /* 🔒 empêche le texte de passer à la ligne */
+
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(120, 220, 255, 0.35);
+
+  color: #eaf9ff;
+  font-size: 14px;
+  font-weight: 500;
+
   cursor: pointer;
+  transition: all 0.25s ease;
+  text-decoration: none;
 }
+
+/* Hover */
+.project-btn:hover {
+  background: rgba(120, 220, 255, 0.18);
+  box-shadow: 0 0 18px rgba(120, 220, 255, 0.35);
+  transform: translateY(-1px);
+}
+
+/* Icône */
+.project-btn svg {
+  flex-shrink: 0; /* 🔒 empêche l’icône de se déformer */
+}
+
 
 @media (max-width: 900px) {
   .project-card {
@@ -346,7 +387,10 @@
     flex-direction: column;
   }
 
-  .project-preview img {
+   .project-preview img {
+    width: 100%;
+    max-width: 260px;
+    margin: 0;
     transform: none;
   }
 }
