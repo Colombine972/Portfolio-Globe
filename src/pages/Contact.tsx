@@ -2,10 +2,15 @@ import { useState } from "react";
 import { Link } from "react-router";
 import "../styles/Contact.css";
 import ContactCard from "../components/ContactCard";
+import Navbar from "../components/NavBar";
 
 type ContactCard = {
   type: "contact" | "form" | "calendar";
   title: string;
+};
+
+type HeroSectionProps = {
+  onOpenPassport: () => void;
 };
 
 const cards: ContactCard[] = [
@@ -24,7 +29,7 @@ const cards: ContactCard[] = [
 ];
 
 
-function Contact() {
+function Contact({ onOpenPassport }: HeroSectionProps) {
   const [activeIndex, setActiveIndex] = useState(0);
 
   const prev = () => {
@@ -38,6 +43,7 @@ function Contact() {
   return (
     <main className="contact-page">
       <div className="contact-bg" />
+      <Navbar onOpenPassport={onOpenPassport} />
 
       <section className="contact-content">
         <div className="cv-glass-return">

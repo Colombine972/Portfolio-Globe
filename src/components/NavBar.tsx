@@ -53,11 +53,11 @@ export default function Navbar({ onOpenPassport }: NavbarProps) {
         {/* ABOUT */}
         <button
           className="hero__navLink"
-          onClick={onOpenPassport ?? (() => navigate("/about"))}
+          onClick={onOpenPassport ?? (() => navigate("/about-me"))}
         >
           <span className="nav-item">
             About
-            {isActive("/about") && <NavUnderline />}
+            {isActive("/about-me") && <NavUnderline />}
           </span>
         </button>
 

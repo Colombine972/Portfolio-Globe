@@ -62,6 +62,7 @@ const projects: Project[] = [
     links: {
       github: "https://github.com/Colombine972/Portfolio-Globe",
       live: "https://odyssey.vercel.app",
+      caseStudy: "/docs/wizdle-case-study.pdf",
     },
   },
     {
@@ -79,6 +80,7 @@ const projects: Project[] = [
     links: {
       github: "https://github.com/Colombine972/Portfolio-Globe",
       live: "https://odyssey.vercel.app",
+      caseStudy: "/docs/wizdle-case-study.pdf",
     },
   },
 ];
