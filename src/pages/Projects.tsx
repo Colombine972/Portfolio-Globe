@@ -4,11 +4,16 @@ import { motion, AnimatePresence } from "framer-motion";
 import "../styles/Projects.css";
 import Navbar from "../components/NavBar";
 
+type StackItem = {
+    name: string;
+    logo: string;
+};
+
 type Project = {
   id: string;
   title: string;
   description: string;
-  stack: string[];
+  stack: StackItem[];
   image: string;
   position: { top: string; left: string };
   date: string;
@@ -20,7 +25,11 @@ const projects: Project[] = [
     title: "Wizdle",
     date: "12-2025",
     description: "Jeu daily inspiré de l’univers Harry Potter.",
-    stack: ["React", "TypeScript", "API"],
+    stack: [
+        {name: "React", logo: "/logos/logo-react.png"},
+        { name: "TypeScript", logo: "/logos/logo-ts.png" },
+      { name: "API", logo: "/logos/logo-rest.png" },
+    ],
     image: "/wizdle.png",
     position: { top: "35%", left: "50%" },
   },
@@ -29,7 +38,11 @@ const projects: Project[] = [
     title: "EcoLogic",
     date: "11-2025",
     description: "Application de sensibilisation écologique.",
-    stack: ["React", "TS", "API"],
+    stack: [
+        {name: "React", logo: "/logos/logo-react.png"},
+        { name: "TypeScript", logo: "/logos/logo-ts.png" },
+      { name: "API", logo: "/logos/logo-rest.png" },
+    ],
     image: "/autre.png",
     position: { top: "13%", left: "67%" },
   },
@@ -38,7 +51,11 @@ const projects: Project[] = [
     title: "Mon ODYSSEE",
     date: "01-2026",
     description: "Application de présentation de mon portfolio.",
-    stack: ["React", "TS", "API"],
+    stack: [
+        {name: "React", logo: "/logos/logo-react.png"},
+        { name: "TypeScript", logo: "/logos/logo-ts.png" },
+      { name: "API", logo: "/logos/logo-rest.png" },
+    ],
     image: "/hero-odyssey.png",
     position: { top: "-25%", left: "42%" },
   },
@@ -148,7 +165,14 @@ useEffect(() => {
 
         <div className="project-stack">
           {activeProject.stack.map((tech) => (
-            <span key={tech}>{tech}</span>
+    <div key={tech.name} className="stack-item">
+      <img
+        src={tech.logo}
+        alt={tech.name}
+        title={tech.name}
+        className="stack-logo"
+      />
+    </div>
           ))}
         </div>
 
