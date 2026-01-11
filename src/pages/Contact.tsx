@@ -1,17 +1,77 @@
+import { useState } from "react";
 import ContactGlassCard from "../components/ContactGlassCard";
+import ContactFormCard from "../components/ContactFormCard";
+import ContactCalendarCard from "../components/ContactCalendarCard";
 import "../styles/Contact.css";
 
+const cards = ["contact", "form", "calendar"] as const;
+
 function Contact() {
+  const [activeIndex, setActiveIndex] = useState(0);
+
+  const prev = () =>
+    setActiveIndex((i) => (i - 1 + cards.length) % cards.length);
+
+  const next = () =>
+    setActiveIndex((i) => (i + 1) % cards.length);
+
   return (
     <main className="contact-page">
-      {/* Background */}
       <div className="contact-bg" />
 
-      {/* Content */}
       <section className="contact-content">
-        <ContactGlassCard
-          linkedinUrl="https://www.linkedin.com/in/ton-profil"
-        />
+        <div className="carousel-wrapper">
+        <button className="carousel-arrow left" onClick={prev}>
+          ‹
+        </button>
+
+        <div className="carousel-3d">
+          {cards.map((type, index) => {
+            const offset =
+              (index - activeIndex + cards.length) % cards.length;
+
+            let transform = "";
+            let zIndex = 1;
+            let opacity = 0.4;
+            let scale = 0.9;
+
+            if (offset === 0) {
+              transform = "translateX(0) translateZ(120px)";
+              zIndex = 3;
+              opacity = 1;
+              scale = 1;
+            } else if (offset === 1) {
+              transform = "translateX(180px)";
+              zIndex = 2;
+            } else {
+              transform = "translateX(-180px)";
+              zIndex = 2;
+            }
+
+            return (
+              <div
+                key={type}
+                className="carousel-card"
+                style={{
+                  transform: `${transform} scale(${scale})`,
+                  zIndex,
+                  opacity,
+                }}
+              >
+                {type === "contact" && (
+                  <ContactGlassCard linkedinUrl="https://www.linkedin.com/in/ton-profil" />
+                )}
+                {type === "form" && <ContactFormCard />}
+                {type === "calendar" && <ContactCalendarCard />}
+              </div>
+            );
+          })}
+        </div>
+
+        <button className="carousel-arrow right" onClick={next}>
+          ›
+        </button>
+        </div>
       </section>
     </main>
   );
