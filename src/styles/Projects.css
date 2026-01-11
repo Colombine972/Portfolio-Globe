@@ -384,6 +384,9 @@
   flex-shrink: 0; /* 🔒 empêche l’icône de se déformer */
 }
 
+.project-btn link {
+  text-decoration: none;
+}
 
 @media (max-width: 900px) {
   .project-card {

@@ -1,0 +1,179 @@
+.contact-page {
+  position: relative;
+  min-height: 100vh;
+  overflow-x: hidden;
+  overflow-y: auto;
+}
+
+/* 🔥 BACKGROUND */
+.contact-bg {
+  position: fixed;
+  inset: 0;
+  background-image: url("/contact_portfolio.png");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  z-index: -3;
+}
+
+/* CONTENU */
+.contact-content {
+  position: relative;
+  z-index: 1;
+  padding: 120px 24px;
+  color: white;
+}
+
+/* ===============================
+   CAROUSEL
+================================ */
+
+.glass-carousel {
+  position: relative;
+  margin-top: 1rem;
+  
+
+  /* 🔑 CLÉ : largeur suffisante pour voir les flèches */
+  width: 100%;
+  max-width: 900px;
+  height: 340px;
+
+  margin-left: auto;
+  margin-right: auto;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
+  perspective: 1200px;
+transform: none;
+}
+
+.carousel-offset {
+  transform: translate(120px, -60px);
+}
+
+.carousel-3d {
+  position: relative;
+  width: 320px;
+  height: 220px;
+
+  transform-style: preserve-3d;
+}
+
+/* CARTES */
+.glass-card {
+  position: absolute;
+  inset: 0;
+  margin: auto;
+
+  width: 320px;
+  height: 400px;
+  
+
+  border-radius: 20px;
+
+  /* ❌ PAS de glass ici */
+  background: transparent;
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
+
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.35);
+  color: black;
+  text-align: center;
+
+  transition: transform 0.7s ease, opacity 0.7s ease;
+}
+
+
+.glass-card--active {
+  background: #d4cbbc; /* couleur pleine, PAS rgba */
+
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
+
+  box-shadow:
+    0 30px 70px rgba(0, 0, 0, 0.45),
+    0 0 45px rgba(255, 220, 150, 0.7);
+
+  opacity: 1;
+}
+
+
+.glass-card--back {
+  background: rgba(255, 235, 200, 0.35);
+
+  backdrop-filter: none;
+  -webkit-backdrop-filter: none;
+
+  box-shadow:
+    0 18px 40px rgba(0, 0, 0, 0.25);
+
+  filter: brightness(0.9) saturate(0.95);
+  opacity: 0.75;
+}
+
+
+/* ===============================
+   ARROWS (VISIBLES)
+================================ */
+
+.carousel-arrow {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-50%);
+
+  width: 44px;
+  height: 44px;
+  border-radius: 50%;
+
+  background: rgba(255, 255, 255, 0.25);
+  
+
+  border: none;
+  cursor: pointer;
+  font-size: 28px;
+  color: white;
+
+  z-index: 20;
+
+  transition: transform 0.2s ease, background 0.3s ease;
+}
+
+.carousel-arrow:hover {
+  background: rgba(255, 255, 255, 0.45);
+  transform: translateY(-50%) scale(1.1);
+}
+
+.carousel-arrow.left {
+  left: clamp(-200px, -10vw, -60px);
+}
+
+.carousel-arrow.right {
+  right: clamp(-200px, -10vw, -60px);
+}
+
+
+/**** MISE EN FORME GLASS CARD ****/
+.card-header {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 24px;
+  margin-bottom: 12px;
+}
+
+.card-title {
+  font-size: 1.4rem;
+  font-weight: 600;
+}
+
+
+.card-icon {
+  width: 130px;
+  height: 130px;
+  object-fit: contain;
+
+}
+
+

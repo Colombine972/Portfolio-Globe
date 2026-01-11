@@ -6,7 +6,7 @@ import Contact from "./pages/Contact";
 import CV from "./pages/CV";
 import Skills from "./pages/Skills";
 import Projects from "./pages/Projects";
-
+import CasPratiqueWizdle from "./pages/CasPratiqueWizdle";
 
 
 export const router = createBrowserRouter([
@@ -18,7 +18,8 @@ export const router = createBrowserRouter([
             { path: "/cv", element: <CV /> },
             { path: "/contact", element: <Contact /> },
             { path: "/skills", element: <Skills />},
-            { path: "/projects", element: <Projects />}
+            { path: "/projects", element: <Projects />},
+            { path: "/projects/wizdle", element: <CasPratiqueWizdle />}
         ],
     },
 ]);

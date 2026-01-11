@@ -1,5 +1,5 @@
 import { useState, useEffect } from "react";
-import { useNavigate } from "react-router";
+import { useNavigate, Link } from "react-router";
 import { motion, AnimatePresence } from "framer-motion";
 import { ExternalLink, FileText } from "lucide-react";
 import { SiGithub } from "react-icons/si";
@@ -44,7 +44,7 @@ const projects: Project[] = [
     links: {
       github: "https://github.com/Colombine972/wizdle",
       live: "https://wizdle.vercel.app",
-      caseStudy: "/docs/wizdle-case-study.pdf",
+      caseStudy: "/projects/wizdle",
     },
   },
   {
@@ -232,16 +232,14 @@ useEffect(() => {
   )}
 
   {activeProject.links.caseStudy && (
-    <a
-      href={activeProject.links.caseStudy}
-      target="_blank"
-      rel="noopener noreferrer"
-      className="project-btn"
-    >
-      <FileText size={16} />
-      Cas pratique
-    </a>
-  )}
+  <Link
+    to={activeProject.links.caseStudy}
+    className="project-btn"
+  >
+    <FileText size={16} />
+    Cas pratique
+  </Link>
+)}
 </div>
 
       </div>
