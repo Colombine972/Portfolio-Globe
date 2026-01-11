@@ -31,6 +31,13 @@
   text-shadow: 0 0 22px rgba(102, 227, 255, 0.28);
 }
 
+.projects-hero p {
+  max-width: 720px;
+  opacity: 0.85;
+  font-size: 20px;
+}
+
+
 .projects-hero-row {
   
   gap: 2rem;
@@ -55,19 +62,150 @@
   position: absolute;
   width: 42px;
   height: 42px;
-  border-radius: 50%;
-  background: rgba(102, 227, 255, 0.25);
-  border: 1px solid rgba(102, 227, 255, 0.6);
-  color: white;
+  background: transparent;
+  border: none;
+  padding: 0;
   cursor: pointer;
-  backdrop-filter: blur(6px);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
 }
 
-.project-marker:hover {
-  transform: scale(1.1);
-  box-shadow: 0 0 24px rgba(102, 227, 255, 0.6);
+.marker-core {
+  position: relative;
+  width: 40px;
+  height: 40px;
+
+  background: radial-gradient(
+    circle at top,
+    #2e4f5a,
+    #142a33
+  );
+
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  color: #cfe9f0;              /* icône lisible */
+  font-size: 16px;
+  z-index: 2;
+
+  box-shadow:
+    inset 0 0 0 1px rgba(255, 255, 255, 0.08),
+    0 8px 18px rgba(0, 0, 0, 0.45);
 }
+
+.project-marker:hover .marker-core {
+  transform: translateY(-2px);
+}
+
+.marker-content {
+  display: flex;
+  align-items: center;
+}
+
+
+.marker-core::after {
+  content: "";
+  position: absolute;
+  bottom: -8px;
+  left: 50%;
+  transform: translateX(-50%);
+
+  width: 0;
+  height: 0;
+
+  border-left: 6px solid transparent;
+  border-right: 6px solid transparent;
+
+  border-top: 10px solid transparent;
+  border-top-color: rgba(120, 235, 255, 1);
+
+  filter:
+    drop-shadow(0 0 4px rgba(120, 235, 255, 1))
+    drop-shadow(0 0 10px rgba(80, 220, 255, 0.9))
+    drop-shadow(0 0 18px rgba(80, 220, 255, 0.6));
+}
+
+
+/****** Lumière pointe ******/
+.marker-core::before {
+  content: "";
+  position: absolute;
+  bottom: -20px;
+  left: 50%;
+  transform: translateX(-50%);
+
+  width: 30px;
+  height: 14px;
+
+  background: radial-gradient(
+    circle,
+    rgba(120,235,255,0.95) 0%,
+    rgba(120,235,255,0.6) 35%,
+    rgba(120,235,255,0.15) 65%,
+    transparent 80%
+  );
+
+  border-radius: 50%;
+  filter: blur(12px);
+}
+
+
+.project-marker .marker-core,
+.project-marker .marker-core::before,
+.project-marker .marker-core::after {
+  transition:
+    opacity 0.45s ease,
+    box-shadow 0.45s ease,
+    filter 0.45s ease;
+}
+
+/* 🔆 ALLUMÉ */
+.marker--active .marker-core {
+  opacity: 1;
+}
+
+/* 🌑 ÉTEINT */
+.marker--inactive .marker-core {
+  opacity: 0.25;
+  filter: grayscale(0.2);
+}
+
+
+/* === LABEL TEXTE === */
+.marker-label {
+  margin-top: 6px;
+  text-align: center;
+  pointer-events: none;
+  font-family: "Inter", sans-serif;
+}
+/* === LABEL À DROITE === */
+.marker-label--right {
+  margin-left: 10px;
+  text-align: left;
+  pointer-events: none;
+  font-family: "Inter", sans-serif;
+}
+
+
+/* Nom projet */
+.marker-title {
+  display: block;
+  font-size: 12px;
+  font-weight: 600;
+  color: #eaf9ff;
+  text-shadow: 0 0 6px rgba(120, 220, 255, 0.6);
+  white-space: nowrap;
+}
+
+/* Date */
+.marker-date {
+  font-size: 10px;
+  color: rgba(200, 230, 255, 0.75);
+}
+
 
 /* ===== PROJECT CARD ===== CARD DE GAUCHE */
 .project-card {
@@ -87,7 +225,7 @@
 }
 
 .project-info {
-  flex: 1.1;                 /* 👈 prend un peu plus de place */
+  flex: 1;                 /* 👈 prend un peu plus de place */
   display: flex;
   flex-direction: column;
   
@@ -109,6 +247,7 @@
   align-items: center;
   justify-content: center;
   perspective: 1400px;
+  transform-style: preserve-3d;
   max-height: 280px;
 }
 
@@ -116,12 +255,6 @@
   width: 100%;
   max-width: 280px;
   border-radius: 14px;
-
-  transform:
-    rotateY(-60deg)      /* 👈 PLUS de profil */
-    rotateZ(2deg)
-    translateX(18px)
-    translateZ(30px);
 
   transform-origin: left center;
 
@@ -134,31 +267,15 @@
 
 .project-card:hover .project-preview img {
   transform:
-    rotateY(-8deg)
+    rotateY(-14deg)
+    rotateX(2deg)
     rotateZ(0deg)
-    translateX(0);
+    translateX(12px)
+    translateZ(20px);
 }
 
-/*
-.project-preview img {
-  width: 100%;
-  border-radius: 14px;
-  transform-origin: left center;
-  box-shadow:
-    0 25px 60px rgba(0, 0, 0, 0.45),
-    0 0 30px rgba(102, 227, 255, 0.15);
-}
 
-/*.project-card {
-  display: grid;
-  grid-template-columns: 1.2fr 0.8fr;
-  gap: 2.5rem;
-  padding: 2rem;
-  border-radius: 20px;
-  background: rgba(255, 255, 255, 0.06);
-  backdrop-filter: blur(14px);
-  box-shadow: 0 30px 60px rgba(0, 0, 0, 0.35);
-}*/
+
 
 .project-card h2 {
   margin-bottom: 0.4rem;
@@ -248,7 +365,7 @@
 .footer-malette {
   position: absolute;
   right: -120px;        /* déborde légèrement */
-  bottom: -100px;
+  bottom: -120px;
 
   width: 680px;
   max-width: 40vw;
@@ -263,3 +380,29 @@
   opacity: 0.95;
 }
 
+/* Bouton près de la valise */
+.projects-right-cta {
+  position: absolute;
+  right: 80px;
+  bottom: 120px;
+  z-index: 5;
+  transform: translate(-100px, 80px);
+  
+}
+
+.btn-return-odyssey {
+  background: rgba(18, 40, 60, 0.65);
+  border: 1px solid rgba(120, 220, 255, 0.35);
+  border-radius: 999px;
+  padding: 10px 18px;
+  color: #eaf9ff;
+  font-size: 14px;
+  cursor: pointer;
+  backdrop-filter: blur(6px);
+  transition: all 0.25s ease;
+}
+
+.btn-return-odyssey:hover {
+  background: rgba(30, 70, 100, 0.75);
+  box-shadow: 0 0 18px rgba(120, 220, 255, 0.35);
+}

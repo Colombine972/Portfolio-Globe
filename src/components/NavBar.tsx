@@ -1,4 +1,5 @@
-import { useNavigate } from "react-router";
+import { useNavigate, useLocation } from "react-router";
+import { motion } from "framer-motion";
 import "../styles/NavBar.css";
 
 type NavbarProps = {
@@ -7,6 +8,9 @@ type NavbarProps = {
 
 export default function Navbar({ onOpenPassport }: NavbarProps) {
   const navigate = useNavigate();
+  const location = useLocation();
+
+  const isActive = (path: string) => location.pathname === path;
 
   return (
     <header className="hero__nav">
@@ -15,13 +19,29 @@ export default function Navbar({ onOpenPassport }: NavbarProps) {
 
       {/* CENTER */}
       <div className="hero__nav-center">
-        <button className="hero__navLink" onClick={() => navigate("/skills")}>
-          Skills
-        </button>
-        <button className="hero__navLink" onClick={() => navigate("/projects")}>
-          Projects
+        {/* SKILLS */}
+        <button
+          className="hero__navLink"
+          onClick={() => navigate("/skills")}
+        >
+          <span className="nav-item">
+            Skills
+            {isActive("/skills") && <NavUnderline />}
+          </span>
         </button>
 
+        {/* PROJECTS */}
+        <button
+          className="hero__navLink"
+          onClick={() => navigate("/projects")}
+        >
+          <span className="nav-item">
+            Projets
+            {isActive("/projects") && <NavUnderline />}
+          </span>
+        </button>
+
+        {/* BRAND */}
         <button
           className="hero__brand"
           onClick={() => navigate("/")}
@@ -30,15 +50,26 @@ export default function Navbar({ onOpenPassport }: NavbarProps) {
           <span>Cindy COLOMBINE</span>
         </button>
 
+        {/* ABOUT */}
         <button
           className="hero__navLink"
           onClick={onOpenPassport ?? (() => navigate("/about"))}
         >
-          About
+          <span className="nav-item">
+            About
+            {isActive("/about") && <NavUnderline />}
+          </span>
         </button>
 
-        <button className="hero__navLink" onClick={() => navigate("/contact")}>
-          Contact
+        {/* CONTACT */}
+        <button
+          className="hero__navLink"
+          onClick={() => navigate("/contact")}
+        >
+          <span className="nav-item">
+            Contact
+            {isActive("/contact") && <NavUnderline />}
+          </span>
         </button>
       </div>
 
@@ -48,9 +79,27 @@ export default function Navbar({ onOpenPassport }: NavbarProps) {
           className="hero__navLink hero__navLink--cta"
           onClick={() => navigate("/cv")}
         >
-          CV
+          <span className="nav-item">
+            CV
+            {isActive("/cv") && <NavUnderline />}
+          </span>
         </button>
       </div>
     </header>
+  );
+}
+
+/* ===== TRAIT ANIMÉ ===== */
+function NavUnderline() {
+  return (
+    <motion.div
+      layoutId="nav-underline"
+      className="nav-underline"
+      transition={{
+        type: "spring",
+        stiffness: 500,
+        damping: 35,
+      }}
+    />
   );
 }

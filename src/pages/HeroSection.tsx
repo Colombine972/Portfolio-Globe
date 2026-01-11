@@ -36,7 +36,7 @@ export default function HeroSection({ onOpenPassport }: HeroSectionProps) {
   const items: NavItem[] = useMemo(
     () => [
       { key: "skills", label: "Skills", to: "/skills", Icon: Code2 },
-      { key: "projects", label: "Projects", to: "/projects", Icon: BriefcaseBusiness },
+      { key: "projects", label: "Projets", to: "/projects", Icon: BriefcaseBusiness },
       { key: "about", label: "About", to: "/about", Icon: Plane }, // ouvre la modal
       { key: "contact", label: "Contact", to: "/contact", Icon: Mail },
       { key: "cv", label: "CV", to: "/cv", Icon: FileText },
