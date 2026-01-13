@@ -189,3 +189,149 @@ width: 100px;
   opacity: 1;
   transform: translateY(-2px);
 }
+
+@media (max-width: 1439px) {
+  .skills-page {
+    padding: 5rem 3rem 0 3rem;
+  }
+
+  .skills-hero {
+    max-width: 1200px;
+  }
+
+  .skills-subtitle {
+    font-size: 1.05rem;
+    max-width: 620px;
+  }
+
+  .skills-grid {
+    gap: 2rem;
+  }
+
+  .skill-card {
+    padding: 1.5rem 1.8rem;
+  }
+
+  .skill-header img {
+    width: 80px;
+    height: 80px;
+  }
+
+  .skill-logos img {
+    height: 70px;
+  }
+}
+
+
+
+@media (max-width: 1023px) {
+  .skills-page {
+    padding: 4.5rem 2.5rem 0 2.5rem;
+  }
+
+  .skills-hero-row {
+    flex-direction: column;
+    align-items: flex-start;
+    gap: 1.2rem;
+  }
+
+  .skills-actions {
+    justify-content: flex-start;
+  }
+
+  .skills-subtitle {
+    font-size: 1rem;
+    max-width: 100%;
+  }
+
+  .skills-grid {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 1.8rem;
+    align-items: stretch;
+  }
+
+  .skill-card {
+    padding: 1.4rem 1.6rem;
+    height: 100%;
+  display: flex;
+  flex-direction: column;
+  }
+
+  .skill-header img {
+    width: 72px;
+    height: 72px;
+  }
+
+  .skill-card p {
+    font-size: 1.05rem;
+  }
+
+  .skill-logos {
+  margin-top: auto;
+}
+}
+
+
+@media (max-width: 767px) {
+  .skills-page {
+    padding: 4rem 1.5rem 0 1.5rem;
+  }
+
+  /* HERO */
+  .skills-hero {
+    text-align: center;
+  }
+
+  .skills-hero h1 {
+    font-size: clamp(2rem, 7vw, 2.6rem);
+  }
+
+  .skills-hero-row {
+    align-items: center;
+  }
+
+  .skills-subtitle {
+    font-size: 0.95rem;
+    text-align: center;
+  }
+
+  .skills-actions {
+    justify-content: center;
+    margin-top: 0.5rem;
+  }
+
+  /* GRID */
+  .skills-grid {
+    grid-template-columns: 1fr;
+    gap: 1.6rem;
+  }
+
+  /* CARD */
+  .skill-card {
+    padding: 1.6rem 1.4rem;
+  }
+
+  .skill-header {
+    justify-content: center;
+    text-align: center;
+  }
+
+  .skill-header h3 {
+    font-size: 1.15rem;
+  }
+
+  .skill-card p {
+    font-size: 1rem;
+    text-align: center;
+  }
+
+  /* LOGOS */
+  .skill-logos {
+    justify-content: center;
+    flex-wrap: wrap;
+  }
+
+  .skill-logos img {
+    height: 56px;
+  }
+}

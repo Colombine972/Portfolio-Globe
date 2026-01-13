@@ -220,7 +220,7 @@ width: 46px;
 
 /* Responsive */
 
-@media (max-width: 1440px) {
+@media (max-width: 1439px) {
   .hero {
     padding-bottom: 64px;
   }
@@ -275,7 +275,7 @@ width: 46px;
 
 
 
-@media (max-width: 1024px) {
+@media (max-width: 1023px) {
   .hero {
     height: auto;
     padding-bottom: 80px;
@@ -312,7 +312,7 @@ width: 46px;
 }
 
 
-@media (max-width: 768px) {
+@media (max-width: 767px) {
   .hero__copy {
     padding: 100px 12px 0px;
   }
@@ -360,58 +360,7 @@ width: 46px;
     display: none;
   }
 
-
-  /* Sécurité anti overflow horizontal */
-  .hero__nav {
-    width: 100%;
-    max-width: 100%;
-    padding: 10px 12px;
-    box-sizing: border-box;
-    overflow-x: hidden;
-  }
-
-  /* Le centre devient une mini grille mobile */
-  .hero__nav-center {
-    width: 100%;
-    display: grid;
-    grid-template-columns: repeat(3, minmax(0, 1fr)); /* 3 boutons par ligne */
-    gap: 8px;
-    align-items: center;
-  }
-
-  /* Le brand prend toute la première ligne */
-  .hero__brand {
-    grid-column: 1 / -1;
-    justify-self: center;
-    padding: 6px 8px;
-  }
-
-  .hero__brand span {
-    font-size: 0.95rem;
-    white-space: nowrap;
-  }
-
-  /* Tous les liens sont "safe" (ne débordent jamais) */
-  .hero__navLink {
-    min-width: 0;              /* 🔑 clé anti-débordement */
-    width: 100%;
-    padding: 8px 6px;
-    font-size: 0.82rem;
-    white-space: nowrap;
-    overflow: hidden;
-    text-overflow: ellipsis;
-  }
-
-  /* Si tu as une CTA */
-  .hero__navLink--cta {
-    width: 100%;
-    margin-left: 0;
-  }
 }
-
-
-}
-
 
 
 
