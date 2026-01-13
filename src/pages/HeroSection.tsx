@@ -7,7 +7,6 @@ import {
   Plane,
   Mail,
   FileText,
-  ArrowRight,
 } from "lucide-react";
 
 import "../styles/HeroSection.css";
@@ -70,23 +69,6 @@ export default function HeroSection({ onOpenPassport }: HeroSectionProps) {
           <p className="hero__subtitle">
             Je conçois des expériences web modernes, du design UI à l’API.
           </p>
-
-          <div className="hero__actions">
-            <button
-              className="hero__btn hero__btn--primary"
-              onClick={() => navigate("/projects")}
-            >
-              Voir mes projets <ArrowRight size={18} />
-            </button>
-
-            <button
-              className="hero__btn hero__btn--ghost"
-              onClick={() => navigate("/contact")}
-            >
-              Me contacter
-            </button>
-          </div>
-
         </div>
 
         {/* RIGHT */}
