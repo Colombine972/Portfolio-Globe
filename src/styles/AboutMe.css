@@ -210,8 +210,142 @@
 
 
 /* RESPONSIVE */
-@media (max-width: 900px) {
+@media (max-width: 1439px) {
+  .about-card {
+    max-width: 1100px;
+    grid-template-columns: 320px 1fr;
+    gap: 2.5rem;
+    padding: 1.8rem;
+    margin-left: 100px;
+  }
+
+  .about-content h2 {
+    font-size: 1.2rem;
+  }
+
+  .about-content p {
+    font-size: 1rem;
+  }
+
+  .about-actions {
+    justify-content: flex-end;
+    margin-top: 32px;
+  }
+}
+
+
+@media (max-width: 1023px) {
+  /* HERO */
+  .about-hero h1 {
+    font-size: clamp(2.2rem, 5vw, 3rem);
+  }
+
+  .about-subtitle {
+    font-size: 1rem;
+  }
+
+  /* CARD */
   .about-card {
     grid-template-columns: 1fr;
+    gap: 2rem;
+    padding: 1.6rem;
+    margin-left: auto;
+    max-width: 100%;
+  }
+
+  .about-left {
+    display: flex;
+    justify-content: center;
+  }
+
+  .portrait-wrapper {
+    max-width: 360px;
+    width: 100%;
+  }
+
+  /* CONTENT */
+  .about-content article {
+    margin-bottom: 1.6rem;
+  }
+
+  .about-content h2 {
+    font-size: 1.15rem;
+  }
+
+  .about-content p {
+    font-size: 0.95rem;
+  }
+
+  /* CTA */
+  .about-actions {
+    justify-content: center;
+    margin-top: 28px;
+    padding-right: 0;
+  }
+
+  .side-nav {
+    display: none;
+  }
+
+}
+
+
+@media (max-width: 767px) {
+  /* PAGE */
+  .about-page {
+    padding: 0 1.2rem;
+  }
+
+  /* HERO */
+  .about-hero {
+    margin-bottom: 2rem;
+  }
+
+  .about-eyebrow {
+    font-size: 0.65rem;
+    letter-spacing: 0.18em;
+  }
+
+  .about-hero h1 {
+    font-size: clamp(2rem, 7vw, 2.6rem);
+  }
+
+  .about-subtitle {
+    font-size: 0.95rem;
+    line-height: 1.6;
+  }
+
+  /* CARD */
+  .about-card {
+    padding: 1.4rem 1.2rem;
+    border-radius: 20px;
+  }
+
+  .portrait-wrapper {
+    padding: 0.8rem;
+  }
+
+  /* TEXT */
+  .about-content {
+    text-align: center;
+  }
+
+  .about-content h2 {
+    font-size: 1.1rem;
+  }
+
+  .about-content p {
+    font-size: 0.95rem;
+  }
+
+  /* CTA */
+  .about-actions {
+    justify-content: center;
+    margin-top: 24px;
+  }
+
+  .about-btn {
+    width: 100%;
+    text-align: center;
   }
 }
