@@ -13,7 +13,7 @@ export default function AboutCarousel() {
   useEffect(() => {
     const interval = setInterval(() => {
       setIndex((prev) => (prev + 1) % images.length);
-    }, 6000);
+    }, 5000);
 
     return () => clearInterval(interval);
   }, []);
