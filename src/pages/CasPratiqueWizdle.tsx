@@ -42,7 +42,7 @@ export default function CV() {
     </Link>
        
             <a
-              href="/CV_Cindy_COLOMBINE.pdf"
+              href="/Cas_pratique_wizdle.pdf"
               target="_blank"
               rel="noopener noreferrer"
               className="cv-glass-download"

@@ -1,4 +1,5 @@
 import { useState } from "react";
+import { useNavigate } from "react-router";
 import ContactCard from "../components/ContactCard";
 import ContactFormCard from "../components/ContactFormCard";
 import ContactCalendarCard from "../components/ContactCalendarCard";
@@ -16,6 +17,8 @@ function Contact() {
     setActiveIndex((i) => (i + 1) % cards.length);
 
   const isCalendar = cards[activeIndex] === "calendar";
+
+  const navigate = useNavigate();
 
 
   return (
@@ -77,6 +80,15 @@ function Contact() {
           ›
         </button>
         </div>
+        <div className="projects-right-cta">
+
+  <button
+    className="btn-return-odyssey"
+    onClick={() => navigate("/")}
+  >
+    ✈️ Retour à mon ODYSSEY
+  </button>
+</div>
       </section>
     </main>
   );

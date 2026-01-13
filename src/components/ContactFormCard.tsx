@@ -3,7 +3,7 @@ import "../styles/Contact.css"
 export default function ContactFormCard() {
   return (
     <div className="glass-card">
-      <h3>Formulaire</h3>
+      <h3>Vous avez une question ?</h3>
       <input placeholder="Nom" />
       <input placeholder="Email" />
       <textarea placeholder="Message" rows={4} />
@@ -11,3 +11,4 @@ export default function ContactFormCard() {
     </div>
   );
 }
+
