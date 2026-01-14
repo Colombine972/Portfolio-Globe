@@ -8,21 +8,40 @@ type Props = {
 };
 
 export default function NavigationResponsive({ onOpenPassport }: Props) {
-  const [width, setWidth] = useState(window.innerWidth);
+  const [viewport, setViewport] = useState({
+    width: window.innerWidth,
+    height: window.innerHeight,
+  });
 
   useEffect(() => {
-    const onResize = () => setWidth(window.innerWidth);
+    const onResize = () => {
+      setViewport({
+        width: window.innerWidth,
+        height: window.innerHeight,
+      });
+    };
+
     window.addEventListener("resize", onResize);
     return () => window.removeEventListener("resize", onResize);
   }, []);
 
+  const { width, height } = viewport;
+  const isPortrait = height > width;
+
+  /* =============================
+     RÈGLES DE NAVIGATION
+  ============================== */
+
+  // 📱 Mobile
   if (width <= 767) {
     return <MobileMenu onOpenPassport={onOpenPassport} />;
   }
 
-  if (width <= 1081) {
-    return <SideNav />;
+  // 📲 Tablet portrait (ex: 768x1024)
+  if (width <= 1080 && isPortrait) {
+    return <SideNav onOpenPassport={onOpenPassport} />;
   }
 
+  // 💻 Tablet paysage (ex: 1024x768) + Desktop
   return <Navbar onOpenPassport={onOpenPassport} />;
 }

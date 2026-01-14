@@ -9,6 +9,10 @@ import {
 
 import "../styles/SideNav.css";
 
+type SideNavProps = {
+  onOpenPassport?: () => void;
+};
+
 const navItems = [
   { label: "Skills", to: "/skills", Icon: Compass },
   { label: "Projects", to: "/projects", Icon: Folder },
@@ -17,7 +21,7 @@ const navItems = [
   { label: "CV", to: "/cv", Icon: FileText },
 ];
 
-export default function SideNav() {
+export default function SideNav({ onOpenPassport }: SideNavProps) {
   const navigate = useNavigate();
   const location = useLocation();
 
@@ -30,7 +34,13 @@ export default function SideNav() {
           <button
             key={label}
             className="sideNav__item"
-            onClick={() => navigate(to)}
+            onClick={() => {
+  if (label === "About" && onOpenPassport) {
+    onOpenPassport();
+  } else {
+    navigate(to);
+  }
+}}
             aria-label={label}
             title={label}
           >
