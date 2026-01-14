@@ -296,6 +296,7 @@ width: 46px;
 
   .hero__visual {
     justify-items: center;
+    padding-top: 32px;
   }
 
   .hero__img {
@@ -303,11 +304,7 @@ width: 46px;
   }
 
   .orbit {
-    top: 0;
-    transform:
-      translateX(-50%)
-      rotateX(8deg)
-      rotateZ(-18deg);
+    display: none;
   }
 }
 
