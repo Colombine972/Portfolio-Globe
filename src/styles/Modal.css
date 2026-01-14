@@ -5,18 +5,26 @@
 
   display: flex;
   justify-content: center;
-  align-items: center; /* 🔥 CENTRAGE TOTAL */
+  align-items: flex-start; /* ✅ plus de centrage vertical */
+
+  padding: 48px 16px; /* espace haut / bas */
+  overflow-y: auto;  /* sécurité */
 
   z-index: 9999;
 }
 
+
 /* CONTENEUR */
 .modal-content {
   position: relative;
-  background: transparent; 
-  border-radius: 0;
+  background: transparent;
   padding: 0;
-  overflow: visible;
+
+  max-height: 100%;
+  overflow: hidden;
+
+  display: flex;
+  flex-direction: column;
 }
 
 /* FOND */
@@ -30,25 +38,28 @@
   z-index: 1;
 
   display: flex;
+  flex-direction: column;
   align-items: center;
-  justify-content: center;
+
+  max-height: calc(100vh - 96px); /* viewport - padding overlay */
+  overflow-y: auto;
 
   padding: 0;
 }
 
 /* CROIX */
 .modal-close {
-  position: absolute;
+  position: sticky; /* ✅ au lieu de absolute */
   top: 12px;
-  right: 12px;
+  align-self: flex-end;
+
   z-index: 10;
 
   width: 36px;
   height: 36px;
-  border: none;
   border-radius: 999px;
 
-  background: rgba(255, 255, 255, 0.85);
+  background: rgba(255, 255, 255, 0.9);
   color: #1f2d3d;
 
   font-size: 1.4rem;
@@ -97,3 +108,12 @@
   box-shadow: 0 12px 30px rgba(0, 0, 0, 0.25);
 }
 
+@media (max-height: 820px) {
+  .modal-overlay {
+    padding: 24px 12px;
+  }
+
+  .modal-inner {
+    max-height: calc(100vh - 48px);
+  }
+}
