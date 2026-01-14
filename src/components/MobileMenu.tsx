@@ -4,11 +4,8 @@ import { useNavigate } from "react-router";
 
 import "../styles/MobileMenu.css";
 
-type Props = {
-  onOpenPassport?: () => void;
-};
 
-export default function MobileMenu({ onOpenPassport }: Props) {
+export default function MobileMenu() {
   const [open, setOpen] = useState(false);
   const navigate = useNavigate();
 
