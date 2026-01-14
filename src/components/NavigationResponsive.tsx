@@ -17,7 +17,7 @@ export default function NavigationResponsive({ onOpenPassport }: Props) {
   }, []);
 
   if (width <= 767) {
-    return <MobileMenu />;
+    return <MobileMenu onOpenPassport={onOpenPassport} />;
   }
 
   if (width <= 1080) {
