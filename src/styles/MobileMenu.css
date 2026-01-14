@@ -1,0 +1,71 @@
+/* TOGGLE BUTTON */
+.mobileMenu__toggle {
+  position: fixed;
+  top: 18px;
+  right: 18px;
+  z-index: 1000;
+
+  width: 44px;
+  height: 44px;
+  border-radius: 999px;
+
+  background: rgba(5, 15, 30, 0.7);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(12px);
+
+  display: grid;
+  place-items: center;
+  color: white;
+}
+
+/* OVERLAY */
+.mobileMenu__overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.45);
+  z-index: 999;
+}
+
+/* DRAWER */
+.mobileMenu {
+  position: fixed;
+  top: 0;
+  right: 0;
+  height: 100vh;
+  width: min(78vw, 320px);
+
+  background: rgba(8, 18, 35, 0.92);
+  backdrop-filter: blur(16px);
+
+  transform: translateX(100%);
+  transition: transform 260ms ease;
+  z-index: 1001;
+
+  padding: 24px;
+}
+
+.mobileMenu.is-open {
+  transform: translateX(0);
+}
+
+/* CLOSE */
+.mobileMenu__close {
+  all: unset;
+  cursor: pointer;
+  color: white;
+  margin-bottom: 32px;
+}
+
+/* NAV */
+.mobileMenu__nav {
+  display: flex;
+  flex-direction: column;
+  gap: 18px;
+}
+
+.mobileMenu__nav button {
+  all: unset;
+  cursor: pointer;
+  font-size: 1.2rem;
+  color: rgba(255, 255, 255, 0.9);
+}
