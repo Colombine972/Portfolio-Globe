@@ -46,16 +46,7 @@ export default function MobileMenu({ onOpenPassport }: Props) {
         <nav className="mobileMenu__nav">
           <button onClick={() => go("/skills")}>Skills</button>
           <button onClick={() => go("/projects")}>Projects</button>
-
-          <button
-            onClick={() => {
-              setOpen(false);
-              onOpenPassport?.();
-            }}
-          >
-            About
-          </button>
-
+        <button onClick={() => go("/about")}>About</button>
           <button onClick={() => go("/contact")}>Contact</button>
           <button onClick={() => go("/cv")}>CV</button>
         </nav>
