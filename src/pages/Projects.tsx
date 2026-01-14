@@ -4,7 +4,7 @@ import { motion, AnimatePresence } from "framer-motion";
 import { ExternalLink, FileText } from "lucide-react";
 import { SiGithub } from "react-icons/si";
 import "../styles/Projects.css";
-import Navbar from "../components/NavBar";
+import NavigationResponsive from "../components/NavigationResponsive";
 
 type StackItem = {
     name: string;
@@ -108,7 +108,7 @@ useEffect(() => {
        <div className="bg-world-tint" aria-hidden />
       <div className="bg-world-map" aria-hidden />
 
-      <Navbar />
+      <NavigationResponsive />
 
       {/* HERO */}
       <header className="projects-hero">

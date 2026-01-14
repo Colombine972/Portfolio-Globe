@@ -11,7 +11,8 @@ import {
 
 import "../styles/HeroSection.css";
 import "../styles/Globals.css";
-import Navbar from "../components/NavBar";
+import NavigationResponsive from "../components/NavigationResponsive";
+
 
 const heroImgUrl = "/globe.png";
 
@@ -51,7 +52,8 @@ export default function HeroSection({ onOpenPassport }: HeroSectionProps) {
       <div className="bg-world-tint" aria-hidden />
       <div className="bg-world-map" aria-hidden />
 
-<Navbar onOpenPassport={onOpenPassport} />
+
+<NavigationResponsive onOpenPassport={onOpenPassport} />
       
 
       {/* ================= GRID ================= */}
