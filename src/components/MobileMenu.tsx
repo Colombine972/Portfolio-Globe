@@ -4,8 +4,11 @@ import { useNavigate } from "react-router";
 
 import "../styles/MobileMenu.css";
 
+type Props = {
+  onOpenPassport?: () => void;
+};
 
-export default function MobileMenu() {
+export default function MobileMenu({ onOpenPassport }: Props) {
   const [open, setOpen] = useState(false);
   const navigate = useNavigate();
 
@@ -43,7 +46,16 @@ export default function MobileMenu() {
         <nav className="mobileMenu__nav">
           <button onClick={() => go("/skills")}>Skills</button>
           <button onClick={() => go("/projects")}>Projects</button>
-        <button onClick={() => go("/about")}>About</button>
+
+          <button
+            onClick={() => {
+              setOpen(false);
+              onOpenPassport?.();
+            }}
+          >
+            About
+          </button>
+
           <button onClick={() => go("/contact")}>Contact</button>
           <button onClick={() => go("/cv")}>CV</button>
         </nav>
