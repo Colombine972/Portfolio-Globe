@@ -5,14 +5,12 @@
 
   display: flex;
   justify-content: center;
-  align-items: flex-start; /* ✅ plus de centrage vertical */
+  align-items: center;
 
-  padding: 48px 16px; /* espace haut / bas */
-  overflow-y: auto;  /* sécurité */
+  overflow: hidden; /* 🔑 AUCUN scroll */
 
   z-index: 9999;
 }
-
 
 /* CONTENEUR */
 .modal-content {
@@ -20,11 +18,14 @@
   background: transparent;
   padding: 0;
 
-  max-height: 100%;
-  overflow: hidden;
+  max-width: 92vw;
+  max-height: 92vh;
 
   display: flex;
-  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+
+  overflow: hidden;
 }
 
 /* FOND */
@@ -34,32 +35,30 @@
 
 /* CONTENU */
 .modal-inner {
-  position: relative;
-  z-index: 1;
-
   display: flex;
   flex-direction: column;
   align-items: center;
+  justify-content: center;
 
-  max-height: calc(100vh - 96px); /* viewport - padding overlay */
-  overflow-y: auto;
+  max-width: 100%;
+  max-height: 100%;
 
-  padding: 0;
+  overflow: hidden;
 }
 
 /* CROIX */
 .modal-close {
-  position: sticky; /* ✅ au lieu de absolute */
+  position: absolute;
   top: 12px;
-  align-self: flex-end;
-
+  right: 12px;
   z-index: 10;
 
   width: 36px;
   height: 36px;
+  border: none;
   border-radius: 999px;
 
-  background: rgba(255, 255, 255, 0.9);
+  background: rgba(255, 255, 255, 0.85);
   color: #1f2d3d;
 
   font-size: 1.4rem;
@@ -109,11 +108,23 @@
 }
 
 @media (max-height: 820px) {
-  .modal-overlay {
-    padding: 24px 12px;
+  .modal-content {
+    max-width: 88vw;
+    max-height: 86vh;
   }
 
-  .modal-inner {
-    max-height: calc(100vh - 48px);
+  .passport-image {
+    max-width: min(440px, 82vw);
+  }
+}
+
+@media (max-height: 820px) {
+  .modal-content {
+    max-width: 88vw;
+    max-height: 86vh;
+  }
+
+  .passport-image {
+    max-width: min(440px, 82vw);
   }
 }
