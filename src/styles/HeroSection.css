@@ -327,35 +327,9 @@ width: 46px;
   }
 
   .orbit {
-    display: block;
-    position: absolute;
-    top: 8%;
-    left: 50%;
-    width: 260px;
-    height: 180px;
-    transform:
-      translateX(-50%)
-      rotateX(8deg)
-      rotateZ(-16deg);
-    pointer-events: none;
-  }
-
-  .orbitIcon {
-    transform:
-      rotate(var(--angle))
-      translateX(95px)
-      rotate(calc(-1 * var(--angle)));
-  }
-
-  .orbitIcon__inner {
-    width: 38px;
-    height: 38px;
-  }
-
-  /* 🔑 UX mobile : on cache les labels */
-  .orbitIcon__label {
     display: none;
   }
+
 
 }
 
