@@ -207,7 +207,8 @@
   /* 🟨 Glass card (arrière-plan) */
   .cv-glass-zone {
     width: 94%;
-    max-width: 1200px;
+    max-width: 1000px;
+    min-height: 135vh;
     padding: 2.5rem 2.5rem 3.5rem;
   }
 
