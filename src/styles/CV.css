@@ -203,6 +203,16 @@ display: flex;
   .cv-iframe {
     min-height: 90vh;
   }
+
+  .cv-glass-zone {
+    width: 94%;
+    padding: 1rem;
+  }
+
+  .cv-glass-return {
+    flex-direction: column;
+    text-align: center;
+  }
 }
 
 @media (max-width: 768px) {
