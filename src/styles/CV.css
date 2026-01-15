@@ -135,19 +135,7 @@
 
 
 
-@media (max-width: 768px) {
-  .cv-title {
-    font-size: 38px;
-  }
 
-  .cv-iframe {
-    height: 80vh;
-  }
-
-  .cv-cta-card {
-    padding: 24px;
-  }
-}
 
 
 /* ===============================
@@ -211,3 +199,22 @@ display: flex;
 
 
 
+@media (min-width: 1081px) {
+  .cv-iframe {
+    min-height: 90vh;
+  }
+}
+
+@media (max-width: 768px) {
+  .cv-title {
+    font-size: 38px;
+  }
+
+  .cv-iframe {
+    height: 80vh;
+  }
+
+  .cv-cta-card {
+    padding: 24px;
+  }
+}
