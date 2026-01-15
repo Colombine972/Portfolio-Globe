@@ -205,7 +205,7 @@
     width: 92%;
     max-width: 1100px;
 
-    padding: 3rem 3rem 4rem; /* débordement visible */
+    padding: 1.2rem; /* débordement visible */
   }
 
   /* 📄 Frame du CV */
