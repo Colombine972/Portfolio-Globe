@@ -210,8 +210,9 @@
 
   /* 📄 Frame du CV */
   .cv-frame {
-    max-width: 1050px;
+    max-width: 850px;
     padding: 16px;
+    height: auto;
   }
 
   /* 📄 Iframe : on ajuste la hauteur */
