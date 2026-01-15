@@ -106,7 +106,7 @@
   justify-content: center;
 
   padding: 2rem 1rem 4rem;
-  margin-top: -135vh; /* Ici que l'on remonte le CV */
+  margin-top: -60vh; /* Ici que l'on remonte le CV */
 }
 
 .cv-frame {
@@ -126,28 +126,14 @@
 .cv-iframe {
   width: 100%;
   aspect-ratio: 210 / 297;
-  height: 120vh;
+  height: auto;
+  min-height: 90vh;
   border: none;
   border-radius: 16px;
   background: #f3e7d3;
  
 }
 
-
-
-@media (max-width: 768px) {
-  .cv-title {
-    font-size: 38px;
-  }
-
-  .cv-iframe {
-    height: 80vh;
-  }
-
-  .cv-cta-card {
-    padding: 24px;
-  }
-}
 
 
 /* ===============================
@@ -211,3 +197,107 @@ display: flex;
 
 
 
+@media (max-width: 767px) {
+  .cv-hero {
+    padding: 110px 16px 40px;
+  }
+
+  .cv-title {
+    font-size: 30px;
+    line-height: 1.1;
+  }
+
+  .cv-subtitle {
+    font-size: 0.95rem;
+  }
+
+  .cv-glass-zone {
+    width: 92%;
+    height: auto;
+    padding: 1rem;
+  }
+
+  .cv-glass-return {
+    flex-direction: column;
+    gap: 12px;
+    text-align: center;
+  }
+
+  .cv-glass-link,
+  .cv-glass-download {
+    font-size: 16px;
+  }
+
+  .cv-wrapper {
+    margin-top: 0; /* 🔑 PLUS DE REMONTÉE */
+    padding-top: 1.5rem;
+  }
+
+  .cv-frame {
+    padding: 10px;
+  }
+
+  .cv-iframe {
+    aspect-ratio: auto;
+    height: 80vh;
+  }
+}
+
+
+@media (min-width: 768px) and (max-width: 1023px) and (orientation: portrait) {
+  .cv-hero {
+    padding: 130px 24px 60px;
+  }
+
+  .cv-title {
+    font-size: 40px;
+  }
+
+  .cv-wrapper {
+    margin-top: 0;
+    padding-top: 2rem;
+  }
+
+  .cv-glass-zone {
+    width: 88%;
+    height: auto;
+  }
+
+  .cv-iframe {
+    height: 85vh;
+  }
+}
+
+@media (max-width: 1080px) and (orientation: landscape) {
+  .cv-hero {
+    padding: 120px 24px 60px;
+  }
+
+  .cv-wrapper {
+    margin-top: -30vh; /* 👈 effet Odyssey allégé */
+  }
+
+  .cv-glass-zone {
+    width: 82%;
+    height: auto;
+  }
+
+  .cv-iframe {
+    height: 90vh;
+  }
+}
+
+@media (min-width: 1081px) {
+  .cv-wrapper {
+    margin-top: -50vh;
+  }
+
+  .cv-glass-zone {
+    height: auto;
+    padding-bottom: 2rem;
+  }
+
+  .cv-iframe {
+    height: 110vh;
+  }
+}
