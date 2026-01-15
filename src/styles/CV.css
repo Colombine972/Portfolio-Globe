@@ -216,7 +216,7 @@
 
   /* 📄 Iframe : on ajuste la hauteur */
   .cv-iframe {
-    height: 105vh; /* 🔑 PLUS GRAND que l’écran */
+    height: 155vh; /* 🔑 PLUS GRAND que l’écran */
   }
 
   /* 🔗 Barre retour / download */
