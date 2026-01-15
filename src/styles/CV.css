@@ -106,7 +106,7 @@
   justify-content: center;
 
   padding: 2rem 1rem 4rem;
-  margin-top: -105vh; /* Ici que l'on remonte le CV */
+  margin-top: -75vh; /* Ici que l'on remonte le CV */
 }
 
 .cv-frame {
