@@ -106,7 +106,7 @@
   justify-content: center;
 
   padding: 2rem 1rem 4rem;
-  margin-top: -60vh; /* Ici que l'on remonte le CV */
+  margin-top: -105vh; /* Ici que l'on remonte le CV */
 }
 
 .cv-frame {
@@ -126,8 +126,7 @@
 .cv-iframe {
   width: 100%;
   aspect-ratio: 210 / 297;
-  height: auto;
-  min-height: 90vh;
+  height: 120vh;
   border: none;
   border-radius: 16px;
   background: #f3e7d3;
@@ -135,6 +134,20 @@
 }
 
 
+
+@media (max-width: 768px) {
+  .cv-title {
+    font-size: 38px;
+  }
+
+  .cv-iframe {
+    height: 80vh;
+  }
+
+  .cv-cta-card {
+    padding: 24px;
+  }
+}
 
 
 /* ===============================
