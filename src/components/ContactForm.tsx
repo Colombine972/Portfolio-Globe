@@ -2,13 +2,17 @@ import { useState } from "react";
 import "../styles/ContactForm.css";
 
 type ContactFormData = {
+	category: ContactCategory;
 	name: string;
 	phoneNumber: string;
 	commentaires: string;
 };
 
+type ContactCategory = "wizdle" | "portfolio" | "general" | "cv";
+
 function ContactForm() {
 	const [formData, setFormData] = useState<ContactFormData>({
+		category:"general",
 		name: "",
 		phoneNumber: "",
 		commentaires: "",
@@ -17,7 +21,7 @@ function ContactForm() {
 	const [isSubmitted, setIsSubmitted] = useState(false);
 
 	const handleInputChange = (
-		event: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>,
+		event: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>,
 	) => {
 		const { name, value } = event.target;
 		setFormData((prev) => ({
@@ -31,6 +35,7 @@ function ContactForm() {
 		console.log("Données envoyées :", formData);
 		setIsSubmitted(true);
 		setFormData({
+			category:"general",
 			name: "",
 			phoneNumber: "",
 			commentaires: "",
@@ -45,7 +50,18 @@ function ContactForm() {
 			{!isSubmitted ? (
 				<form onSubmit={handleFormSubmit} className="formulaire">
 					<h3>Vous avez une question ?</h3>
-
+					<select
+	name="category"
+	value={formData.category}
+	onChange={handleInputChange}
+	aria-label="Catégorie de la question"
+	required
+>
+	<option value="general">Question générale</option>
+	<option value="portfolio">Projet Portfolio</option>
+	<option value="wizdle">Projet Wizdle</option>
+	<option value="cv">CV / Recrutement</option>
+</select>
 					<input
 						type="text"
 						name="name"
@@ -58,7 +74,7 @@ function ContactForm() {
 
 					<input
 						type="tel"
-						name="phonenumber"
+						name="phoneNumber"
 						placeholder="Votre numéro"
 						aria-label="Numéro"
 						value={formData.phoneNumber}

@@ -204,29 +204,28 @@
 
 @media (max-width: 1439px) {
 
-.cv-frame {
-  background: #f3e7d3;
-  border-radius: 16px;
-  padding: 16px;
+/* 🟨 Glass card : un peu plus compacte */
+  .cv-glass-zone {
+    width: 88%;
+    max-width: 960px;
 
-  box-shadow:
-    0 30px 80px rgba(0, 0, 0, 0.45);
+    height: 130vh;          /* ⬅️ un peu moins que 140 */
+    padding: 1.4rem;        /* respiration conservée */
+  }
 
-  max-width: 840px;
-  width: 100%;
-  overflow: hidden;
- 
-}
+  /* 📄 Frame du CV */
+  .cv-frame {
+    max-width: 800px;       /* ⬅️ réduction proportionnelle */
+    padding: 14px;
+    overflow-x: hidden;
+  }
 
-.cv-iframe {
-  width: 100%;
-  aspect-ratio: 210 / 297;
-  height: 120vh;
-  border: none;
-  border-radius: 16px;
-  background: #f3e7d3;
- 
-}
+  /* 📄 CV : même logique mais réduit */
+  .cv-iframe {
+    height: 108vh;          /* ⬅️ clé : moins haut */
+    transform: scale(0.93); /* 🔑 évite le scroll */
+    transform-origin: top center;
+  }
 }
 
 
