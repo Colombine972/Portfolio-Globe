@@ -200,21 +200,36 @@
 
 
 @media (min-width: 1081px) {
-  .cv-iframe {
-    min-height: 90vh;
-  }
-
+  /* 🟨 Glass card : plus grande que le CV */
   .cv-glass-zone {
-    width: 94%;
-    padding: 1rem;
+    width: 92%;
+    max-width: 1100px;
+
+    padding: 3rem 3rem 4rem; /* débordement visible */
   }
 
- .cv-frame {
+  /* 📄 Frame du CV */
+  .cv-frame {
+    max-width: 880px;
+    padding: 16px;
+  }
 
-  max-width: 940px;
-  width: 100%;
-  overflow: hidden;
-}
+  /* 📄 Iframe : on ajuste la hauteur */
+  .cv-iframe {
+    height: 105vh; /* 🔑 PLUS GRAND que l’écran */
+  }
+
+  /* 🔗 Barre retour / download */
+  .cv-glass-return {
+    margin-bottom: 2rem;
+    padding: 12px 26px;
+  }
+
+  .cv-glass-link,
+  .cv-glass-download {
+    font-size: 18px;
+  }
+
 }
 
 
