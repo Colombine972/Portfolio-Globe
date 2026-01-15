@@ -203,14 +203,14 @@
   /* 🟨 Glass card : plus grande que le CV */
   .cv-glass-zone {
     width: 92%;
-    max-width: 1000px;
+    max-width: 1100px;
 
     padding: 1.2rem; /* débordement visible */
   }
 
   /* 📄 Frame du CV */
   .cv-frame {
-    max-width: 950px;
+    max-width: 1050px;
     padding: 16px;
   }
 
