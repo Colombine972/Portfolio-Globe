@@ -136,24 +136,27 @@
 
 
 
+
 /* ===============================
    ZONE DE RESPIRATION GLASS
 ================================ */
 
 .cv-glass-zone {
   position: relative;
-  z-index: 3;
+  z-index: 9;
 
-  width: 100%;
-  max-width: 860px;
-  margin: 2rem auto;
-
-  padding: 1rem;
+  
+  margin: 0 auto 2.5rem; /* ⬅️ CENTRAGE HORIZONTAL */
+  padding: 1.2rem;
 
   background: rgba(255, 220, 160, 0.25);
-  border-radius: 18px;
-}
 
+  border-radius: 18px;
+  height: 140vh;
+
+  width: 80%;           /* ⬅️ largeur logique */
+  max-width: 1000px;     /* ⬅️ alignée avec le CV */
+}
 
 
 
@@ -162,52 +165,36 @@
 ================================ */
 
 .cv-glass-return {
-  display: flex;
-  justify-content: space-between;
+  position: relative;
+  z-index: 2; /* ⬅️ AU-DESSUS DES NUAGES ET OVERLAY */
+
+display: flex;
   align-items: center;
-  gap: 16px;
+  justify-content: space-between; /* 🔑 gauche / droite */
 
-  padding: 14px 24px;
+  margin: 0; 
+  margin-top: 1rem;
+
+  padding: 14px 28px;
+  border-radius: 999px;
+ 
 }
 
-
-.cv-glass-link,
-.cv-glass-download {
+.cv-glass-link {
   color: white;
-  font-size: 18px;
-  font-weight: 600;
   text-decoration: none;
+  font-size: 20px;
+  font-weight: 600;
+  letter-spacing: 0.06em;
+}
+
+.cv-glass-download {
+    color: white;
+    text-decoration: none;
+  font-size: 20px;
+  font-weight: 600;
+  letter-spacing: 0.06em;
 }
 
 
 
-
-@media (max-width: 767px) {
-  .cv-glass-return {
-    flex-direction: column;
-    text-align: center;
-  }
-
-  .cv-iframe {
-    min-height: 70vh;
-  }
-}
-
-
-@media (min-width: 768px) and (orientation: portrait) {
-  .cv-iframe {
-    min-height: 80vh;
-  }
-}
-
-@media (max-width: 1080px) and (orientation: landscape) {
-  .cv-iframe {
-    min-height: 85vh;
-  }
-}
-
-@media (min-width: 1081px) {
-  .cv-iframe {
-    min-height: 95vh;
-  }
-}
