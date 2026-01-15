@@ -169,7 +169,7 @@
   position: relative;
   z-index: 2; /* ⬅️ AU-DESSUS DES NUAGES ET OVERLAY */
 
-display: flex;
+  display: flex;
   align-items: center;
   justify-content: space-between; /* 🔑 gauche / droite */
 
@@ -207,6 +207,7 @@ display: flex;
   .cv-glass-zone {
     width: 94%;
     padding: 1rem;
+    height: 170vh;
   }
 
   .cv-glass-return {
@@ -214,6 +215,7 @@ display: flex;
     text-align: center;
   }
 }
+
 
 @media (max-width: 768px) {
   .cv-title {
