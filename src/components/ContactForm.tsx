@@ -91,7 +91,7 @@ function ContactForm() {
 						required
 					/>
 
-					<button type="submit">Envoyer</button>
+					<button type="submit" className="btn-return-odyssey">Envoyer</button>
 				</form>
 			) : (
 				<p className="form-success">

@@ -17,11 +17,14 @@
 
 .formulaire button {
 	margin-top: 0.3rem;
+	align-self: center;
 	background: white;
 	color: black;
 	font-weight: 600;
 	width: 6rem;
 }
+
+
 
 .formulaire button:hover {
 	background: rgba(255, 255, 255, 0.25);
@@ -31,6 +34,7 @@
 
 .formulaire textarea {
 	padding-top: 9px;
+	min-height: 150px;
 }
 
 .formulaire input {
