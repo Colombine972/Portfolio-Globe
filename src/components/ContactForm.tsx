@@ -30,9 +30,13 @@ function ContactForm() {
 		}));
 	};
 
-	const handleFormSubmit = (event: React.FormEvent) => {
+	const handleFormSubmit = async (event: React.FormEvent) => {
 		event.preventDefault(); // empêche le rechargement de la page
-		console.log("Données envoyées :", formData);
+		console.log("FORM SUBMITTED");
+		try {
+			await commentLeave();
+			console.log("FETCH SUCCESS");
+		
 		setIsSubmitted(true);
 		setFormData({
 			category:"general",
@@ -43,27 +47,33 @@ function ContactForm() {
 		setTimeout(() => {
 			setIsSubmitted(false);
 		}, 5000);
-	};
+	} catch (error) {
+		console.error("FETCH ERROR", error);
+	}
+};
 
-	function commentLeave() {
-		try {
-			fetch(`${import.meta.env.VITE_API_URL}/api/contact`, {
+	async function commentLeave() {
+		console.log("API URL =", import.meta.env.VITE_API_URL);
+		const response = await fetch(`${import.meta.env.VITE_API_URL}/api/contact`, {
 				method: "POST",
-				headers: { "Content-type": "application/json" }, 
+				headers: { "Content-Type": "application/json" }, 
 				body: JSON.stringify({
     category: formData.category,
     name: formData.name,
     commentaires: formData.commentaires
-  }),
-			
-			})} catch (error) {
-			console.log(error)
-		};
-	}
+  }) ,
+	 }
+  );
+
+  if (!response.ok) {
+    throw new Error("Erreur lors de l’envoi du message");
+  }
+}
 
 	return (
 		<>
 			{!isSubmitted ? (
+				
 				<form onSubmit={handleFormSubmit} className="formulaire">
 					<h3>Vous avez une question ?</h3>
 					<select
