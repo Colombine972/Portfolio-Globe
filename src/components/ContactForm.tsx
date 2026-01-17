@@ -45,6 +45,22 @@ function ContactForm() {
 		}, 5000);
 	};
 
+	function commentLeave() {
+		try {
+			fetch(`${import.meta.env.VITE_API_URL}/api/contact`, {
+				method: "POST",
+				headers: { "Content-type": "application/json" }, 
+				body: JSON.stringify({
+    category: formData.category,
+    name: formData.name,
+    commentaires: formData.commentaires
+  }),
+			
+			})} catch (error) {
+			console.log(error)
+		};
+	}
+
 	return (
 		<>
 			{!isSubmitted ? (
