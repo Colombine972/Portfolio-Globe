@@ -8,3 +8,4 @@ CREATE TABLE contact_message (
   is_read BOOLEAN DEFAULT FALSE,
   created_at DATETIME DEFAULT CURRENT_TIMESTAMP
 );
+

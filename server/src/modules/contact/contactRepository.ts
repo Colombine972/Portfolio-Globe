@@ -22,3 +22,18 @@ export async function insertMessage(category: string, name: string, message: str
 
     return result;
 }
+
+export async function updateMessage(
+    id: number,
+    category: string, 
+    name: string,
+    commentaires: string
+) 
+{
+    const [result] = await database.query<ResultSetHeader>(
+        "UPDATE contact_message SET category = ?, name = ?, commentaires = ? WHERE id = ?",
+        [category, name, commentaires, id]
+    )
+    return result;
+}
+
