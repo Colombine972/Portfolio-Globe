@@ -1,10 +1,11 @@
 import express from "express";
-import { addMessage, getAllMessages, getMessageById } from "./contactController"
+import { addMessage, editMessage, getAllMessages, getMessageById } from "./contactController"
 
 const router = express.Router()
 
 router.get("/", getAllMessages);
 router.get("/:id", getMessageById);
-router.post("/", addMessage)
+router.post("/", addMessage);
+router.put("/:id", editMessage);
 
 export default router;
