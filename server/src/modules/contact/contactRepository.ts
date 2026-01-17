@@ -1,4 +1,4 @@
-import { ResultSetHeader } from "mysql2";
+import { ResultSetHeader, RowDataPacket } from "mysql2";
 import database from "../../database/client";
 
 export async function findAllMessages() {
@@ -6,9 +6,17 @@ export async function findAllMessages() {
     return rows;
 }
 
+export async function findMessageById(id: number) {
+    const [rows] = await database.query<RowDataPacket[]>(
+        "SELECT * FROM contact_message WHERE id =?", [id]
+    );
+    
+    return rows;
+}
+
 export async function insertMessage(category: string, name: string, message: string) {
     const [result] = await database.query<ResultSetHeader>(
-        "INSERT INTO contact_message (category, name, message) VALUES (?, ?, ?)",
+        "INSERT INTO contact_message (category, name, commentaires) VALUES (?, ?, ?)",
         [category, name, message]
     );
 

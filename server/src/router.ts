@@ -1,13 +1,12 @@
 import express from "express";
+import contactRouter from "./modules/contact/contactRouter";
 
 const router = express.Router();
 
-router.get("/", (_req, res) => {
+router.get("/health", (_req, res) => {
   res.send("🔥 ROUTER OK 🔥");
 });
 
-router.get("/health", (_req, res) => {
-  res.send("une autre route");
-})
+router.use("/api/contact", contactRouter);
 
 export default router;
