@@ -37,3 +37,11 @@ export async function updateMessage(
     return result;
 }
 
+export async function updateMessageRead(id: number) {
+    
+    const [result] = await database.query<ResultSetHeader>(
+        "UPDATE contact_message SET is_read = 1 WHERE id = ?", [id]
+    );
+    
+    return result;
+}

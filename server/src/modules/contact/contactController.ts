@@ -1,5 +1,6 @@
 import { Request, Response } from "express";
-import { findAllMessages, findMessageById, insertMessage, updateMessage } from "./contactRepository";
+import { findAllMessages, findMessageById, insertMessage, updateMessage, updateMessageRead } from "./contactRepository";
+import { sendContactNotification } from "../../services/mailService";
 
 export async function getAllMessages (req: Request, res: Response) {
     try {
@@ -42,6 +43,10 @@ export async function addMessage (req: Request, res: Response) {
 }
     
 const result = await insertMessage(category, name, commentaires);
+
+  // 🔔 Notification email
+    await sendContactNotification(category, name, commentaires);
+
 res.status(201).json({
     id: result.insertId, category, name, commentaires
 });
@@ -84,6 +89,26 @@ export async function editMessage (req : Request, res: Response) {
   }
 }
 
+export async function markMessageAsRead(req: Request, res: Response) {
+  try {
+    const id = Number(req.params.id);
 
+    if (Number.isNaN(id)) {
+      return res.status(400).json({ message: "ID invalide" });
+    }
+
+    const result = await updateMessageRead(id);
+
+    if (result.affectedRows === 0) {
+      return res.status(404).json({ message: "Message non trouvé" });
+    }
+
+    res.json({ message: "Message marqué comme lu" });
+  } catch (error) {
+    res.status(500).json({
+      message: "Erreur lors de la mise à jour du message",
+    });
+  }
+}
 
 
