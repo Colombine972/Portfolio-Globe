@@ -16,9 +16,6 @@ app.use(cors({
   allowedHeaders: ["Content-Type"],
 }));
 
-// ✅ OBLIGATOIRE pour le preflight
-app.options("*", cors());
-
 app.use(express.json());
 
 app.get("/test-db", async (req, res) => {
