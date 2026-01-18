@@ -79,8 +79,8 @@ const projects: Project[] = [
     position: { top: "-25%", left: "42%" },
     links: {
       github: "https://github.com/Colombine972/Portfolio-Globe",
-      live: "https://odyssey.vercel.app",
-      caseStudy: "/docs/wizdle-case-study.pdf",
+      live: "https://cindycolombine.vercel.app",
+      caseStudy: "/projects/portfolio",
     },
   },
 ];
