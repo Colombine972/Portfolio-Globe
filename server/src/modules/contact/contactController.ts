@@ -1,6 +1,5 @@
 import { Request, Response } from "express";
 import { findAllMessages, findMessageById, insertMessage, updateMessage, updateMessageRead } from "./contactRepository";
-import { sendContactNotification } from "../../services/mailService";
 
 export async function getAllMessages (req: Request, res: Response) {
     try {
@@ -44,8 +43,6 @@ export async function addMessage (req: Request, res: Response) {
     
 const result = await insertMessage(category, name, commentaires);
 
-  // 🔔 Notification email
-    await sendContactNotification(category, name, commentaires);
 
 res.status(201).json({
     id: result.insertId, category, name, commentaires

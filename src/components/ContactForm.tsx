@@ -1,4 +1,5 @@
 import { useState } from "react";
+import emailjs from "@emailjs/browser";
 import "../styles/ContactForm.css";
 
 type ContactFormData = {
@@ -34,9 +35,20 @@ function ContactForm() {
 		event.preventDefault(); // empêche le rechargement de la page
 		console.log("FORM SUBMITTED");
 		try {
-			await commentLeave();
-			console.log("FETCH SUCCESS");
-		
+/*			await commentLeave();
+			console.log("FETCH SUCCESS");*/
+		await emailjs.send(
+        import.meta.env.VITE_EMAILJS_SERVICE_ID,
+        import.meta.env.VITE_EMAILJS_TEMPLATE_ID,
+        {
+          category: formData.category,
+          name: formData.name,
+          phone: formData.phoneNumber,
+          commentaires: formData.commentaires,
+        },
+        import.meta.env.VITE_EMAILJS_PUBLIC_KEY
+      );
+
 		setIsSubmitted(true);
 		setFormData({
 			category:"general",
@@ -52,7 +64,7 @@ function ContactForm() {
 	}
 };
 
-	async function commentLeave() {
+	/*async function commentLeave() {
 		console.log("API URL =", import.meta.env.VITE_API_URL);
 		const response = await fetch(`${import.meta.env.VITE_API_URL}/api/contact`, {
 				method: "POST",
@@ -68,12 +80,11 @@ function ContactForm() {
   if (!response.ok) {
     throw new Error("Erreur lors de l’envoi du message");
   }
-}
+}*/
 
 	return (
 		<>
 			{!isSubmitted ? (
-				
 				<form onSubmit={handleFormSubmit} className="formulaire">
 					<h3>Vous avez une question ?</h3>
 					<select
