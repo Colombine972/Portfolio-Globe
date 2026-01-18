@@ -15,6 +15,10 @@ app.use(cors({
   methods: ["GET", "POST", "PUT", "DELETE", "OPTIONS"],
   allowedHeaders: ["Content-Type"],
 }));
+
+// ✅ OBLIGATOIRE pour le preflight
+app.options("*", cors());
+
 app.use(express.json());
 
 app.get("/test-db", async (req, res) => {
