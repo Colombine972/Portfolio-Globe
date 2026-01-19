@@ -1,14 +1,15 @@
 import "../styles/ContactCard.css";
+import { SiGithub } from "react-icons/si";
 
 type Props = {
   email?: string;
-  phone?: string;
+  githubLabel?: string;
   linkedinLabel?: string;
 };
 
 export default function ContactGlassCard({
   email = "cindy.colombine@gmail.com",
-  phone = "06 95 69 72 76",
+  githubLabel = "Github",
   linkedinLabel = "LinkedIn",
 }: Props) {
   return (
@@ -33,11 +34,14 @@ export default function ContactGlassCard({
           <span className="od-row__text">{email}</span>
         </a>
 
-        <a className="od-row" href={`tel:${phone.replace(/\s/g, "")}`}>
+        <a className="od-row"
+          href="https://github.com/Colombine972"
+          target="_blank"
+          rel="noopener noreferrer">
           <span className="od-row__icon" aria-hidden>
-            📞
+            <SiGithub size={16} />
           </span>
-          <span className="od-row__text">{phone}</span>
+          <span className="od-row__text">{githubLabel}</span>
         </a>
 
         <a
