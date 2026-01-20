@@ -128,9 +128,8 @@
 
 /*** bouton du retour ****/
 
-
 /* ================= LAPTOP 1024–1439 ================= */
-@media (max-width: 1439px) {
+@media (min-width: 1440px) and (max-width: 1599px) {
 
   /* Zone carousel plus compacte */
   .carousel-3d {
@@ -140,18 +139,88 @@
   }
 
   .carousel-3d.is-calendar {
-    height: 450px;
+    height: 600px;
   }
 
   /* Glass card plus petite */
-  .glass-card {
+  /*.glass-card {
     width: min(340px, 90vw);
     padding: 22px 24px;
     border-radius: 20px;
+  }*/
+
+  .od-card {
+    width: min(550px, 90vw);
+  }
+  
+  .glass-card--form {
+    width: min(500px, 90vw);
   }
 
+  /* Réduction visuelle des cartes */
+  .carousel-card {
+    transform-origin: center center;
+  }
+
+  /* Flèches plus proches */
+  .carousel-wrapper {
+    gap: 28px;
+  }
+
+  .carousel-arrow {
+    width: 56px;
+    height: 56px;
+    font-size: 36px;
+  }
+
+  .carousel-arrow.left {
+    left: -85px;
+  }
+
+  .carousel-arrow.right {
+    right: -85px;
+  }
+
+  /* Légère correction de centrage global */
+  .contact-content {
+    left: -150px;
+  }
+}
+
+.projects-right-cta {
+    right: 100px;
+    bottom: 40px;
+  }
+
+
+
+/* ================= LAPTOP 1024–1439 ================= */
+@media (min-width: 1280px) and (max-width: 1439px) {
+
+  /* Zone carousel plus compacte */
+  .carousel-3d {
+    width: 560px;
+    perspective: 900px;
+    height: 380px;
+  }
+
+  .carousel-3d.is-calendar {
+    height: 550px;
+  }
+
+  /* Glass card plus petite */
+  /*.glass-card {
+    width: min(340px, 90vw);
+    padding: 22px 24px;
+    border-radius: 20px;
+  }*/
+
+  .od-card {
+    width: min(500px, 90vw);
+  }
+  
   .glass-card--form {
-    width: min(490px, 90vw);
+    width: min(450px, 90vw);
   }
 
   /* Réduction visuelle des cartes */
@@ -185,6 +254,200 @@
 }
 
 .projects-right-cta {
-    right: 48px;
+    right: 100px;
     bottom: 40px;
   }
+
+  
+/* ================= LAPTOP 1024–1279 ================= */
+@media (min-width: 1024px) and (max-width: 1279px) {
+
+  /* Zone carousel plus compacte */
+  .carousel-3d {
+    width: 560px;
+    perspective: 900px;
+    height: 380px;
+  }
+
+  .carousel-3d.is-calendar {
+    height: 450px;
+  }
+
+  /* Glass card plus petite */
+  /*.glass-card {
+    width: min(340px, 90vw);
+    padding: 22px 24px;
+    border-radius: 20px;
+  }*/
+
+  .od-card {
+    width: min(450px, 90vw);
+  }
+  
+  .glass-card--form {
+    width: min(400px, 90vw);
+  }
+
+  /* Réduction visuelle des cartes */
+  .carousel-card {
+    transform-origin: center center;
+  }
+
+  /* Flèches plus proches */
+  .carousel-wrapper {
+    gap: 28px;
+  }
+
+  .carousel-arrow {
+    width: 56px;
+    height: 56px;
+    font-size: 36px;
+  }
+
+  .carousel-arrow.left {
+    left: -15px;
+  }
+
+  .carousel-arrow.right {
+    right: -15px;
+  }
+
+  /* Légère correction de centrage global */
+  .contact-content {
+    left: -120px;
+  }
+}
+
+.projects-right-cta {
+    right: 100px;
+    bottom: 40px;
+  }
+
+
+  /* ================= TABLET 768–1023 ================= */
+@media (min-width: 768px) and (max-width: 1023px) {
+
+  .contact-content {
+    left: 0;
+    padding: 32px 0;
+  }
+
+  /* Carousel simplifié */
+  .carousel-wrapper {
+    gap: 16px;
+  }
+
+  .carousel-3d {
+    width: 100%;
+    max-width: 520px;
+    height: 420px;
+    perspective: none;
+  }
+
+  .carousel-3d.is-calendar {
+    height: 420px;
+  }
+
+  /* Cards */
+  .glass-card,
+  .od-card,
+  .glass-card--form {
+    width: min(92vw, 480px);
+  }
+
+
+  /* Flèches */
+  .carousel-arrow {
+    width: 48px;
+    height: 48px;
+    font-size: 32px;
+  }
+
+  .carousel-arrow.left {
+    left: -30px;
+  }
+
+  .carousel-arrow.right {
+    right: -480px;
+  }
+
+  .contact-content {
+    left: -250px;
+  }
+
+  /* Bouton retour */
+  .projects-right-cta {
+    position: relative;
+    right: auto;
+    bottom: auto;
+    margin-top: 32px;
+    display: flex;
+    justify-content: center;
+  }
+}
+
+
+/* ================= MOBILE ≤ 767 ================= */
+@media (max-width: 767px) {
+
+  .contact-content {
+    left: 0;
+    padding: 24px 0 96px;
+  }
+
+  /* Carousel full width */
+  .carousel-wrapper {
+    width: 100%;
+    justify-content: center;
+    gap: 12px;
+  }
+
+  .carousel-3d {
+    width: 100%;
+    max-width: 100%;
+    height: auto;
+    perspective: none;
+  }
+
+  .carousel-3d.is-calendar {
+    height: auto;
+  }
+
+  /* Cards full width */
+  .glass-card,
+  .od-card,
+  .glass-card--form {
+    width: 92vw;
+    padding: 20px;
+    border-radius: 18px;
+  }
+
+  /* Plus de 3D */
+  .carousel-card {
+    transform: none !important;
+    opacity: 1 !important;
+    position: relative;
+  }
+
+  /* Flèches compactes */
+  .carousel-arrow {
+    width: 44px;
+    height: 44px;
+    font-size: 28px;
+  }
+
+  .carousel-arrow.left,
+  .carousel-arrow.right {
+    left: 0;
+    right: 0;
+  }
+
+  /* Bouton retour en bas */
+  .projects-right-cta {
+    position: fixed;
+    left: 50%;
+    bottom: 16px;
+    transform: translateX(-50%);
+    z-index: 30;
+  }
+}
