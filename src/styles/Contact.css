@@ -179,3 +179,8 @@
     left: -120px;
   }
 }
+
+.projects-right-cta {
+  margin-top: 48px;     /* décale vers le bas */
+  margin-left: 240px;   /* décale vers la droite */
+}
