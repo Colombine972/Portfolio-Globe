@@ -150,6 +150,10 @@
     border-radius: 20px;
   }
 
+  .glass-card--form {
+    width: min(420px, 90vw);
+  }
+
   /* Réduction visuelle des cartes */
   .carousel-card {
     transform-origin: center center;
@@ -180,7 +184,7 @@
   }
 }
 
-.btn-return-odyssey {
+.projects-right-cta {
   margin-top: 48px;     /* décale vers le bas */
-  margin-left: 300px;   /* décale vers la droite */
+  margin-left: 240px;   /* décale vers la droite */
 }
