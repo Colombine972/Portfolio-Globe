@@ -122,3 +122,50 @@
 }
 
 /*** bouton du retour ****/
+
+
+/* ================= LAPTOP 1024–1439 ================= */
+@media (min-width: 1024px) and (max-width: 1439px) {
+
+  /* Zone carousel plus compacte */
+  .carousel-3d {
+    width: 560px;
+    perspective: 900px;
+  }
+
+  /* Glass card plus petite */
+  .glass-card {
+    width: min(440px, 90vw);
+    padding: 22px 24px;
+    border-radius: 20px;
+  }
+
+  /* Réduction visuelle des cartes */
+  .carousel-card {
+    transform-origin: center center;
+  }
+
+  /* Flèches plus proches */
+  .carousel-wrapper {
+    gap: 28px;
+  }
+
+  .carousel-arrow {
+    width: 56px;
+    height: 56px;
+    font-size: 36px;
+  }
+
+  .carousel-arrow.left {
+    left: -55px;
+  }
+
+  .carousel-arrow.right {
+    right: -55px;
+  }
+
+  /* Légère correction de centrage global */
+  .contact-content {
+    left: -120px;
+  }
+}
