@@ -145,7 +145,7 @@
 
   /* Glass card plus petite */
   .glass-card {
-    width: min(440px, 90vw);
+    width: min(340px, 90vw);
     padding: 22px 24px;
     border-radius: 20px;
   }
@@ -167,11 +167,11 @@
   }
 
   .carousel-arrow.left {
-    left: -55px;
+    left: -65px;
   }
 
   .carousel-arrow.right {
-    right: -55px;
+    right: -65px;
   }
 
   /* Légère correction de centrage global */
