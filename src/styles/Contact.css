@@ -130,7 +130,7 @@
 
 
 /* ================= LAPTOP 1024–1439 ================= */
-@media (min-width: 1366px) and (max-width: 1599px) {
+@media (max-width: 1439px) {
 
   /* Zone carousel plus compacte */
   .carousel-3d {
@@ -140,7 +140,7 @@
   }
 
   .carousel-3d.is-calendar {
-    height: 380px;
+    height: 450px;
   }
 
   /* Glass card plus petite */
