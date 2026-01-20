@@ -31,9 +31,7 @@ function Contact() {
           ‹
         </button>
 
-        <div className="carousel-3d" style={{
-    height: isCalendar ? "700px" : "420px",
-  }}>
+        <div className={`carousel-3d ${isCalendar ? "is-calendar" : ""}`}>
           {cards.map((type, index) => {
             const offset =
               (index - activeIndex + cards.length) % cards.length;

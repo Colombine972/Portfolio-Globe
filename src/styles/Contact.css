@@ -62,6 +62,11 @@
   width: 700px;
   perspective: 1000px;
   transition: height 0.4s ease;
+  height: 420px;
+}
+
+.carousel-3d.is-calendar {
+  height: 700px;
 }
 
 .carousel-card {
@@ -131,6 +136,11 @@
   .carousel-3d {
     width: 560px;
     perspective: 900px;
+    height: 380px;
+  }
+
+  .carousel-3d.is-calendar {
+    height: 600px;
   }
 
   /* Glass card plus petite */
