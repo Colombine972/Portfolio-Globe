@@ -78,10 +78,10 @@ function Contact() {
           ›
         </button>
         </div>
-        <div className="projects-right-cta">
+        <div className="contact-right-cta">
 
   <button
-    className="btn-return-odyssey"
+    className="btn-return-home"
     onClick={() => navigate("/")}
   >
     ✈️ Retour à mon ODYSSEY
