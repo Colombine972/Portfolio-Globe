@@ -140,7 +140,7 @@
   }
 
   .carousel-3d.is-calendar {
-    height: 500px;
+    height: 380px;
   }
 
   /* Glass card plus petite */
@@ -185,6 +185,6 @@
 }
 
 .projects-right-cta {
-    right: 100px;
+    right: 48px;
     bottom: 40px;
   }
