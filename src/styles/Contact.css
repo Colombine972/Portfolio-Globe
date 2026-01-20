@@ -151,7 +151,7 @@
   }
 
   .glass-card--form {
-    width: min(520px, 90vw);
+    width: min(490px, 90vw);
   }
 
   /* Réduction visuelle des cartes */
@@ -184,3 +184,7 @@
   }
 }
 
+.projects-right-cta {
+    right: 40px;
+    bottom: 40px;
+  }
