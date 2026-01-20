@@ -134,13 +134,13 @@
 
   /* Zone carousel plus compacte */
   .carousel-3d {
-    width: 460px;
+    width: 560px;
     perspective: 900px;
     height: 380px;
   }
 
   .carousel-3d.is-calendar {
-    height: 500px;
+    height: 450px;
   }
 
   /* Glass card plus petite */
