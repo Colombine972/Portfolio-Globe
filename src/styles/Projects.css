@@ -495,137 +495,184 @@
   box-shadow: 0 0 18px rgba(120, 220, 255, 0.35);
 }
 
+@media (min-width: 768px) {
+  .projects-mobile-list {
+    display: none;
+  }
+}
 
-/* ========================================================= */
-/* ===================== PROJECTS MOBILE =================== */
-/* ========================================================= */
+/* ================================================= */
+/* ============== PROJECTS – MOBILE ================= */
+/* ============ STYLE GLASS (SKILLS) ================= */
+/* ================================================= */
 
 @media (max-width: 767px) {
 
-  /* ===== PAGE GLOBALE ===== */
+  /* ================= PAGE ================= */
   .projects-page {
-    padding: 1.2rem 1rem 2rem;
+    padding: 4rem 1.5rem 2rem;
     overflow-x: hidden;
   }
 
-  /* ===== TITRES ===== */
-  .projects-page h1 {
-    font-size: 1.8rem;
+  /* ================= HERO ================= */
+  .projects-hero {
     text-align: center;
-    margin-bottom: 0.4rem;
+    margin-bottom: 2.5rem;
   }
 
-  .projects-page .subtitle,
-  .projects-subtitle {
+  .projects-hero h1 {
+    font-size: clamp(2rem, 7vw, 2.6rem);
+  }
+
+  .projects-hero p {
     font-size: 0.95rem;
-    text-align: center;
     opacity: 0.85;
-    margin-bottom: 1.6rem;
   }
 
-  /* ===== MAP / DECOR ===== */
-  .world-map,
-  .projects-map,
-  .map-markers,
-  .flight-paths,
-  .map-overlay {
-    display: none;
+ /* ================= MOBILE LIST ================= */
+.projects-mobile-list {
+  display: flex;
+  flex-direction: column;
+  gap: 1.6rem;
+}
+
+/* ================= DESKTOP MAP OFF ================= */
+.projects-map {
+  display: none;
+}
+  /* ================= MOBILE LIST ================= */
+  .projects-page::after {
+    content: "";
+    display: block;
   }
 
-  /* ===== CONTAINER PROJECTS ===== */
-  .projects-container,
-  .projects-grid {
+  /* ================= CARD ================= */
+  .project-card {
+     position: relative;
     display: flex;
     flex-direction: column;
-    gap: 1.4rem;
+
+    /* 🔥 on laisse la hauteur libre */
+    height: auto !important;
+    min-height: unset !important;
+    max-height: none !important;
+
+    padding: 1.8rem 1.4rem 2rem; /* ⬅️ plus d’espace en bas */
+    margin-bottom: 2rem;
+
+    border-radius: 22px;
+
+    background: rgba(255, 255, 255, 0.08);
+    backdrop-filter: blur(14px);
+    -webkit-backdrop-filter: blur(14px);
+
+    box-shadow:
+      0 25px 60px rgba(0, 0, 0, 0.35),
+      inset 0 0 0 1px rgba(255, 255, 255, 0.12);
+
+    overflow: visible; /* 🔑 ON ENLÈVE hidden */
   }
 
-  /* ===== CARD PROJECT ===== */
-  .project-card {
-    width: 100%;
-    padding: 1rem;
-    border-radius: 18px;
-    background: rgba(20, 40, 70, 0.45);
-    backdrop-filter: blur(10px);
-    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.25);
-  }
-
-  /* ===== IMAGE ===== */
-  .project-card img,
-  .project-image {
-    width: 100%;
-    height: auto;
-    border-radius: 14px;
-    margin-bottom: 0.8rem;
-    object-fit: cover;
-  }
-
-  /* ===== TITRE ===== */
-  .project-title {
-    font-size: 1.25rem;
-    margin-bottom: 0.3rem;
-  }
-
-  /* ===== TAGS (React / TS / API…) ===== */
-  .project-tags {
+  /* ================= CONTENT ================= */
+  .project-info {
     display: flex;
-    flex-wrap: wrap;
-    gap: 0.4rem;
-    margin-bottom: 0.6rem;
+    flex-direction: column;
+    gap: 0.5rem;
+text-align: center;
+    width: 100%;
   }
 
-  .project-tag {
-    font-size: 0.7rem;
-    padding: 0.25rem 0.5rem;
-    border-radius: 999px;
-    background: rgba(102, 227, 255, 0.15);
+  .project-info h3 {
+    font-size: 2rem;
   }
 
-  /* ===== DESCRIPTION ===== */
-  .project-description,
-  .project-desc {
-    font-size: 0.9rem;
-    line-height: 1.45;
+  .project-subtitle {
+    font-size: 0.95rem;
     opacity: 0.9;
-    margin-bottom: 0.9rem;
   }
 
-  /* ===== ACTIONS ===== */
+  /* ================= STACK ================= */
+  .project-stack {
+    display: flex;
+    justify-content: center;
+    gap: 0.6rem;
+    flex-wrap: wrap;
+    
+  }
+
+  .stack-logo {
+    height: 80px;
+    width: auto;
+  }
+
+  /* ================= TEXT ================= */
+  
+  .project-info p {
+    font-size: 0.95rem;
+    line-height: 1.45;
+  }
+
+  /* ================= IMAGE ================= */
+  .project-preview {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    margin: 1.2rem auto 0;
+    width: 100%;
+  max-width: 100%;
+  height: auto;
+  overflow: visible;
+  }
+
+  .project-preview img {
+    width:80%;
+    max-width: 520px;
+     height: auto;              /* 🔑 laisse l’image respirer */
+  object-fit: contain;       /* 🔑 image complète, pas rognée */
+  object-position: center;
+    border-radius: 14px;
+    transform: none !important;
+  }
+
+  /* ================= ACTIONS ================= */
   .project-actions {
     display: flex;
     flex-direction: column;
     gap: 0.6rem;
+
+    margin-top: 0.6rem;
   }
 
-  .project-actions a,
-  .project-actions button {
+  .project-btn {
     width: 100%;
-    padding: 0.65rem;
+    justify-content: center;
+
+    padding: 0.6rem 0.8rem;
     font-size: 0.9rem;
-    border-radius: 12px;
-    text-align: center;
+    border-radius: 14px;
   }
 
-  /* ===== BOUTONS NAV BAS ===== */
-  .projects-footer,
-  .projects-bottom-actions {
+  /* ================= FOOTER CTA ================= */
+  .projects-right-cta {
+    position: static;
+    margin-top: 2rem;
+
     display: flex;
     flex-direction: column;
     gap: 0.6rem;
-    margin-top: 1.8rem;
   }
 
-  .projects-footer a,
-  .projects-bottom-actions a {
+  .btn-contact,
+  .btn-return-odyssey {
     width: 100%;
-    text-align: center;
+    padding: 0.7rem;
+    font-size: 0.95rem;
+    border-radius: 16px;
   }
 
-  /* ===== SUPPRESSION EFFETS LOURDS ===== */
-  .glow,
-  .neon,
-  .animated-flight {
-    animation: none !important;
-    filter: none !important;
+  /* ================= DECOR OFF ================= */
+  .footer-malette {
+    display: none;
   }
 }

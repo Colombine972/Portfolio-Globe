@@ -116,6 +116,71 @@ useEffect(() => {
         <p>Chaque projet est une destination explorée.</p>
       </header>
 
+      {/* ================= MOBILE PROJECT LIST ================= */}
+<section className="projects-mobile-list">
+  {projects.map((project) => (
+    <article key={project.id} className="project-card">
+      <div className="project-info">
+        <h3>{project.title}</h3>
+        <div className="project-preview">
+        <img src={project.image} alt={project.title} />
+      </div>
+        <p className="project-subtitle">{project.description}</p>
+
+        <div className="project-stack">
+          {project.stack.map((tech) => (
+            <img
+              key={tech.name}
+              src={tech.logo}
+              alt={tech.name}
+              className="stack-logo"
+            />
+          ))}
+        </div>
+
+        
+        <p>
+         Objectif : Créer une expérience utile, immersive et cohérente,
+          pensée comme une escale de mon ODYSSEY.
+        </p>
+
+        <div className="project-actions">
+          {project.links.github && (
+            <a
+              href={project.links.github}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="project-btn"
+            >
+              <SiGithub size={16} /> GitHub
+            </a>
+          )}
+
+          {project.links.live && (
+            <a
+              href={project.links.live}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="project-btn"
+            >
+              <ExternalLink size={16} /> Voir en ligne
+            </a>
+          )}
+
+          {project.links.caseStudy && (
+            <Link to={project.links.caseStudy} className="project-btn">
+              <FileText size={16} /> Cas pratique
+            </Link>
+          )}
+        </div>
+      </div>
+
+      
+    </article>
+  ))}
+</section>
+
+
       {/* MAP */}
       <section className="projects-map">
 
