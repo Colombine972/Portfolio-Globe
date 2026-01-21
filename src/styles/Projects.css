@@ -496,3 +496,136 @@
 }
 
 
+/* ========================================================= */
+/* ===================== PROJECTS MOBILE =================== */
+/* ========================================================= */
+
+@media (max-width: 767px) {
+
+  /* ===== PAGE GLOBALE ===== */
+  .projects-page {
+    padding: 1.2rem 1rem 2rem;
+    overflow-x: hidden;
+  }
+
+  /* ===== TITRES ===== */
+  .projects-page h1 {
+    font-size: 1.8rem;
+    text-align: center;
+    margin-bottom: 0.4rem;
+  }
+
+  .projects-page .subtitle,
+  .projects-subtitle {
+    font-size: 0.95rem;
+    text-align: center;
+    opacity: 0.85;
+    margin-bottom: 1.6rem;
+  }
+
+  /* ===== MAP / DECOR ===== */
+  .world-map,
+  .projects-map,
+  .map-markers,
+  .flight-paths,
+  .map-overlay {
+    display: none;
+  }
+
+  /* ===== CONTAINER PROJECTS ===== */
+  .projects-container,
+  .projects-grid {
+    display: flex;
+    flex-direction: column;
+    gap: 1.4rem;
+  }
+
+  /* ===== CARD PROJECT ===== */
+  .project-card {
+    width: 100%;
+    padding: 1rem;
+    border-radius: 18px;
+    background: rgba(20, 40, 70, 0.45);
+    backdrop-filter: blur(10px);
+    box-shadow: 0 12px 30px rgba(0, 0, 0, 0.25);
+  }
+
+  /* ===== IMAGE ===== */
+  .project-card img,
+  .project-image {
+    width: 100%;
+    height: auto;
+    border-radius: 14px;
+    margin-bottom: 0.8rem;
+    object-fit: cover;
+  }
+
+  /* ===== TITRE ===== */
+  .project-title {
+    font-size: 1.25rem;
+    margin-bottom: 0.3rem;
+  }
+
+  /* ===== TAGS (React / TS / API…) ===== */
+  .project-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.4rem;
+    margin-bottom: 0.6rem;
+  }
+
+  .project-tag {
+    font-size: 0.7rem;
+    padding: 0.25rem 0.5rem;
+    border-radius: 999px;
+    background: rgba(102, 227, 255, 0.15);
+  }
+
+  /* ===== DESCRIPTION ===== */
+  .project-description,
+  .project-desc {
+    font-size: 0.9rem;
+    line-height: 1.45;
+    opacity: 0.9;
+    margin-bottom: 0.9rem;
+  }
+
+  /* ===== ACTIONS ===== */
+  .project-actions {
+    display: flex;
+    flex-direction: column;
+    gap: 0.6rem;
+  }
+
+  .project-actions a,
+  .project-actions button {
+    width: 100%;
+    padding: 0.65rem;
+    font-size: 0.9rem;
+    border-radius: 12px;
+    text-align: center;
+  }
+
+  /* ===== BOUTONS NAV BAS ===== */
+  .projects-footer,
+  .projects-bottom-actions {
+    display: flex;
+    flex-direction: column;
+    gap: 0.6rem;
+    margin-top: 1.8rem;
+  }
+
+  .projects-footer a,
+  .projects-bottom-actions a {
+    width: 100%;
+    text-align: center;
+  }
+
+  /* ===== SUPPRESSION EFFETS LOURDS ===== */
+  .glow,
+  .neon,
+  .animated-flight {
+    animation: none !important;
+    filter: none !important;
+  }
+}
