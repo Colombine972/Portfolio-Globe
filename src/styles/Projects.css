@@ -696,6 +696,7 @@
     height: auto;
     overflow-x: hidden;
     overflow-y: auto; /* ✅ AUTORISE LE SCROLL */
+    padding-bottom: 220px;
   }
 
   /* ================= HERO ================= */
@@ -838,9 +839,9 @@
   .projects-right-cta {
     position: absolute;
 
-  right: 110px;   /* ⬅️ décale les boutons vers la gauche */
-  bottom: 10px; /* ⬅️ EXACTEMENT la même valeur que la mallette */
-  
+  right: 200px;   /* ⬅️ décale les boutons vers la gauche */
+  bottom: 40px; /* ⬅️ EXACTEMENT la même valeur que la mallette */
+  transform: translateY(-80px);
   display: flex;
   gap: 1.2rem;
 
