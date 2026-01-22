@@ -549,7 +549,7 @@
   .projects-map {
     position: relative;
     z-index: 2;
-    min-height: 25vh;
+    max-height: 45vh;
   }
 
   /* Markers un peu plus gros qu’en mobile */
@@ -574,12 +574,23 @@
 
   /* ===== PROJECT CARD ===== */
   .project-card {
-    max-width: 720px;        /* 🔑 largeur confortable tablet */
+    max-width: 620px;        /* 🔑 largeur confortable tablet */
     margin: 2.5rem auto 0;   /* 🔑 centrée */
-    padding: 2rem 2rem 2.2rem;
+    padding: 1.8rem;
     position: relative;
     z-index: 1;
     border-radius: 24px;
+
+    display: grid;
+    grid-template-columns: 1fr 180px;
+    grid-template-areas:
+      "title image"
+      "subtitle image"
+      "stack stack"
+      "objective objective"
+      "actions actions";
+    gap: 1.2rem;
+  
 
     background: rgba(255, 255, 255, 0.1);
     backdrop-filter: blur(16px);
@@ -681,7 +692,8 @@
 
   /* ================= PAGE ================= */
   .projects-page {
-    padding: 4.5rem 2.5rem 5rem;
+    position: relative;
+    padding: 4.5rem 2.5rem 2rem 2.5rem;
     overflow-x: hidden;
     overflow-y: visible;
   }
@@ -689,14 +701,12 @@
   /* ================= HERO ================= */
   .projects-hero {
     text-align: center;
-    margin-top: 1rem;
     margin-bottom: 1rem;
   }
 
   .projects-hero h1 {
     font-size: clamp(2.4rem, 4vw, 3rem);
     margin-bottom: 1rem;
-    margin-top: 1rem;
   }
 
   .projects-hero p {
@@ -724,11 +734,11 @@
     transform: none !important;
     top: auto;
     left: auto;
-
+    padding-bottom: 0.2rem;
     margin: 0 auto 3rem;       /* 🔑 sous la map */
     max-width: 720px;
     width: 100%;
-order: 2;
+    order: 2;
     z-index: 1;
 
     background: rgba(255, 255, 255, 0.1);
@@ -759,11 +769,14 @@ order: 2;
 
   .project-info h3 {
     font-size: 1.5rem;
+    text-align: center;
+    margin-right: 50px;
   }
 
   .project-subtitle {
     font-size: 1rem;
     opacity: 0.9;
+    margin-right: 60px;
   }
 
   /* ================= STACK ================= */
@@ -800,19 +813,21 @@ order: 2;
 
   /* ================= ACTIONS ================= */
   .project-actions {
-    margin-top: 1.8rem;
+    grid-area: actions;
 
-    display: grid;
-    grid-template-columns: repeat(2, 1fr); /* 🔑 2 boutons */
-    gap: 1rem;
-    justify-content: center;
+  width: 100%;
+  margin-top: 1.6rem;
+
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
   }
 
   .project-btn {
     padding: 0.7rem;
     font-size: 0.95rem;
     border-radius: 14px;
-
+    width : 100%;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -821,15 +836,15 @@ order: 2;
 
   /* ================= CTA GLOBAL ================= */
   .projects-right-cta {
-    position: static;          /* 🔑 DANS LE FLUX */
-    margin: 3rem auto 0;
+    position: absolute;
 
-    display: flex;
-    justify-content: center;
-    gap: 1.2rem;
-    flex-wrap: wrap;
+  right: 110px;   /* ⬅️ décale les boutons vers la gauche */
+  bottom: 10px; /* ⬅️ EXACTEMENT la même valeur que la mallette */
+  
+  display: flex;
+  gap: 1.2rem;
 
-    width: 100%;
+  z-index: 6;
   }
 
   .btn-contact,
@@ -842,8 +857,21 @@ order: 2;
 
   /* ================= DECOR ================= */
   .footer-malette {
-    display: block;
-    margin-top: 3rem;
+    position: absolute;
+  right: -120px;
+  bottom: -180px; /* 🔽 descend la valise */
+
+  width: 680px;
+  max-width: 40vw;
+
+  display: block;
+
+  pointer-events: none;
+  user-select: none;
+
+  filter:
+    drop-shadow(0 0 40px rgba(102, 227, 255, 0.45))
+    drop-shadow(0 0 80px rgba(102, 227, 255, 0.25));
   }
 }
 
