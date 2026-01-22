@@ -638,6 +638,169 @@
 }
 
 /* ================================================= */
+/* ============ PROJECTS – TABLET ================== */
+/* ============ 768px → 1023px ===================== */
+/* ================================================= */
+
+@media (min-width: 768px) and (max-width: 1023px) {
+
+  /* ================= PAGE ================= */
+  .projects-page {
+    padding: 4.5rem 2.5rem 5rem;
+    overflow-x: hidden;
+    overflow-y: visible;
+  }
+
+  /* ================= HERO ================= */
+  .projects-hero {
+    text-align: center;
+    margin-bottom: 3rem;
+  }
+
+  .projects-hero h1 {
+    font-size: clamp(2.4rem, 4vw, 3rem);
+  }
+
+  .projects-hero p {
+    font-size: 1rem;
+    opacity: 0.9;
+  }
+
+  /* ================= MAP ================= */
+  .projects-map {
+    display: block;
+    position: relative;
+    min-height: 55vh;     /* 🔑 réserve l’espace markers */
+    z-index: 2;
+  }
+
+  /* ================= MOBILE LIST OFF ================= */
+  .projects-mobile-list {
+    display: none;
+  }
+
+  /* ================= PROJECT CARD ================= */
+  .project-card {
+    position: static;          /* 🔑 PAS d’overlay */
+    margin: 4rem auto 0;       /* 🔑 descend sous la map */
+    max-width: 720px;
+    width: 100%;
+
+    padding: 2rem 2rem 2.4rem;
+    border-radius: 24px;
+
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+
+    box-shadow:
+      0 30px 80px rgba(0, 0, 0, 0.4),
+      inset 0 0 0 1px rgba(255, 255, 255, 0.12);
+
+    overflow: visible;
+  }
+
+  /* ================= CONTENT ================= */
+  .project-info {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+    text-align: center;
+  }
+
+  .project-info h3 {
+    font-size: 1.5rem;
+  }
+
+  .project-subtitle {
+    font-size: 1rem;
+    opacity: 0.9;
+  }
+
+  /* ================= STACK ================= */
+  .project-stack {
+    display: flex;
+    justify-content: center;
+    gap: 0.8rem;
+    flex-wrap: wrap;
+  }
+
+  .stack-logo {
+    height: 56px;
+    width: auto;
+  }
+
+  /* ================= IMAGE ================= */
+  .project-preview {
+    display: flex;
+    justify-content: center;
+    margin-top: 1.2rem;
+  }
+
+  .project-preview img {
+    width: 100%;
+    max-width: 420px;
+    height: auto;
+
+    object-fit: contain;
+    object-position: center;
+
+    border-radius: 16px;
+    transform: none !important;
+  }
+
+  /* ================= ACTIONS ================= */
+  .project-actions {
+    margin-top: 1.8rem;
+
+    display: grid;
+    grid-template-columns: repeat(2, 1fr); /* 🔑 2 boutons */
+    gap: 1rem;
+    justify-content: center;
+  }
+
+  .project-btn {
+    padding: 0.7rem;
+    font-size: 0.95rem;
+    border-radius: 14px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.4rem;
+  }
+
+  /* ================= CTA GLOBAL ================= */
+  .projects-right-cta {
+    position: static;          /* 🔑 DANS LE FLUX */
+    margin: 3rem auto 0;
+
+    display: flex;
+    justify-content: center;
+    gap: 1.2rem;
+    flex-wrap: wrap;
+
+    width: 100%;
+  }
+
+  .btn-contact,
+  .btn-return-odyssey {
+    min-width: 220px;
+    padding: 0.8rem 1.2rem;
+    border-radius: 18px;
+    font-size: 0.95rem;
+  }
+
+  /* ================= DECOR ================= */
+  .footer-malette {
+    display: block;
+    margin-top: 3rem;
+  }
+}
+
+
+
+/* ================================================= */
 /* ============== PROJECTS – MOBILE ================= */
 /* ============ STYLE GLASS (SKILLS) ================= */
 /* ================================================= */
