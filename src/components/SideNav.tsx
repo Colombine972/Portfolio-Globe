@@ -51,3 +51,4 @@ export default function SideNav({ onOpenPassport }: SideNavProps) {
     </nav>
   );
 }
+

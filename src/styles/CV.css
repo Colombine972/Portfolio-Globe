@@ -198,41 +198,87 @@
 }
 
 
+
+
+
+
 /* ===============================
    LAPTOP — CV ENTIER SANS SCROLL
 ================================ */
 
-@media (max-width: 1439px) {
+@media (min-width: 1280px) and (max-width: 1599px) {
+
 
 /* 🟨 Glass card : un peu plus compacte */
   .cv-glass-zone {
-    width: 88%;
-    max-width: 960px;
+    position: relative;
+  margin: 0 auto 3rem;
+  padding: 2rem;
 
-    height: 130vh;          /* ⬅️ un peu moins que 140 */
-    padding: 1.4rem;        /* respiration conservée */
+  width: 80%;
+  max-width: 1000px;
+
+  min-height: 205vh;   /* ✅ LÀ ça marche vraiment */
+
+  background: rgba(255, 220, 160, 0.25);
+  border-radius: 18px;
   }
+
+  .cv-wrapper {
+  margin-top: -80rem;   /* ✅ plus de hack */
+  padding-bottom: 8rem;
+}
 
   /* 📄 Frame du CV */
   .cv-frame {
     max-width: 800px;       /* ⬅️ réduction proportionnelle */
-    padding: 14px;
-    overflow-x: hidden;
+    padding: 8px;
+    overflow: hidden;
+    box-sizing: border-box;
+
+  display: flex;                 /* 🔑 */
+  justify-content: center;       /* 🔑 centre horizontalement */
+  align-items: center;           /* 🔑 centre verticalement */
   }
+
+
 
   /* 📄 CV : même logique mais réduit */
   .cv-iframe {
-    height: 108vh;          /* ⬅️ clé : moins haut */
-    transform: scale(0.93); /* 🔑 évite le scroll */
-    transform-origin: top center;
+    display: block;        /* supprime l’espace inline */
+  width: 105%;
+  height: 169vh;
+  border: none;
+  }
+
+  .cv-title {
+    font-size: 55px;
   }
 }
 
 
+  /* ================= TABLET PORTRAIT 768–1023 ================= */
+@media (min-width: 1024px) and (max-width: 1279px) {
 
-@media (max-width: 768px) {
+  .cv-title{
+font-size: 44px;
+}
+}
+
+
+  /* ================= TABLET PORTRAIT 768–1023 ================= */
+@media (min-width: 768px) and (max-width: 1023px) {
+
+
+}
+
+
+
+/* ================= MOBILE ================= */
+
+@media (max-width: 767px) {
   .cv-title {
-    font-size: 38px;
+    font-size: 45px;
   }
 
   .cv-iframe {
