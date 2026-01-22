@@ -501,6 +501,142 @@
   }
 }
 
+  /* ================= TABLET PORTRAIT 768–1023 ================= */
+@media (min-width: 768px) and (max-width: 1023px) {
+
+    /* ===== PAGE ===== */
+  .projects-page {
+    padding: 4.5rem 2.5rem 3rem;
+    overflow-x: hidden;
+  }
+
+  /* ===== HERO ===== */
+  .projects-hero {
+    text-align: center;
+    margin-bottom: 3rem;
+  }
+
+  .projects-hero h1 {
+    font-size: clamp(2.4rem, 4vw, 3rem);
+  }
+
+  .projects-hero p {
+    font-size: 1rem;
+    opacity: 0.9;
+  }
+
+  /* ===== MAP ===== */
+  .projects-map {
+    position: relative;
+    z-index: 2;
+    min-height: 25vh;
+  }
+
+  /* Markers un peu plus gros qu’en mobile */
+  .project-marker {
+    transform: scale(0.9);
+  }
+
+  /* ===== PROJECT CARD ===== */
+  .project-card {
+    max-width: 720px;        /* 🔑 largeur confortable tablet */
+    margin: 2.5rem auto 0;   /* 🔑 centrée */
+    padding: 2rem 2rem 2.2rem;
+    position: relative;
+    z-index: 1;
+    border-radius: 24px;
+
+    background: rgba(255, 255, 255, 0.1);
+    backdrop-filter: blur(16px);
+    -webkit-backdrop-filter: blur(16px);
+
+    box-shadow:
+      0 30px 80px rgba(0, 0, 0, 0.4),
+      inset 0 0 0 1px rgba(255, 255, 255, 0.12);
+      height: auto !important;       /* 🔑 laisse la card respirer */
+    min-height: unset !important;
+    max-height: none !important;
+
+    overflow: visible !important;  /* 🔑 empêche le découpage */
+  }
+
+  /* ===== CONTENT ===== */
+  .project-info {
+    gap: 1.1rem;
+  }
+
+  .project-info h3 {
+    font-size: 1.45rem;
+    text-align: center;
+  }
+
+  .project-subtitle {
+    font-size: 1rem;
+    text-align: center;
+  }
+
+  /* ===== STACK ===== */
+  .project-stack {
+    justify-content: center;
+    gap: 0.8rem;
+  }
+
+  .stack-logo {
+    height: 44px;
+  }
+
+  /* ===== IMAGE ===== */
+  .project-preview {
+    display: flex;
+    justify-content: center;
+    margin-top: 1.4rem;
+  }
+
+  .project-preview img {
+    width: 100%;
+    max-width: 420px;
+    height: auto;
+
+    object-fit: contain;
+    object-position: center;
+
+    border-radius: 16px;
+    transform: none !important;
+  }
+
+  /* ===== ACTIONS ===== */
+   .project-actions {
+    position: static !important;   /* 🔑 annule absolute/fixed */
+    transform: none !important;
+
+    margin-top: 1.6rem;
+
+    display: flex;
+    flex-direction: column;
+    gap: 0.8rem;
+  }
+
+  .project-btn {
+    width: 100%;
+    justify-content: center;
+  }
+
+  /* ===== CTA ===== */
+  .projects-right-cta {
+    margin-top: 2.5rem;
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+  }
+
+  .btn-contact,
+  .btn-return-odyssey {
+    min-width: 220px;
+    padding: 0.75rem 1rem;
+    border-radius: 18px;
+  }
+}
+
 /* ================================================= */
 /* ============== PROJECTS – MOBILE ================= */
 /* ============ STYLE GLASS (SKILLS) ================= */
@@ -510,8 +646,8 @@
 
   /* ================= PAGE ================= */
   .projects-page {
-    padding: 4rem 1.5rem 2rem;
-    overflow-x: hidden;
+    padding: 4rem 1.5rem 4rem;
+    overflow-y: visible;
   }
 
   /* ================= HERO ================= */
@@ -656,18 +792,30 @@ text-align: center;
 
   /* ================= FOOTER CTA ================= */
   .projects-right-cta {
-    position: static;
-    margin-top: 2rem;
+  position: static;        /* 🔑 retour au flux normal */
+  transform: none;
+  left: auto;
 
-    display: flex;
-    flex-direction: column;
-    gap: 0.6rem;
-  }
+  margin-top: -1rem;       /* 🔑 ABaisse les boutons */
+  margin-bottom: 2rem;    /* 🔑 sécurité bas d’écran */
+
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1.5rem;
+
+  width: 100%;
+}
 
   .btn-contact,
   .btn-return-odyssey {
     width: 100%;
-    padding: 0.7rem;
+    max-width: 320px;
+
+    margin: 0 auto;
+
+    text-align: center;
+    padding: 1rem;
     font-size: 0.95rem;
     border-radius: 16px;
   }

@@ -155,7 +155,7 @@
   box-shadow: 0 0 18px rgba(120, 220, 255, 0.35);
 }
 
-/* ================= LAPTOP 1024–1439 ================= */
+/* ================= LAPTOP large 1440–1599 ================= */
 @media (min-width: 1440px) and (max-width: 1599px) {
 
   /* Zone carousel plus compacte */
@@ -217,7 +217,7 @@
 
 
 
-/* ================= LAPTOP 1024–1439 ================= */
+/* ================= LAPTOP 1280–1439 ================= */
 @media (min-width: 1280px) and (max-width: 1439px) {
 
   /* Zone carousel plus compacte */
@@ -289,7 +289,7 @@
 
 
   
-/* ================= LAPTOP 1024–1279 ================= */
+/* ================= tablet PAYSAGE 1024–1279 ================= */
 @media (min-width: 1024px) and (max-width: 1279px) {
 
   /* Zone carousel plus compacte */
@@ -354,7 +354,7 @@
   }
 
 
-  /* ================= TABLET 768–1023 ================= */
+  /* ================= TABLET PORTRAIT 768–1023 ================= */
 @media (min-width: 768px) and (max-width: 1023px) {
 
   .contact-content {
