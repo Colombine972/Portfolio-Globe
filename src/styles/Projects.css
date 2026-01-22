@@ -585,12 +585,17 @@
 
   /* ===== PROJECT CARD ===== */
   .project-card {
-    width: min(92vw, 670px);
-    margin: 2.5rem auto 0;   /* 🔑 centrée */
-    padding: 1.8rem;
-    position: relative;
-    z-index: 1;
-    border-radius: 24px;
+    position: relative;   /* annule absolute */
+    left: auto;
+    right: auto;
+    bottom: auto;
+    transform: none;
+
+    margin-left: auto;
+    margin-right: auto;
+
+    max-width: 720px;     /* largeur stable tablette */
+    width: calc(100% - 4rem); /* s’adapte entre 768 et 1023 */
 
     display: grid;
     grid-template-columns: 1fr 180px;
@@ -629,12 +634,12 @@
 
   .project-subtitle {
     font-size: 1rem;
-    text-align: center;
+    text-align: start;
   }
 
   /* ===== STACK ===== */
   .project-stack {
-    justify-content: center;
+    justify-content: start;
     gap: 0.8rem;
   }
 
@@ -689,29 +694,36 @@
 
   /* ===== VALISE ===== */
   .footer-malette {
-    position: relative;      /* ✅ plus absolute */
-    right: 40px;
+    position: relative;      /* 🔑 sort de l’absolu */
+    left: auto;
+    right: auto;
     bottom: auto;
 
-    width: 420px;
-    max-width: 70%;
-    margin-top: -2rem;
+    display: block;
+    margin: 0.5rem auto 0;     /* 🔑 CENTRÉE */
+
+    max-width: 380px;
+    width: 70%;
 
     pointer-events: none;
   }
 
-  /* ===== BOUTONS ===== */
+  /* ================= BOUTONS CTA ================= */
   .projects-right-cta {
-    position: relative;      /* ✅ plus absolute */
+    position: relative;      /* 🔑 plus d’absolu */
+    left: auto;
+    right: auto;
+    bottom: auto;
     transform: none;
 
-    margin-top: 4rem;
     display: flex;
     justify-content: center;
-    gap: 5rem;
-    flex-wrap: wrap;
-  }
+    align-items: center;
+    gap: 1.2rem;
 
+    margin: 2rem auto 0;     /* 🔑 CENTRÉS */
+    width: 100%;
+  }
   .btn-contact,
   .btn-return-odyssey {
     min-width: 280px;
