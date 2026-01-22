@@ -668,12 +668,13 @@
 
   /* ================= MAP ================= */
   .projects-map {
-    display: block;
-    position: relative;
-    min-height: 55vh;     /* 🔑 réserve l’espace markers */
-    z-index: 2;
+    display: flex;
+    flex-direction: column;   /* 🔑 empile map + card */
+    gap: 3rem;
+    min-height: auto;         /* 🔑 enlève la hauteur figée */
   }
 
+ 
   /* ================= MOBILE LIST OFF ================= */
   .projects-mobile-list {
     display: none;
@@ -681,13 +682,16 @@
 
   /* ================= PROJECT CARD ================= */
   .project-card {
-    position: static;          /* 🔑 PAS d’overlay */
-    margin: 4rem auto 0;       /* 🔑 descend sous la map */
+    position: static;          /* 🔑 FIN de l’overlay */
+    transform: none !important;
+    top: auto;
+    left: auto;
+
+    margin: 0 auto 3rem;       /* 🔑 sous la map */
     max-width: 720px;
     width: 100%;
-
-    padding: 2rem 2rem 2.4rem;
-    border-radius: 24px;
+order: 2;
+    z-index: 1;
 
     background: rgba(255, 255, 255, 0.1);
     backdrop-filter: blur(16px);
@@ -698,6 +702,12 @@
       inset 0 0 0 1px rgba(255, 255, 255, 0.12);
 
     overflow: visible;
+    scroll-margin-top: 120px; /* si tu scrolles vers elle */
+  }
+
+.project-marker {
+  order: 1;
+    z-index: 2;   /* 🔑 toujours cliquable */
   }
 
   /* ================= CONTENT ================= */

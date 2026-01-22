@@ -183,7 +183,7 @@ useEffect(() => {
 
       {/* MAP */}
       <section className="projects-map">
-
+<div className="projects-map-layer">
         {/* MARKERS */}
         {projects.map((project, index) => {
   const isActive =
@@ -231,9 +231,12 @@ useEffect(() => {
 
   );
 })}
+</div>
+</section>
 
 
         {/* PROJECT CARD */}
+        <section className="projects-details">
         <AnimatePresence mode="wait">
   {activeProject && (
     <motion.article
@@ -324,7 +327,8 @@ useEffect(() => {
   )}
 </AnimatePresence>
 
-      </section>
+</section>
+      
 
       <footer className="projects-footer">
   
