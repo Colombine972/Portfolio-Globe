@@ -23,7 +23,6 @@ type Project = {
   description: string;
   stack: StackItem[];
   image: string;
-  position: { top: string; left: string };
   date: string;
   links: ProjectLinks;
 };
@@ -40,7 +39,6 @@ const projects: Project[] = [
       { name: "API", logo: "/logos/logo-rest.png" },
     ],
     image: "/wizdle.png",
-    position: { top: "35%", left: "50%" },
     links: {
       github: "https://github.com/Colombine972/wizdle",
       live: "https://wizdle.vercel.app",
@@ -58,7 +56,6 @@ const projects: Project[] = [
       { name: "API", logo: "/logos/logo-rest.png" },
     ],
     image: "/autre.png",
-    position: { top: "13%", left: "67%" },
     links: {
       github: "https://github.com/Colombine972/Portfolio-Globe",
       live: "https://odyssey.vercel.app",
@@ -76,7 +73,6 @@ const projects: Project[] = [
       { name: "API", logo: "/logos/logo-rest.png" },
     ],
     image: "/hero-odyssey.png",
-    position: { top: "-25%", left: "42%" },
     links: {
       github: "https://github.com/Colombine972/Portfolio-Globe",
       live: "https://cindycolombine.vercel.app",
@@ -180,6 +176,7 @@ useEffect(() => {
   ))}
 </section>
 
+<div className="projects-desktop-stage">
 
       {/* MAP */}
       <section className="projects-map">
@@ -191,11 +188,10 @@ useEffect(() => {
 
   return (
     <motion.button
-  key={project.id}
+  data-project={project.id}
   className={`project-marker ${
     isActive ? "marker--active" : "marker--inactive"
   }`}
-  style={project.position}
   aria-label={project.title}
   onClick={() => {
     setActiveProject(project);
@@ -328,6 +324,7 @@ useEffect(() => {
 </AnimatePresence>
 
 </section>
+</div>
       
 
       <footer className="projects-footer">
