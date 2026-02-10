@@ -244,7 +244,11 @@
   box-shadow: 0 20px 40px rgba(0, 0, 0, 0.45);
 
   overflow: visible;
+
 }
+
+
+
 
 .project-info {
   flex: 1;                 /* 👈 prend un peu plus de place */
@@ -799,6 +803,7 @@
     width: 100%;
     justify-content: center;
   }
+  
 
   /* ===== CTA ===== */
   .projects-footer {
