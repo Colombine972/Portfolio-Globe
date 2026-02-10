@@ -24,8 +24,6 @@ function Modal({ isOpen, onClose, children }: ModalProps) {
 				×
 			</button>
 
-			
-				{/* ✅ wrapper qui porte le layout */}
 				<div className="modal-inner">{children}</div>
 			</div>
 		</div>
