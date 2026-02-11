@@ -46,6 +46,7 @@
 
 .formulaire input {
 	padding-top: 7px;
+	margin-bottom: 15px;
 }
 
 .formulaire input:focus,
