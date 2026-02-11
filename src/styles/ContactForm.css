@@ -13,7 +13,14 @@
 	font-size: 1rem;
 	margin-bottom: 0.6rem;
 	outline: none; /* supprime le contour bleu */
+	
 }
+
+.formulaire input::placeholder,
+.formulaire textarea::placeholder {
+	color: rgba(255, 255, 255, 0.75); /* 👈 plus foncé / plus visible */
+}
+
 
 .formulaire button {
 	margin-top: 0.3rem;
@@ -59,4 +66,10 @@
 	border-radius: 12px;
 
 	backdrop-filter: blur(6px);
+}
+
+select {
+	border-radius: 10px;
+	padding: 2px;
+	height: 40px;
 }

@@ -1,33 +1,51 @@
+import { useEffect } from "react";
 import type { ReactNode } from "react";
 import "../styles/Modal.css";
 
-
 type ModalProps = {
-    isOpen: boolean;
-    onClose: () => void;
-    children: ReactNode;
+  isOpen: boolean;
+  onClose: () => void;
+  children: ReactNode;
 };
 
 function Modal({ isOpen, onClose, children }: ModalProps) {
-	
-	if (!isOpen) return null;
+  useEffect(() => {
+    if (isOpen) document.body.style.overflow = "hidden";
+    return () => {
+      document.body.style.overflow = "";
+    };
+  }, [isOpen]);
 
-	return (
-		<div className="modal-overlay" onClick={onClose}>
-			<div className="modal-content" onClick={(e) => e.stopPropagation()}>
-			<button
-				type="button"
-				className="modal-close"
-				onClick={onClose}
-				aria-label="Fermer"
-			>
-				×
-			</button>
+  if (!isOpen) return null;
 
-				<div className="modal-inner">{children}</div>
-			</div>
-		</div>
-	);
+  return (
+    <div
+      className="modal-overlay"
+      onClick={(e) => {
+        if (e.target === e.currentTarget) {
+          onClose();
+        }
+      }}
+      tabIndex={-1}
+      onKeyDown={(e) => {
+        if (e.key === "Escape") onClose();
+      }}
+    >
+      <div className="modal-content">
+        <button
+          type="button"
+          className="modal-close"
+          onClick={onClose}
+          aria-label="Fermer"
+        >
+          ×
+        </button>
+
+        <div className="modal-inner">{children}</div>
+      </div>
+    </div>
+  );
 }
 
 export default Modal;
+

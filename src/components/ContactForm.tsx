@@ -64,41 +64,24 @@ function ContactForm() {
 	}
 };
 
-	/*async function commentLeave() {
-		console.log("API URL =", import.meta.env.VITE_API_URL);
-		const response = await fetch(`${import.meta.env.VITE_API_URL}/api/contact`, {
-				method: "POST",
-				headers: { "Content-Type": "application/json" }, 
-				body: JSON.stringify({
-    category: formData.category,
-    name: formData.name,
-    commentaires: formData.commentaires
-  }) ,
-	 }
-  );
-
-  if (!response.ok) {
-    throw new Error("Erreur lors de l’envoi du message");
-  }
-}*/
-
 	return (
 		<>
 			{!isSubmitted ? (
 				<form onSubmit={handleFormSubmit} className="formulaire">
 					<h3>Vous avez une question ?</h3>
 					<select
-	name="category"
-	value={formData.category}
-	onChange={handleInputChange}
-	aria-label="Catégorie de la question"
-	required
->
-	<option value="general">Question générale</option>
-	<option value="portfolio">Projet Portfolio</option>
-	<option value="wizdle">Projet Wizdle</option>
-	<option value="cv">CV / Recrutement</option>
-</select>
+						name="category"
+						value={formData.category}
+						onChange={handleInputChange}
+						aria-label="Catégorie de la question"
+						required
+					>
+					<option value="general">Question générale</option>
+					<option value="portfolio">Projet Portfolio</option>
+					<option value="wizdle">Projet Wizdle</option>
+					<option value="wizdle">Projet Notebook</option>
+					<option value="cv">CV / Recrutement</option>
+					</select>
 					<input
 						type="text"
 						name="name"
