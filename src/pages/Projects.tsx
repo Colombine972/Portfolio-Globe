@@ -21,6 +21,7 @@ type Project = {
   id: string;
   title: string;
   description: string;
+  objective: string;
   stack: StackItem[];
   image: string;
   date: string;
@@ -38,6 +39,7 @@ const projects: Project[] = [
         { name: "TypeScript", logo: "/logos/logo-ts.png" },
       { name: "API", logo: "/logos/logo-rest.png" },
     ],
+    objective: "Créer un jeu quotidien immersif inspiré de l’univers Harry Potter.",
     image: "/wizdle.png",
     links: {
       github: "https://github.com/Colombine972/wizdle",
@@ -46,20 +48,21 @@ const projects: Project[] = [
     },
   },
   {
-    id: "ecologic",
-    title: "EcoLogic",
-    date: "11-2025",
-    description: "Application de sensibilisation écologique.",
+    id: "notebook",
+    title: "Notebook",
+    date: "02-2026",
+    description: "Application de prise de notes",
+    objective: "Concevoir une application simple et intuitive permettant de centraliser ses idées et de les consulter facilement.",
     stack: [
         {name: "React", logo: "/logos/logo-react.png"},
         { name: "TypeScript", logo: "/logos/logo-ts.png" },
       { name: "API", logo: "/logos/logo-rest.png" },
     ],
-    image: "/autre.png",
+    image: "/applinotes.png",
     links: {
-      github: "https://github.com/Colombine972/Portfolio-Globe",
-      live: "https://odyssey.vercel.app",
-      caseStudy: "/docs/wizdle-case-study.pdf",
+      github: "https://github.com/Colombine972/TravelNotes",
+      live: "",
+      caseStudy: "",
     },
   },
     {
@@ -67,6 +70,7 @@ const projects: Project[] = [
     title: "Mon ODYSSEE",
     date: "01-2026",
     description: "Application de présentation de mon portfolio.",
+    objective: "Créer un portfolio pensé comme un voyage interactif, mettant en valeur mes compétences techniques et ma vision produit.",
     stack: [
         {name: "React", logo: "/logos/logo-react.png"},
         { name: "TypeScript", logo: "/logos/logo-ts.png" },
@@ -135,9 +139,7 @@ useEffect(() => {
         </div>
 
         
-        <p>
-         Objectif : Créer une expérience utile, immersive et cohérente,
-          pensée comme une escale de mon ODYSSEY.
+        <p>{project.objective}
         </p>
 
         <div className="project-actions">
@@ -266,8 +268,7 @@ useEffect(() => {
 
         <h4>Objectif</h4>
         <p>
-          Créer une expérience utile, immersive et cohérente,
-          pensée comme une escale de mon ODYSSEY.
+          {activeProject.objective}
         </p>
 
         <div className="project-actions">
