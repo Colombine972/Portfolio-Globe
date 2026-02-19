@@ -27,6 +27,11 @@
   left: 50%;
 }
 
+.project-marker[data-project="triptogether"] {
+  top: -10%;
+  left: 80%;
+}
+
 /* ===== HERO ===== */
 .projects-hero {
   position: relative;

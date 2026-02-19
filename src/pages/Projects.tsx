@@ -83,6 +83,26 @@ const projects: Project[] = [
       caseStudy: "/projects/portfolio",
     },
   },
+   {
+    id: "triptogether",
+    title: "Trip Together",
+    date: "02-2026",
+    description: "Application de voyage en groupe.",
+    objective: "Développer une plateforme collaborative de gestion de voyages en groupe, intégrant planification, gestion des dépenses partagées.",
+    stack: [
+        { name: "React", logo: "/logos/logo-react.png" },
+  { name: "TypeScript", logo: "/logos/logo-ts.png" },
+  { name: "Express", logo: "/logos/logo-express.png" },
+  { name: "MySQL", logo: "/logos/logo-mysql.png" },
+  { name: "REST API", logo: "/logos/logo-rest.png" },
+    ],
+    image: "/group-travelers.png",
+    links: {
+      github: "https://github.com/Colombine972/TripTogether",
+      live: "https://cindycolombine.vercel.app",
+      caseStudy: "/projects/portfolio",
+    },
+  },
 ];
 
 export default function Projects() {
